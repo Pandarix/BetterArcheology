@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology;
 
+import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -12,6 +13,7 @@ public class BetterArcheology implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("betterarcheology");
 	public static final String MOD_ID = "betterarcheology";
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -19,7 +21,9 @@ public class BetterArcheology implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Better Archeology says Hello");	//info message
-		ModItemGroup.registerTab();	//creates CreativeModeTab
-		ModItems.registerModItems();	//registers Items (to Tab)
+
+		ModItemGroup.registerTab();		//creates CreativeModeTab
+		ModItems.registerModItems();	//registers Items and adds them to the Tab
+		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
 	}
 }

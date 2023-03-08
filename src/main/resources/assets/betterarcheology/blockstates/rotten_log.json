@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "betterarcheology:block/rotten_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "betterarcheology:block/rotten_log"
+    },
+    "axis=z": {
+      "model": "betterarcheology:block/rotten_log_horizontal",
+      "x": 90
+    }
+  }
+}

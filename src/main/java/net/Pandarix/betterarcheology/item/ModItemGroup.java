@@ -17,7 +17,11 @@ public class ModItemGroup {
     The Name of the Tab is located in the .lang file under "itemGroup.betterarcheology"
      */
     public static void registerTab(){
-        BETTER_ARCHEOLOGY_ITEMGROUP = FabricItemGroup.builder(new Identifier(BetterArcheology.MOD_ID)).displayName(Text.translatable("itemGroup.betterarcheology")).icon(() -> new ItemStack(Items.SAND)).build();
+        BETTER_ARCHEOLOGY_ITEMGROUP = FabricItemGroup.builder(
+                new Identifier(BetterArcheology.MOD_ID))
+                .displayName(Text.translatable("itemGroup.betterarcheology"))
+                .icon(() -> new ItemStack(Items.SAND))
+                .build();
     }
 
 }

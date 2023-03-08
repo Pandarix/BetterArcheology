@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BetterArcheologyMixin {
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
-		BetterArcheology.LOGGER.info("This line is printed by an example mod mixin!");
+		BetterArcheology.LOGGER.info("BetterArcheology Mixin initialized, prepare for impact");
 	}
 }
