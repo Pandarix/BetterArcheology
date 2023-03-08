@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package net.Pandarix.betterarcheology.mixin;
 
-import net.fabricmc.example.ExampleMod;
+import net.Pandarix.betterarcheology.mixin.example.ExampleMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

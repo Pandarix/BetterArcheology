@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "betterarcheology",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Better Archeology",
+  "description": "Fabric Mod that enhances the boring archeology-system in 1.20",
   "authors": [
-    "Me!"
+    "Pandarix",
+    "Dunk3ll1cht"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/betterarcheology/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.Pandarix.betterarcheology.BetterArcheology"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "betterarcheology.mixins.json"
   ],
 
   "depends": {
