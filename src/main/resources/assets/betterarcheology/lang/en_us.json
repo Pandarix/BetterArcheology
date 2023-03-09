@@ -1,5 +1,7 @@
 {
   "itemGroup.betterarcheology": "Better Archeology",
   "block.betterarcheology.rotten_log": "Rotten Log",
-  "block.betterarcheology.infested_mud_bricks": "Infested Mud Bricks"
+  "block.betterarcheology.infested_mud_bricks": "Infested Mud Bricks",
+  "items.betterarcheology.iron_brush": "Iron Brush",
+  "items.betterarcheology.diamond_brush": "Diamond Brush"
 }

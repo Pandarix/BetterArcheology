@@ -13,8 +13,8 @@ public class ModItems {
     //ITEM ENTRIES-------------------------------------------------------------------------//
     //TODO: Add Items like this: public static final Item NAME = registerItem("name", new Item(new FabricItemSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    //BRUSHES
     public static final Item IRON_BRUSH = registerItem("iron_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(128))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-
     public static final Item DIAMOND_BRUSH = registerItem("diamond_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(256))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
 

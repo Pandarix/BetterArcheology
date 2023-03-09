@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/brush",
+  "textures": {
+    "layer0": "betterarcheology:item/brushes/iron_brush"
+  }
+}
