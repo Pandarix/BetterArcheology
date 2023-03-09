@@ -2,6 +2,7 @@ package net.Pandarix.betterarcheology.item;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.BrushItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
@@ -11,6 +12,11 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     //ITEM ENTRIES-------------------------------------------------------------------------//
     //TODO: Add Items like this: public static final Item NAME = registerItem("name", new Item(new FabricItemSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    public static final Item IRON_BRUSH = registerItem("iron_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(128))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    public static final Item DIAMOND_BRUSH = registerItem("diamond_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(256))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
 
     //REGISTERING--------------------------------------------------------------------------//
     /**
