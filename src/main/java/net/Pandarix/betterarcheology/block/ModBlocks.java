@@ -45,6 +45,6 @@ public class ModBlocks {
 
     //LOGGER-----------------------------------------------------------------------------//
     public static void registerModBlocks(){
-        BetterArcheology.LOGGER.info("Registering Blocks from" + BetterArcheology.MOD_ID);
+        BetterArcheology.LOGGER.info("Registering Blocks from " + BetterArcheology.MOD_ID);
     }
 }
