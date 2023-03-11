@@ -23,7 +23,7 @@ public class BetterArcheology implements ModInitializer {
 		LOGGER.info("Better Archeology says Hello");	//info message
 
 		ModItemGroup.registerTab();		//creates CreativeModeTab
-		ModItems.registerModItems();	//registers Items and adds them to the Tab
-		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
+		ModItems.registerModItems();	//registers Items and adds them to the CreativeModeTab
+		ModBlocks.registerModBlocks();	//registers Blocks and BlockItems
 	}
 }
