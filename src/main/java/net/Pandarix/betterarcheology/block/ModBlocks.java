@@ -31,6 +31,8 @@ public class ModBlocks {
 
     public static final Block INFESTED_MUD_BRICKS = registerBlock("infested_mud_bricks", new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block ARCHEOLOGY_TABLE = registerBlock("archeology_table", new Block(FabricBlockSettings.copy(Blocks.ACACIA_PLANKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);    //TODO:??????
+
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
     private static Block registerBlock(String name, Block block, ItemGroup group){

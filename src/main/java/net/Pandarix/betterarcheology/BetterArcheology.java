@@ -1,8 +1,10 @@
 package net.Pandarix.betterarcheology;
 
 import net.Pandarix.betterarcheology.block.ModBlocks;
+import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
+import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,5 +27,8 @@ public class BetterArcheology implements ModInitializer {
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
+		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
+		ModScreenHandlers.registerAllScreenHandlers(); //registers all Screen-Handlers
+
 	}
 }
