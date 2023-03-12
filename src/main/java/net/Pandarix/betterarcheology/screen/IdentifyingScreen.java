@@ -11,6 +11,8 @@ import net.minecraft.util.Identifier;
 
 public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
 
+
+    //saves archeology_table_gui as TEXTURE
     private static final Identifier TEXTURE =
             new Identifier(BetterArcheology.MOD_ID, "textures/gui/archeology_table_gui.png");
 
@@ -18,6 +20,8 @@ public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
         super(handler, inventory, title);
     }
 
+
+    //displays the Title of the Block in the center of the menu
     @Override
     protected void init() {
         super.init();
@@ -36,6 +40,7 @@ public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
         renderProgressArrow(matrices, x, y);
     }
 
+    //renders the Progress-Arrow
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {
         if (handler.isCrafting()) {                                                                                      //TODO: Fix coordinates
             drawTexture(matrices, x + 105, y + 33, 176, 0, 8, handler.getScaledProgress());

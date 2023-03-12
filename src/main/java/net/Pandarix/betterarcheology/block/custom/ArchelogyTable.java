@@ -26,10 +26,6 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     }
 
 
-
-
-
-
     /* BLOCK ENTITY STUFF */
 
     @Override
@@ -67,6 +63,8 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     }
 
+
+    // creates ArcheologyTableBlockEntity //
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
