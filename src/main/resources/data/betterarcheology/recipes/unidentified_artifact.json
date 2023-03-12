@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "betterarcheology:unidentified_shards"
+    }
+  },
+  "result": {
+    "item": "betterarcheology:unidentified_artifact",
+    "count": 1
+  }
+}

@@ -1,5 +1,7 @@
 package net.Pandarix.betterarcheology.block.entity;
 
+import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -129,7 +131,8 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         if (hasRecipe(entity)) {
             entity.removeStack(1, 1);
 
-            entity.setStack(2, new ItemStack(Items.ACACIA_FENCE, entity.getStack(2).getCount() + 1));       //TODO: Replace Output
+            entity.setStack(2, new ItemStack(Items.ACACIA_FENCE, entity.getStack(2).getCount() + 1));
+            entity.resetProgress();                                                                                                                    //TODO: Replace Output
         }
 
     }
@@ -140,7 +143,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             inventory.setStack(i, entity.getStack(i));
         }
 
-        boolean hasShardInFirstSlot = entity.getStack(1).getItem() == Items.ACACIA_LOG;                     //TODO: ADD UNIDENTIFIED_ARTIFACT Item
+        boolean hasShardInFirstSlot = entity.getStack(1).getItem() == ModItems.UNIDENTIFIED_ARTIFACT;                     //Input
 
         return hasShardInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
     }

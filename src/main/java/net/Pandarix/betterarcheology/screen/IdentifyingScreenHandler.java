@@ -1,11 +1,14 @@
 package net.Pandarix.betterarcheology.screen;
 
 import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
+import net.Pandarix.betterarcheology.item.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -33,9 +36,9 @@ public class IdentifyingScreenHandler extends ScreenHandler {
 
         //SLOTS
         //TODO: Redo coordinates
-        this.addSlot(new Slot(inventory, 0, 1,3));
-        this.addSlot(new Slot(inventory, 1, 2,4));
-        this.addSlot(new Slot(inventory, 2, 5,6));
+        this.addSlot(new Slot(inventory, 0, 86,15));
+        this.addSlot(new Slot(inventory, 1,12 ,15));
+        this.addSlot(new Slot(inventory, 2, 86,60));
 
         //Bottom screen components to render current players inventory & hotbar
         addPlayerInventory(playerInventory);
@@ -60,16 +63,29 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         ItemStack newStack = ItemStack.EMPTY;   //defines an empty ItemStack, will be used to return the changed Item in the Slot
         Slot slot = this.slots.get(invSlot);    //the given InventorySlot
 
+
+
         //if the slot has an Item inside
         if (slot != null && slot.hasStack()) {
             ItemStack originalStack = slot.getStack();  //stores the Item that was inside the given slot
+
+            /*if (originalStack.isItemEqual(ModItems.IRON_BRUSH.getDefaultStack()) ||
+                    originalStack.isItemEqual(ModItems.DIAMOND_BRUSH.getDefaultStack()) ||
+                    originalStack.isItemEqual(Items.BRUSH.getDefaultStack())) {
+
+            } */
+
+            if (!originalStack.isItemEqual(ModItems.UNIDENTIFIED_ARTIFACT.getDefaultStack())) {
+                return ItemStack.EMPTY;
+            }
+
             newStack = originalStack.copy();    //sets the new Stack to the given Item
 
             if (invSlot < this.inventory.size()) {
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+            } else if (!this.insertItem(originalStack, 1, this.inventory.size(), false)) {
                 return ItemStack.EMPTY;
             }
 
