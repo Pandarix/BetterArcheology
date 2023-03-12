@@ -19,10 +19,9 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
     }
     public IdentifyingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
-        super(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, syncId);    //creates a new Instance of Screenhandler
         checkSize(inventory, 3);
-        //defines inventory field
-        this.inventory = inventory;
+        this.inventory = inventory; //sets the Screens Inventory to the given Inventory
 
         //opens Inventory
         inventory.onOpen(playerInventory.player);
@@ -31,8 +30,9 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         this.propertyDelegate = delegate;
 
         //SLOTS
+        //TODO: Redo coordinates
         this.addSlot(new Slot(inventory, 0, 1,3));
-        this.addSlot(new Slot(inventory, 1, 2,4));          //TODO: Redo coordinates
+        this.addSlot(new Slot(inventory, 1, 2,4));
         this.addSlot(new Slot(inventory, 2, 5,6));
 
         //Bottom screen components to render current players inventory & hotbar
@@ -47,18 +47,21 @@ public class IdentifyingScreenHandler extends ScreenHandler {
 
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);                         // Max Progress
+        int maxProgress = this.propertyDelegate.get(1);                         // Maximum Progress, after reaching: progress done
         int progressArrowSize = 26;                                             // This is the width in pixels of your arrow //TODO: Edit correct size
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
-        ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
+        ItemStack newStack = ItemStack.EMPTY;   //defines an empty ItemStack, will be used to return the changed Item in the Slot
+        Slot slot = this.slots.get(invSlot);    //the given InventorySlot
+
+        //if the slot has an Item inside
         if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
+            ItemStack originalStack = slot.getStack();  //stores the Item that was inside the given slot
+            newStack = originalStack.copy();    //sets the new Stack to the given Item
+
             if (invSlot < this.inventory.size()) {
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
@@ -82,16 +85,36 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
-    private void addPlayerInventory(PlayerInventory playerInventory) {                                          //Helper Method to define Player  Inventory
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
+    //Helper Method to add Players Inventoryslots to Screen
+    private void addPlayerInventory(PlayerInventory playerInventory) {
+        /*Adding Slots of Main Inventory
+                COL:    COL:    COL:    ...
+        ROW:    slot    slot    slot
+        ROW:    slot    slot    slot
+        ...
+        */
+
+        //MainSize is the number of Slots besides the Armor and Offhand
+        //HotbarSize is the number of Slots in the Hotbar, which incidentally is the number of slots per Column
+        int inventorySize = PlayerInventory.MAIN_SIZE - PlayerInventory.getHotbarSize();    //Because Main includes the Hotbar Slots, we have to subtract them to get the raw Inventory size
+        int inventoryRows = inventorySize / PlayerInventory.getHotbarSize();    //All Slots : Slots per Column = Number of Rows to draw
+        int inventoryColumns = PlayerInventory.getHotbarSize();
+
+        //For every Row in the Inventory
+        for (int i = 0; i < inventoryRows; ++i) {
+            //Add a slot for every Column in the Row
+            for (int l = 0; l < inventoryColumns; ++l) {
+                //Numbers are Minecrafts pre-defined offsets due to the textures
                 this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
             }
         }
     }
 
-    private void addPlayerHotbar(PlayerInventory playerInventory) {                                             //Helper Method to define Player Slot
-        for (int i = 0; i < 9; ++i) {
+    //Helper Method to add Players HotBarSlots to Screen
+    private void addPlayerHotbar(PlayerInventory playerInventory) {
+        //Adds a new Slot to the Screen for every Slot in the Players Hotbar
+        for (int i = 0; i < PlayerInventory.getHotbarSize(); ++i){
+            //Numbers are Minecrafts pre-defined offsets due to the textures
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
