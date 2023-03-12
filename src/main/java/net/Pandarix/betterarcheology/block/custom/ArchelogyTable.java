@@ -73,7 +73,6 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.ARCHEOLOGY_TABLE, ArcheologyTableBlockEntity::tick);
-
     }
 };
 

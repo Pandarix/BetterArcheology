@@ -21,15 +21,21 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
-    private final String translationKey = "archeology_table";
+    //default inventory size of the archeology table, TODO: In-/Decrease this when adding/ removing Slots!
+    public static final int INV_SIZE = 3;
+    //default number of Properties of ArcheologyTableBlockEntity, TODO: In-/Decrease this when adding/ removing Properties!
+    public static final int PROPERTY_DELEGATES = 2;
+
+    //count of custom slots inside the table
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
+
+    private final String translationKey = "archeology_table";   //used in getDisplayName using getTranslationKey
 
     //synchronises Ints between server and client
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
-
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);
@@ -57,7 +63,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             }
 
             public int size() {
-                return 4;
+                return PROPERTY_DELEGATES;
             }
         };
     }

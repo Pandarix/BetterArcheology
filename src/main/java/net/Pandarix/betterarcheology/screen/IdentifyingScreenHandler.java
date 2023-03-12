@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.screen;
 
+import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -16,11 +17,12 @@ public class IdentifyingScreenHandler extends ScreenHandler {
     public IdentifyingScreenHandler(int syncId, PlayerInventory inventory) {
         //size of SimpleInventory has to be same as in Defaulted List of ArcheologyTableBlockEntity;
         //size of ArrayPropertyDelegate has to be the same as the PropertyDelegate of ArcheologyTableBlockEntity (number of ints being tracked)
-        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, new SimpleInventory(ArcheologyTableBlockEntity.INV_SIZE), new ArrayPropertyDelegate(ArcheologyTableBlockEntity.PROPERTY_DELEGATES));
     }
+
     public IdentifyingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, syncId);    //creates a new Instance of Screenhandler
-        checkSize(inventory, 3);
+        checkSize(inventory, ArcheologyTableBlockEntity.INV_SIZE);
         this.inventory = inventory; //sets the Screens Inventory to the given Inventory
 
         //opens Inventory
@@ -52,6 +54,7 @@ public class IdentifyingScreenHandler extends ScreenHandler {
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;   //defines an empty ItemStack, will be used to return the changed Item in the Slot
