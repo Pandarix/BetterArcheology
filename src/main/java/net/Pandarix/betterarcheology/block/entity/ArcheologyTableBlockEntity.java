@@ -140,7 +140,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             inventory.setStack(i, entity.getStack(i));
         }
 
-        boolean hasShardInFirstSlot = entity.getStack(1).getItem() == Items.ACACIA_LOG;       //TODO: ADD UNIDENTIFIED_ARTIFACT Item
+        boolean hasShardInFirstSlot = entity.getStack(1).getItem() == Items.ACACIA_LOG;                     //TODO: ADD UNIDENTIFIED_ARTIFACT Item
 
         return hasShardInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
     }
