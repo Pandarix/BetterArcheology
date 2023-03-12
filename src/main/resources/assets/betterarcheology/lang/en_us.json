@@ -6,5 +6,6 @@
   "item.betterarcheology.diamond_brush": "Diamond Brush",
   "block.betterarcheology.archeology_table": "Archeology Table",
   "item.betterarcheology.unidentified_shards": "Unidentified Shards",
-  "item.betterarcheology.unidentified_artifact": "Unidentified Artifact"
+  "item.betterarcheology.unidentified_artifact": "Unidentified Artifact",
+  "entity.minecraft.villager.archeologist": "Archeologist"
 }
