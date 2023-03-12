@@ -29,6 +29,5 @@ public class BetterArcheology implements ModInitializer {
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
 		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
 		ModScreenHandlers.registerAllScreenHandlers(); //registers all Screen-Handlers
-
 	}
 }

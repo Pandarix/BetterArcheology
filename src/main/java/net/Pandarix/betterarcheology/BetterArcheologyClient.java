@@ -7,12 +7,9 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 
 public class BetterArcheologyClient implements ClientModInitializer {
-
-
     @Override
     public void onInitializeClient() {
-
         HandledScreens.register(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, IdentifyingScreen::new);
-
     }
+
 }

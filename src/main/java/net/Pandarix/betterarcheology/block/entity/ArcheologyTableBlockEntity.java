@@ -23,11 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
+    private final String translationKey = "archeology_table";
 
-   //synchronises Ints between server and client
-   protected final PropertyDelegate propertyDelegate;
-   private int progress = 0;
-   private int maxProgress = 72;
+    //synchronises Ints between server and client
+    protected final PropertyDelegate propertyDelegate;
+    private int progress = 0;
+    private int maxProgress = 72;
 
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
@@ -60,6 +61,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             }
         };
     }
+
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
@@ -67,7 +69,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("archeology_table");
+        return Text.translatable(getCachedState().getBlock().getTranslationKey());
     }
 
     @Nullable
@@ -86,6 +88,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private void resetProgress() {
         this.progress = 0;
     }
+
     @Override
     public void readNbt(NbtCompound nbt) {                          //reads saved inventory upon opening the world
         Inventories.readNbt(nbt, inventory);
@@ -98,13 +101,13 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             return;
         }
 
-        if(hasRecipe(entity)) {                                      //if the entity has a recipe inside:
+        if (hasRecipe(entity)) {                                      //if the entity has a recipe inside:
             entity.progress++;
             markDirty(world, blockPos, blockState);
-            if(entity.progress >= entity.maxProgress) {              //if crafting progress is bigger or as big as the maxProgress, then craft the Item, else reset the timer
-                craftItem (entity);
+            if (entity.progress >= entity.maxProgress) {              //if crafting progress is bigger or as big as the maxProgress, then craft the Item, else reset the timer
+                craftItem(entity);
             }
-        }else {
+        } else {
             entity.resetProgress();
             markDirty(world, blockPos, blockState);
         }
@@ -117,8 +120,8 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             inventory.setStack(i, entity.getStack(i));
         }
 
-        if(hasRecipe(entity)) {
-            entity.removeStack(1,1);
+        if (hasRecipe(entity)) {
+            entity.removeStack(1, 1);
 
             entity.setStack(2, new ItemStack(Items.ACACIA_FENCE, entity.getStack(2).getCount() + 1));       //TODO: Replace Output
         }
@@ -133,8 +136,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
         boolean hasShardInFirstSlot = entity.getStack(1).getItem() == Items.ACACIA_LOG;       //TODO: ADD UNIDENTIFIED_ARTIFACT Item
 
-        return hasShardInFirstSlot && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
+        return hasShardInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {               //defines canInsertItemIntoOutputSlot

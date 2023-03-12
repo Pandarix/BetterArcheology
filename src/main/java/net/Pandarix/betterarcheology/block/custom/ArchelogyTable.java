@@ -30,7 +30,6 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-
         return BlockRenderType.MODEL;
     }
 
@@ -52,10 +51,10 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
+            NamedScreenHandlerFactory handledScreen = state.createScreenHandlerFactory(world, pos);
 
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
+            if (handledScreen != null) {
+                player.openHandledScreen(handledScreen);
             }
         }
 
@@ -63,14 +62,12 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     }
 
-
     // creates ArcheologyTableBlockEntity //
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ArcheologyTableBlockEntity(pos, state);
     }
-
 
     @Nullable
     @Override

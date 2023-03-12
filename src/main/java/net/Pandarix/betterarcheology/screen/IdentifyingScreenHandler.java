@@ -13,26 +13,34 @@ import net.minecraft.screen.slot.Slot;
 public class IdentifyingScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public IdentifyingScreenHandler(int syncId,PlayerInventory inventory) {
-        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));                       //size of SimpleInventory has to be same as in Defaulted List of ArcheologyTableBlockEntity; size of ArrayPropertyDelegate has to be the same as the PropertyDelegate of ArcheologyTableBlockEntity (number of ints being tracked)
+    public IdentifyingScreenHandler(int syncId, PlayerInventory inventory) {
+        //size of SimpleInventory has to be same as in Defaulted List of ArcheologyTableBlockEntity;
+        //size of ArrayPropertyDelegate has to be the same as the PropertyDelegate of ArcheologyTableBlockEntity (number of ints being tracked)
+        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
     }
     public IdentifyingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, syncId);
         checkSize(inventory, 3);
-        this.inventory = inventory;                             //defines inventory field
+        //defines inventory field
+        this.inventory = inventory;
+
+        //opens Inventory
         inventory.onOpen(playerInventory.player);
 
-        this.propertyDelegate = delegate;                       //defines delegate field
+        //defines delegate field
+        this.propertyDelegate = delegate;
 
+        //SLOTS
         this.addSlot(new Slot(inventory, 0, 1,3));
         this.addSlot(new Slot(inventory, 1, 2,4));          //TODO: Redo coordinates
         this.addSlot(new Slot(inventory, 2, 5,6));
 
+        //Bottom screen components to render current players inventory & hotbar
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-
         addProperties(delegate);
     }
+
     public boolean isCrafting() {
         return propertyDelegate.get(0) > 0;
     }
