@@ -1,6 +1,7 @@
 package net.Pandarix.betterarcheology.block;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
 import net.Pandarix.betterarcheology.block.custom.InfestedMudBricks;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -30,6 +31,8 @@ public class ModBlocks {
     public static final Block ROTTEN_LOG = registerBlock("rotten_log",new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block INFESTED_MUD_BRICKS = registerBlock("infested_mud_bricks", new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    public static final Block ARCHEOLOGY_TABLE = registerBlock("archeology_table", new ArchelogyTable(FabricBlockSettings.of(Material.WOOD).nonOpaque()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well

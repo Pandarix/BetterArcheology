@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "net.Pandarix.betterarcheology.BetterArcheology"
+    ],
+    "client": [
+      "net.Pandarix.betterarcheology.BetterArcheologyClient"
     ]
   },
   "mixins": [
