@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
@@ -69,15 +68,28 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         if (slot != null && slot.hasStack()) {
             ItemStack originalStack = slot.getStack();  //stores the Item that was inside the given slot
 
-            /*if (originalStack.isItemEqual(ModItems.IRON_BRUSH.getDefaultStack()) ||
+           /* if (originalStack.isItemEqual(ModItems.IRON_BRUSH.getDefaultStack()) ||
                     originalStack.isItemEqual(ModItems.DIAMOND_BRUSH.getDefaultStack()) ||
                     originalStack.isItemEqual(Items.BRUSH.getDefaultStack())) {
 
-            } */
+                if (invSlot < this.inventory.size()) {
+                    if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+                    return ItemStack.EMPTY;
+                }
+
+                if (originalStack.isEmpty()) {
+                    slot.setStack(ItemStack.EMPTY);
+                } else {
+                    slot.markDirty();
+                }
+            }
 
             if (!originalStack.isItemEqual(ModItems.UNIDENTIFIED_ARTIFACT.getDefaultStack())) {
                 return ItemStack.EMPTY;
-            }
+            } */
 
             newStack = originalStack.copy();    //sets the new Stack to the given Item
 

@@ -130,7 +130,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
         if (hasRecipe(entity)) {
             entity.removeStack(1, 1);
-
+            entity.getStack(0).setDamage(entity.getStack(0).getDamage()-1);                                             //TODO: Balance Damage taken
             entity.setStack(2, new ItemStack(Items.ACACIA_FENCE, entity.getStack(2).getCount() + 1));
             entity.resetProgress();                                                                                                                    //TODO: Replace Output
         }
@@ -144,8 +144,10 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         }
 
         boolean hasShardInFirstSlot = entity.getStack(1).getItem() == ModItems.UNIDENTIFIED_ARTIFACT;                     //Input
-
-        return hasShardInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
+        boolean hasBrushInSlot = entity.getStack(0).getItem() == ModItems.IRON_BRUSH ||
+                entity.getStack(0).getItem() == ModItems.DIAMOND_BRUSH ||
+                entity.getStack(0).getItem() == Items.BRUSH;
+        return hasShardInFirstSlot && hasBrushInSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {               //defines canInsertItemIntoOutputSlot
