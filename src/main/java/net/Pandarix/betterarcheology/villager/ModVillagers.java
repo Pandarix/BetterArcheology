@@ -20,13 +20,12 @@ import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
 
 public class ModVillagers {
-
-
-    //------------------Archeologist------------------//
+    //ENTRIES--------------------------------------------------------------------//
     public static final PointOfInterestType ARCHEOLOGY_TABLE_POI = registerPOI("archeology_table_poi", ModBlocks.ARCHEOLOGY_TABLE);
     public static final VillagerProfession ARCHEOLOGIST = registerProfession("archeologist",
             RegistryKey.of(Registries.POINT_OF_INTEREST_TYPE.getKey(), new Identifier(BetterArcheology.MOD_ID, "archeology_table_poi")));
 
+    //TRADES---------------------------------------------------------------------//
     public static void registerTrades() {
         TradeOfferHelper.registerVillagerOffers(ARCHEOLOGIST,1,
                 factories -> {
@@ -37,18 +36,19 @@ public class ModVillagers {
                     )));
                 });
     }
+
+    //REGISTRATION---------------------------------------------------------------//
     public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
         return Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(BetterArcheology.MOD_ID, name),
                 VillagerProfessionBuilder.create(). id(new Identifier(BetterArcheology.MOD_ID, name)).workstation(type)
-                        .workSound(SoundEvents.ENTITY_VILLAGER_WORK_LIBRARIAN).build());                                            //TODO: Sound of Librarian, change later?
+                        .workSound(SoundEvents.ITEM_BRUSH_BRUSHING).build());                                            //TODO: Sound change later?
     }
     public static PointOfInterestType registerPOI(String name, Block block) {
         return PointOfInterestHelper.register(new Identifier(BetterArcheology.MOD_ID, name),
                 1, 1, ImmutableSet.copyOf(block.getStateManager().getStates()));
     }
 
-
-    //----------------------------LOGGER---------------------------//
+    //REGISTRATION---------------------------------------------------------------//
     public static void registerVillagers() {
         BetterArcheology.LOGGER.debug("Registering Villagers for " + BetterArcheology.MOD_ID);
     }
