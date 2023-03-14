@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "betterarcheology:block/cracked_mud_bricks",
+    "side": "betterarcheology:block/cracked_mud_bricks",
+    "top": "betterarcheology:block/cracked_mud_bricks"
+  }
+}
