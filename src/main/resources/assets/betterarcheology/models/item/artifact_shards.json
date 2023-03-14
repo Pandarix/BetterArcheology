@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "betterarcheology:item/unidentified_shards"
+    "layer0": "betterarcheology:item/artifact_shards"
   }
 }
