@@ -22,16 +22,28 @@ public class ModBlocks {
     TODO: Add Items like this:
     public static final Block NAME = registerBlock("name", new Block(FabricBlockSettings.copy(BLocks.BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
     oder
-    public static final Block NAME = registerBlock("name", new Block(FabricBlockSettings.of(Material.MATERIAL).weitereSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block NAME = registerBlock("name", new Block(FabricBlockSettings.of(Material.MATERIAL).otherSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
      */
 
+    //-----------ROTTEN WOOD-------------//
     public static final Block ROTTEN_LOG = registerBlock("rotten_log",new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block ROTTEN_PLANKS = registerBlock("rotten_planks",new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block ROTTEN_SLAB = registerBlock("rotten_slab",new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block ROTTEN_STAIRS = registerBlock("rotten_stairs",new StairsBlock(ROTTEN_PLANKS.getDefaultState(),FabricBlockSettings.copy(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+
+    //-------------MUD Brick Stuff----------------//
     public static final Block INFESTED_MUD_BRICKS = registerBlock("infested_mud_bricks", new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    public static final Block CRACKED_MUD_BRICKS = registerBlock("cracked_mud_bricks", new Block(FabricBlockSettings.copy(Blocks.MUD_BRICKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+
+
+
+
 
     public static final Block ARCHEOLOGY_TABLE = registerBlock("archeology_table", new ArchelogyTable(FabricBlockSettings.of(Material.WOOD).nonOpaque()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 

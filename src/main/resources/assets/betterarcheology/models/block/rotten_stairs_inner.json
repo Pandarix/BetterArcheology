@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "betterarcheology:block/rotten_planks",
+    "side": "betterarcheology:block/rotten_planks",
+    "top": "betterarcheology:block/rotten_planks"
+  }
+}
