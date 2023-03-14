@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "betterarcheology:block/rotten_slab"
+    },
+    "type=double": {
+      "model": "betterarcheology:block/rotten_planks"
+    },
+    "type=top": {
+      "model": "betterarcheology:block/rotten_slab_top"
+    }
+  }
+}
