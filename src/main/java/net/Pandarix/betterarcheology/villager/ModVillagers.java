@@ -31,7 +31,7 @@ public class ModVillagers {
                 factories -> {
                     factories.add(((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 16),
-                            new ItemStack(ModItems.UNIDENTIFIED_SHARDS, 1),
+                            new ItemStack(ModItems.ARTIFACT_SHARDS, 1),
                             6, 2, 0.02f
                     )));
                 });

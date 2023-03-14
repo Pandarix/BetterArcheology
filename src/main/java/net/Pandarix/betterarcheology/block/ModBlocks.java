@@ -42,9 +42,9 @@ public class ModBlocks {
 
     public static final Block CRACKED_MUD_BRICK_SLAB = registerBlock("cracked_mud_brick_slab",new SlabBlock(FabricBlockSettings.copy(Blocks.MUD_BRICK_SLAB)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+
     public static final Block CRACKED_MUD_BRICK_STAIRS = registerBlock("cracked_mud_brick_stairs",new StairsBlock(CRACKED_MUD_BRICKS.getDefaultState(),FabricBlockSettings.copy(Blocks.MUD_BRICK_STAIRS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-
-
+    
     public static final Block ARCHEOLOGY_TABLE = registerBlock("archeology_table", new ArchelogyTable(FabricBlockSettings.of(Material.WOOD).nonOpaque()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //REGISTERING--------------------------------------------------------------------------//

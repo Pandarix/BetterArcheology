@@ -18,7 +18,7 @@ public class ModItems {
     public static final Item IRON_BRUSH = registerItem("iron_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(128))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
     public static final Item DIAMOND_BRUSH = registerItem("diamond_brush",(Item)(new BrushItem((new Item.Settings()).maxDamage(256))),ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item UNIDENTIFIED_SHARDS = registerItem("unidentified_shards", new Item(new FabricItemSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item ARTIFACT_SHARDS = registerItem("artifact_shards", new Item(new FabricItemSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Item UNIDENTIFIED_ARTIFACT = registerItem("unidentified_artifact", new Item(new FabricItemSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
