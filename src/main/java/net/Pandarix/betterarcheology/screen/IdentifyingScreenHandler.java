@@ -35,9 +35,9 @@ public class IdentifyingScreenHandler extends ScreenHandler {
 
         //SLOTS
         //TODO: Redo coordinates
-        this.addSlot(new Slot(inventory, 0, 86,15));
-        this.addSlot(new Slot(inventory, 1,12 ,15));
-        this.addSlot(new Slot(inventory, 2, 86,60));
+        this.addSlot(new Slot(inventory, 0, 80,20));
+        this.addSlot(new Slot(inventory, 1,26 ,48));
+        this.addSlot(new Slot(inventory, 2, 134,48));
 
         //Bottom screen components to render current players inventory & hotbar
         addPlayerInventory(playerInventory);
@@ -52,7 +52,7 @@ public class IdentifyingScreenHandler extends ScreenHandler {
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);                         // Maximum Progress, after reaching: progress done
-        int progressArrowSize = 26;                                             // This is the width in pixels of your arrow //TODO: Edit correct size
+        int progressArrowSize = 74;                                             // This is the width in pixels of your arrow //TODO: Edit correct size
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }

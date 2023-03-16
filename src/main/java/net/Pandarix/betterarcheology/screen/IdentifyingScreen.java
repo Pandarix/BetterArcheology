@@ -43,7 +43,7 @@ public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
     //renders the Progress-Arrow
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {
         if (handler.isCrafting()) {                                                                                      //TODO: Fix coordinates
-            drawTexture(matrices, x + 105, y + 33, 176, 0, 8, handler.getScaledProgress());
+            drawTexture(matrices, x + 51, y + 48, 176, 0, handler.getScaledProgress(), 17);
         }
     }
 
