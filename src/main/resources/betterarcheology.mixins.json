@@ -4,9 +4,12 @@
   "package": "net.Pandarix.betterarcheology.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CustomSusSandCompatibilityMixin"
   ],
   "client": [
     "BetterArcheologyMixin"
+  ],
+  "server": [
   ],
   "injectors": {
     "defaultRequire": 1

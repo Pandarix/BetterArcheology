@@ -30,6 +30,8 @@
     "betterarcheology.mixins.json"
   ],
 
+  "accessWidener" : "betterarcheology.accesswidener",
+
   "depends": {
     "fabricloader": ">=0.14.14",
     "fabric-api": "*",
