@@ -28,7 +28,7 @@ public class ModBlocks {
     //-----------SUS VARIANTS-------------//
     public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND).sounds(BlockSoundGroup.GRAVEL)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-----------ROTTEN WOOD-------------//
     public static final Block ROTTEN_LOG = registerBlock("rotten_log",new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);

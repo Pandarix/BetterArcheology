@@ -3,7 +3,6 @@ package net.Pandarix.betterarcheology.block.entity;
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.suspicious_blocks.SuspiciousDirtBlockEntity;
-import net.Pandarix.betterarcheology.block.entity.suspicious_blocks.SuspiciousGravelBlockEntity;
 import net.Pandarix.betterarcheology.block.entity.suspicious_blocks.SuspiciousRedSandBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
@@ -13,7 +12,6 @@ import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
-    public static BlockEntityType<SuspiciousGravelBlockEntity> SUSPICIOUS_GRAVEL;
     public static BlockEntityType<SuspiciousDirtBlockEntity> SUSPICIOUS_DIRT;
     public static BlockEntityType<SuspiciousRedSandBlockEntity> SUSPICIOUS_RED_SAND;
 
