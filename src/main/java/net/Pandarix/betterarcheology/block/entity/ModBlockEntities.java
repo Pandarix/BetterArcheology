@@ -23,11 +23,6 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(ArcheologyTableBlockEntity::new,
                         ModBlocks.ARCHEOLOGY_TABLE).build(null));
 
-        SUSPICIOUS_GRAVEL = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(BetterArcheology.MOD_ID, "suspicious_gravel"),
-                FabricBlockEntityTypeBuilder.create(SuspiciousGravelBlockEntity::new,
-                        ModBlocks.SUSPICIOUS_GRAVEL).build(null));
-
         SUSPICIOUS_DIRT = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "suspicious_dirt"),
                 FabricBlockEntityTypeBuilder.create(SuspiciousDirtBlockEntity::new,

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/suspicious_sand_2"
+    "all": "betterarcheology:block/suspicious_red_sand/suspicious_red_sand_2"
   }
 }

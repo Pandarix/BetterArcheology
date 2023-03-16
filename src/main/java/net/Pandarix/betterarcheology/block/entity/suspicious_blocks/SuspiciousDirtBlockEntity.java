@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.entity.suspicious_blocks;
 
+import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.SuspiciousSandBlockEntity;
 import net.minecraft.util.math.BlockPos;

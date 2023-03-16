@@ -13,8 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.resource.featuretoggle.FeatureFlag;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
@@ -28,8 +26,6 @@ public class ModBlocks {
      */
 
     //-----------SUS VARIANTS-------------//
-    public static final Block SUSPICIOUS_GRAVEL = registerBlock("suspicious_gravel",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND).sounds(BlockSoundGroup.GRAVEL)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-
     public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND).sounds(BlockSoundGroup.GRAVEL)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
