@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "betterarcheology:block/rotten_door_bottom",
+    "top": "betterarcheology:block/rotten_door_top"
+  }
+}
