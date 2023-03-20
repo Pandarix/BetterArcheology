@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_planks",
+              "name": "betterarcheology:rotten_door",
               "functions": [
                 {
                   "function": "minecraft:set_count",
@@ -18,6 +18,13 @@
                 }
               ],
               "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "betterarcheology:rotten_door",
+                  "properties": {
+                    "half": "lower"
+                  }
+                },
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
@@ -32,11 +39,20 @@
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "betterarcheology:rotten_door",
+                  "properties": {
+                    "half": "lower"
+                  }
+                }
+              ],
               "name": "minecraft:stick",
               "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 2
+                  "count": 4
                 }
               ]
             }
