@@ -5,6 +5,7 @@ import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.SuspiciousSandBlockEntity;
 import net.minecraft.command.argument.ParticleEffectArgumentType;
@@ -32,8 +33,11 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import static net.Pandarix.betterarcheology.block.custom.ArchelogyTable.DUSTING;
 
 public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
@@ -126,16 +130,17 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             if (entity.progress % 10 == 0) {
                 world.playSound(null, entity.pos, SoundEvents.ITEM_BRUSH_BRUSHING, SoundCategory.BLOCKS, 0.25f, 1f);
             }
+            world.setBlockState(blockPos, blockState.with(DUSTING, true));
             entity.progress++;
             markDirty(world, blockPos, blockState);
             if (entity.progress >= entity.maxProgress) {              //if crafting progress is bigger or as big as the maxProgress, then craft the Item, else reset the timer
                 craftItem(entity);
             }
         } else {
+            world.setBlockState(blockPos, blockState.with(DUSTING, false));
             entity.resetProgress();
             markDirty(world, blockPos, blockState);
         }
-
     }
 
     private static void craftItem(ArcheologyTableBlockEntity entity) {
@@ -191,16 +196,5 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {                           //defines canInsertAmountIntoOutputSlot
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
-    }
-
-    //TODO implement correctly
-    private static void addDustParticles(World world, BlockEntity entity) {
-        int i = world.getRandom().nextBetweenExclusive(7, 12);
-        BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, ModBlocks.ARCHEOLOGY_TABLE.getDefaultState());
-        BlockPos pos = entity.getPos();
-
-        for (int j = 0; j < i; ++j) {
-            world.addParticle(blockStateParticleEffect, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, world.getRandom().nextDouble(), 0.1, world.getRandom().nextDouble());
-        }
     }
 }

@@ -1,30 +1,41 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("ALL")
 public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider {
+    public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
+
     public ArchelogyTable(Settings settings) {
         super(settings);
+        this.setDefaultState((BlockState)this.stateManager.getDefaultState().with(DUSTING, false));
     }
 
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(new Property[]{DUSTING});
+    }
 
     /* BLOCK ENTITY STUFF */
 
@@ -73,6 +84,29 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.ARCHEOLOGY_TABLE, ArcheologyTableBlockEntity::tick);
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if(world.isClient() && state.get(DUSTING)){
+            displayDustingParticles(world, pos);
+        }
+        super.randomDisplayTick(state, world, pos, random);
+    }
+
+    private void displayDustingParticles(World world, BlockPos pos) {
+        assert world != null;
+        Random random = world.random;  //get random generator
+
+        if (random.nextBoolean()) {
+            double x = (double) pos.getX() + 0.5;  //positions of blockEntity
+            double y = (double) pos.getY() + 1.0;
+            double z = (double) pos.getZ() + 0.5;
+
+            BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SAND.getDefaultState());   //BlockbreakParticles with texture of Sand
+
+            world.addParticle(blockStateParticleEffect, x + random.nextDouble() * 0.5, y, z + random.nextDouble() * 0.5, 0.1 * random.nextDouble() * 0.05, -0.25, 0.1 * random.nextDouble() * 0.05);    //summon particles
+        }
     }
 };
 
