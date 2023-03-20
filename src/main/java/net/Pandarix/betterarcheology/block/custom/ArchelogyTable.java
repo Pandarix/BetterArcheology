@@ -8,6 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BrushItem;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -20,6 +21,7 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -30,7 +32,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     public ArchelogyTable(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)this.stateManager.getDefaultState().with(DUSTING, false));
+        this.setDefaultState((BlockState) this.stateManager.getDefaultState().with(DUSTING, false));
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -88,24 +90,19 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if(world.isClient() && state.get(DUSTING)){
-            displayDustingParticles(world, pos);
+        if (world.isClient() && state.get(DUSTING)) {
+            addDustParticles(world, pos, random);
         }
         super.randomDisplayTick(state, world, pos, random);
     }
 
-    private void displayDustingParticles(World world, BlockPos pos) {
-        assert world != null;
-        Random random = world.random;  //get random generator
+    public void addDustParticles(World world, BlockPos pos, Random random) {
+        if(random.nextBoolean()){return;}
+        int i = random.nextBetweenExclusive(1, 3);
+        BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SAND.getDefaultState());
 
-        if (random.nextBoolean()) {
-            double x = (double) pos.getX() + 0.5;  //positions of blockEntity
-            double y = (double) pos.getY() + 1.0;
-            double z = (double) pos.getZ() + 0.5;
-
-            BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SAND.getDefaultState());   //BlockbreakParticles with texture of Sand
-
-            world.addParticle(blockStateParticleEffect, x + random.nextDouble() * 0.5, y, z + random.nextDouble() * 0.5, 0.1 * random.nextDouble() * 0.05, -0.25, 0.1 * random.nextDouble() * 0.05);    //summon particles
+        for (int j = 0; j < i; ++j) {
+            world.addParticle(blockStateParticleEffect, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1), 0.0, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1));
         }
     }
 };
