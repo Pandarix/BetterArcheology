@@ -6,16 +6,19 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.BrushItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import org.jetbrains.annotations.Nullable;
 
 public class IdentifyingScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
+
     public IdentifyingScreenHandler(int syncId, PlayerInventory inventory) {
         //size of SimpleInventory has to be same as in Defaulted List of ArcheologyTableBlockEntity;
         //size of ArrayPropertyDelegate has to be the same as the PropertyDelegate of ArcheologyTableBlockEntity (number of ints being tracked)
@@ -35,9 +38,9 @@ public class IdentifyingScreenHandler extends ScreenHandler {
 
         //SLOTS
         //TODO: Redo coordinates
-        this.addSlot(new Slot(inventory, 0, 80,20));
-        this.addSlot(new Slot(inventory, 1,26 ,48));
-        this.addSlot(new Slot(inventory, 2, 134,48));
+        this.addSlot(new Slot(inventory, 0, 80, 20));
+        this.addSlot(new Slot(inventory, 1, 26, 48));
+        this.addSlot(new IdentifyingOutputSlot(inventory, 2, 134, 48));
 
         //Bottom screen components to render current players inventory & hotbar
         addPlayerInventory(playerInventory);
@@ -62,45 +65,42 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         ItemStack newStack = ItemStack.EMPTY;   //defines an empty ItemStack, will be used to return the changed Item in the Slot
         Slot slot = this.slots.get(invSlot);    //the given InventorySlot
 
-
-
-        //if the slot has an Item inside
+        //If the to-be-moved-slot has an Item inside
         if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();  //stores the Item that was inside the given slot
+            ItemStack originalStack = slot.getStack();  //stores the Item in the to-be-moved-slot
+            newStack = originalStack.copy();    //sets a new Stack to the given Item
 
-           /* if (originalStack.isItemEqual(ModItems.IRON_BRUSH.getDefaultStack()) ||
-                    originalStack.isItemEqual(ModItems.DIAMOND_BRUSH.getDefaultStack()) ||
-                    originalStack.isItemEqual(Items.BRUSH.getDefaultStack())) {
-
-                if (invSlot < this.inventory.size()) {
+            //BRUSHES
+            if (originalStack.getItem() instanceof BrushItem) {
+                if (isInInv(invSlot)) {
                     if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                     return ItemStack.EMPTY;
                 }
+            }
 
-                if (originalStack.isEmpty()) {
-                    slot.setStack(ItemStack.EMPTY);
-                } else {
-                    slot.markDirty();
+            //ARTIFACTS
+            if (originalStack.isOf(ModItems.UNIDENTIFIED_ARTIFACT)) {
+                if (isInInv(invSlot)) {
+                    if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (!this.insertItem(originalStack, 1, this.inventory.size(), false)) {
+                    return ItemStack.EMPTY;
                 }
             }
 
-            if (!originalStack.isItemEqual(ModItems.UNIDENTIFIED_ARTIFACT.getDefaultStack())) {
-                return ItemStack.EMPTY;
-            } */
-
-            newStack = originalStack.copy();    //sets the new Stack to the given Item
-
-            if (invSlot < this.inventory.size()) {
+            if (isInInv(invSlot)) {
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 1, this.inventory.size(), false)) {
+            } else {
                 return ItemStack.EMPTY;
             }
 
+            //If the to-be-moved-Itemstack is empty, replace the ItemStack with "Empty-Item"
             if (originalStack.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
             } else {
@@ -109,6 +109,10 @@ public class IdentifyingScreenHandler extends ScreenHandler {
         }
 
         return newStack;
+    }
+
+    private boolean isInInv(int invSlot) {
+        return invSlot < this.inventory.size();
     }
 
     @Override
@@ -144,7 +148,7 @@ public class IdentifyingScreenHandler extends ScreenHandler {
     //Helper Method to add Players HotBarSlots to Screen
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         //Adds a new Slot to the Screen for every Slot in the Players Hotbar
-        for (int i = 0; i < PlayerInventory.getHotbarSize(); ++i){
+        for (int i = 0; i < PlayerInventory.getHotbarSize(); ++i) {
             //Numbers are Minecrafts pre-defined offsets due to the textures
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
