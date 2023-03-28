@@ -1,7 +1,9 @@
 package net.Pandarix.betterarcheology.item;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.item.custom.identified_artifacts.PenetratingStrikeArtifact;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,6 +24,8 @@ public class ModItemGroup {
                 .displayName(Text.translatable("itemGroup.betterarcheology"))
                 .icon(() -> new ItemStack(Items.SAND))
                 .build();
+
+        ItemGroupEvents.modifyEntriesEvent(BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(PenetratingStrikeArtifact.withEnchantment()));
     }
 
 }

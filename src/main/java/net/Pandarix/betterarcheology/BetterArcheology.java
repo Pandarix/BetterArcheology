@@ -2,6 +2,7 @@ package net.Pandarix.betterarcheology;
 
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
+import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
@@ -34,5 +35,6 @@ public class BetterArcheology implements ModInitializer {
 		ModVillagers.registerVillagers(); //registers all Villagers from BetterArcheology
 		ModVillagers.registerTrades(); //registers all Villager Trades
 		ModLootTableModifiers.modifyLootTables();	//TODO: enable when 1.20 loottables are active
+		ModEnchantments.registerModEnchantments();
 	}
 }
