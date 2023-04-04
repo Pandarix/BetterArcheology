@@ -1,7 +1,6 @@
 package net.Pandarix.betterarcheology.item;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
-import net.Pandarix.betterarcheology.item.custom.identified_artifacts.PenetratingStrikeArtifact;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.BrushItem;
@@ -18,13 +17,12 @@ public class ModItems {
 
     //BRUSHES
     public static final Item IRON_BRUSH = registerItem("iron_brush", (Item) (new BrushItem((new Item.Settings()).maxDamage(128))), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
     public static final Item DIAMOND_BRUSH = registerItem("diamond_brush", (Item) (new BrushItem((new Item.Settings()).maxDamage(256))), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Item ARTIFACT_SHARDS = registerItem("artifact_shards", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Item UNIDENTIFIED_ARTIFACT = registerItem("unidentified_artifact", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-
-    public static final Item PENETRATING_STRIKE_ARTIFACT = registerItemWithoutGroup("penetrating_strike_artifact", new PenetratingStrikeArtifact(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
     //REGISTERING--------------------------------------------------------------------------//
 
@@ -42,7 +40,7 @@ public class ModItems {
         return registeredItem;
     }
 
-    public static Item registerItemWithoutGroup(String name, Item item) {
+    public static Item registerItemWithoutTab(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
     }
 

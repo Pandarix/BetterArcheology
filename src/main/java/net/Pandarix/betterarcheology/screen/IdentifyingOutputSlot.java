@@ -8,7 +8,6 @@ public class IdentifyingOutputSlot extends Slot {
     public IdentifyingOutputSlot(Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
     }
-
     @Override
     public boolean canInsert(ItemStack stack) {
         return false;

@@ -1,41 +1,45 @@
 package net.Pandarix.betterarcheology.block.entity;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import joptsimple.util.KeyValuePair;
 import net.Pandarix.betterarcheology.BetterArcheology;
-import net.Pandarix.betterarcheology.block.ModBlocks;
+import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.SuspiciousSandBlockEntity;
-import net.minecraft.command.argument.ParticleEffectArgumentType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.BrushItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
 
 import static net.Pandarix.betterarcheology.block.custom.ArchelogyTable.DUSTING;
 
@@ -55,6 +59,8 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
+
+    private static final Identifier craftingLoot = new Identifier(BetterArcheology.MOD_ID, "identifying_loot");
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);
@@ -149,7 +155,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             inventory.setStack(i, entity.getStack(i));
         }
 
-        if (hasRecipe(entity)) {
+        if (hasRecipe(entity) && entity.getStack(2).isEmpty()) {
             entity.removeStack(1, 1);
             ItemStack brush = entity.getStack(0);
 
@@ -171,10 +177,26 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
                 //play sound after crafting
                 entity.world.playSound(null, entity.pos, SoundEvents.ITEM_BRUSH_BRUSH_SAND_COMPLETED, SoundCategory.BLOCKS, 0.5f, 1f);
             }
-            entity.setStack(2, new ItemStack(Items.ACACIA_FENCE, entity.getStack(2).getCount() + 1));    //set crafted output in the output slot, TODO: Replace Output
+            entity.setStack(2, generateCraftingLoot(entity, entity.world));    //set crafted output in the output slot, TODO: Replace Output
             entity.resetProgress(); //resets crafting progress
         }
 
+    }
+
+    private static ItemStack generateCraftingLoot(BlockEntity entity, World world) {
+        LootTable lootTable = Objects.requireNonNull(world.getServer()).getLootManager().getTable(craftingLoot);
+
+        LootContext.Builder builder = new LootContext.Builder((ServerWorld) world).parameter(LootContextParameters.ORIGIN, Vec3d.ofCenter(entity.getPos())).random(world.getRandom()).luck(0);
+
+        ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(builder.build(LootContextTypes.CHEST));
+
+        if (objectArrayList.size() == 0) {
+            return ItemStack.EMPTY;
+        }
+        if (objectArrayList.size() == 1) {
+            return objectArrayList.get(0);
+        }
+        return ItemStack.EMPTY;
     }
 
     private static boolean hasRecipe(ArcheologyTableBlockEntity entity) {           //recipe type can be configured here

@@ -21,10 +21,10 @@
   "block.betterarcheology.archeology_table": "Archeology Table",
   "item.betterarcheology.artifact_shards": "Artifact Shards",
   "item.betterarcheology.unidentified_artifact": "Unidentified Artifact",
+  "item.betterarcheology.identified_artifact": "Identified Artifact",
 
   "entity.betterarcheology.villager.archeologist": "Archeologist",
 
   "enchantment.betterarcheology.penetrating_strike": "Penetrating Strike",
-  "item.betterarcheology.penetrating_strike_artifact": "Penetrating Strike Artifact",
-  "item.betterarcheology.penetrating_tooltip": "Partially ignores Protection Enchantments"
+  "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores Protection Enchantments"
 }
