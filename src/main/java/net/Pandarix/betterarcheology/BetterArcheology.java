@@ -2,9 +2,11 @@ package net.Pandarix.betterarcheology;
 
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
+import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
+import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.Pandarix.betterarcheology.util.ModLootTableModifiers;
 import net.Pandarix.betterarcheology.villager.ModVillagers;
 import net.fabricmc.api.ModInitializer;
@@ -26,6 +28,7 @@ public class BetterArcheology implements ModInitializer {
 
 		LOGGER.info("Better Archeology says Hello");	//info message
 
+		ModConfigs.registerConfigs();
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
@@ -34,5 +37,6 @@ public class BetterArcheology implements ModInitializer {
 		ModVillagers.registerVillagers(); //registers all Villagers from BetterArcheology
 		ModVillagers.registerTrades(); //registers all Villager Trades
 		ModLootTableModifiers.modifyLootTables();	//TODO: enable when 1.20 loottables are active
+		ModEnchantments.registerModEnchantments();
 	}
 }
