@@ -26,5 +26,5 @@
   "entity.betterarcheology.villager.archeologist": "Archeologist",
 
   "enchantment.betterarcheology.penetrating_strike": "Penetrating Strike",
-  "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores Protection Enchantments"
+  "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments"
 }

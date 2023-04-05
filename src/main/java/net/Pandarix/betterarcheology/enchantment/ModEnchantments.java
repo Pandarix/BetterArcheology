@@ -21,12 +21,13 @@ public class ModEnchantments {
         return Registry.register(Registries.ENCHANTMENT, new Identifier(BetterArcheology.MOD_ID, name), enchantment);
     }
 
-    public static void registerModEnchantments() {
-        BetterArcheology.LOGGER.info("Registering Enchantments for " + BetterArcheology.MOD_ID);
-    }
-
     private static void registerEnchantedBookWith(Enchantment enchantment) {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.betterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
+    }
+
+    //LOGGER
+    public static void registerModEnchantments() {
+        BetterArcheology.LOGGER.info("Registering Enchantments for " + BetterArcheology.MOD_ID);
     }
 }

@@ -48,6 +48,7 @@ public class PenetratingStrikeEnchantment extends Enchantment {
 
         //damage in % that was subtracted due to the Enchantments' protections
         double damagePercentageProtected = enchantmentProtectionFactor / 25f;
+
         //damagevalue of the current weapon
         float damageInflicted = 0;
 
@@ -67,21 +68,9 @@ public class PenetratingStrikeEnchantment extends Enchantment {
         BetterArcheology.LOGGER.info("Total Damage Weapon would inflict: " + damageInflicted);
 
         //applies damage based on enchantment level
-        switch (level) {
-            case 1 -> {
-                target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * 0.15));
-                BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * 0.15);
-            }
-            case 2 -> {
-                target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * 0.30));
-                BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * 0.30);
-            }
-            case 3 -> {
-                target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * 0.45));
-                BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * 0.45);
-            }
-            default -> {
-            }
+        if (level == 1) {
+            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * 0.15));
+            BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * 0.15);
         }
 
         //Audio Feedback
