@@ -5,6 +5,7 @@ import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.registry.Registries;
@@ -15,6 +16,7 @@ import net.minecraft.util.Identifier;
 
 public class ModEnchantments {
     public static Enchantment PENETRATING_STRIKE = register("penetrating_strike", new PenetratingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.MAINHAND));
+    public static Enchantment SEAS_BOUNTY = register("seas_bounty", new SeasBountyEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.FISHING_ROD, EquipmentSlot.MAINHAND));
 
     private static Enchantment register(String name, Enchantment enchantment) {
         registerEnchantedBookWith(enchantment);

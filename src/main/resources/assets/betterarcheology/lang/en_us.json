@@ -26,5 +26,7 @@
   "entity.betterarcheology.villager.archeologist": "Archeologist",
 
   "enchantment.betterarcheology.penetrating_strike": "Penetrating Strike",
-  "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments"
+  "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments",
+  "enchantment.betterarcheology.seas_bounty": "Sea's Bounty",
+  "item.betterarcheology.seas_bounty_tooltip": "Catch a wider variety of treasures from the depths"
 }

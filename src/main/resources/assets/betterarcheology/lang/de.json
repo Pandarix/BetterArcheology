@@ -21,6 +21,12 @@
   "block.betterarcheology.archeology_table": "Tisch der Archäologie",
   "item.betterarcheology.artifact_shards": "Artefaktscherben",
   "item.betterarcheology.unidentified_artifact": "Unidentifiziertes Artefakt",
+  "item.betterarcheology.identified_artifact": "Identifiziertes Artefakt",
 
-  "entity.minecraft.villager.archeologist": "Archäologe"
+  "entity.betterarcheology.villager.archeologist": "Archäologe",
+
+  "enchantment.betterarcheology.penetrating_strike": "Durchdringender Hieb",
+  "item.betterarcheology.penetrating_strike_tooltip": "Ignoriert die Effekte von Schutz-Verzauberungen teilweise",
+  "enchantment.betterarcheology.seas_bounty": "Reichtum des Meeres",
+  "enchantment.betterarcheology.seas_bounty_tooltip": "Ermöglicht das Fangen eines größeren Spektrums von Schätzen"
 }

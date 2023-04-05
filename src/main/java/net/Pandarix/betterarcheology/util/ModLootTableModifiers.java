@@ -1,14 +1,17 @@
 package net.Pandarix.betterarcheology.util;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;

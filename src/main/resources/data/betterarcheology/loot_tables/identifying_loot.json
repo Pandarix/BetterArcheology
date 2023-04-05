@@ -34,7 +34,30 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:stone"
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "betterarcheology:seas_bounty": 1
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "translate": "item.betterarcheology.seas_bounty_tooltip",
+                  "color": "dark_gray"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "item.betterarcheology.identified_artifact"
+              }
+            }
+          ]
         }
       ]
     }

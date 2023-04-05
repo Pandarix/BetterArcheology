@@ -2,7 +2,6 @@ package net.Pandarix.betterarcheology.enchantment;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.util.ModConfigs;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
@@ -15,7 +14,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
-public class PenetratingStrikeEnchantment extends Enchantment {
+public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
 
     public PenetratingStrikeEnchantment(Rarity weight, EquipmentSlot... slotTypes) {
         super(weight, EnchantmentTarget.WEAPON, slotTypes);
@@ -83,27 +82,6 @@ public class PenetratingStrikeEnchantment extends Enchantment {
         if (!user.getWorld().isClient()) {
             user.getWorld().playSound(null, target.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, SoundCategory.BLOCKS);
         }
-    }
-
-    //Restricting any other access to the Enchantment than Archeology-----------------------------------//
-    @Override
-    public boolean isAvailableForEnchantedBookOffer() {
-        return false;
-    }
-
-    @Override
-    public boolean isTreasure() {
-        return false;
-    }
-
-    @Override
-    public boolean isAvailableForRandomSelection() {
-        return false;
-    }
-
-    @Override
-    public Rarity getRarity() {
-        return Rarity.VERY_RARE;
     }
 }
 
