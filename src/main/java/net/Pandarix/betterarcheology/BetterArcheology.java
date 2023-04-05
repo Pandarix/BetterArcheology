@@ -6,6 +6,7 @@ import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
+import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.Pandarix.betterarcheology.util.ModLootTableModifiers;
 import net.Pandarix.betterarcheology.villager.ModVillagers;
 import net.fabricmc.api.ModInitializer;
@@ -27,6 +28,7 @@ public class BetterArcheology implements ModInitializer {
 
 		LOGGER.info("Better Archeology says Hello");	//info message
 
+		ModConfigs.registerConfigs();
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems

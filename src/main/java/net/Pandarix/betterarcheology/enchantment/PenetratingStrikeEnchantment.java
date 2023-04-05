@@ -1,6 +1,7 @@
 package net.Pandarix.betterarcheology.enchantment;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -21,8 +22,12 @@ public class PenetratingStrikeEnchantment extends Enchantment {
     }
 
     //also allowing axes
+    @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof AxeItem ? true : super.isAcceptableItem(stack);
+        if (stack.getItem() instanceof AxeItem) {
+            return true;
+        }
+        return super.isAcceptableItem(stack);
     }
 
     //Enchantment Functionality-------------------------------------------------------------------------//
@@ -38,6 +43,8 @@ public class PenetratingStrikeEnchantment extends Enchantment {
      */
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+        if (!ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED) {return;}
+
         //calculate total Protection of Armor
         int enchantmentProtectionFactor = 0;
         for (ItemStack itemStack : target.getArmorItems()) {
@@ -67,10 +74,9 @@ public class PenetratingStrikeEnchantment extends Enchantment {
         BetterArcheology.LOGGER.info("Total Damage Reduction: " + totalProtectedDamage + " bzw. " + damagePercentageProtected + "%");
         BetterArcheology.LOGGER.info("Total Damage Weapon would inflict: " + damageInflicted);
 
-        //applies damage based on enchantment level
         if (level == 1) {
-            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * 0.15));
-            BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * 0.15);
+            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE));
+            BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE);
         }
 
         //Audio Feedback
