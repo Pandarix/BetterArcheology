@@ -37,10 +37,6 @@
         },
         {
           "type": "minecraft:loot_table",
-          "name": "minecraft:stone"
-        },
-        {
-          "type": "minecraft:loot_table",
           "weight": 10,
           "quality": -2,
           "name": "betterarcheology:seas_bounty_extension",

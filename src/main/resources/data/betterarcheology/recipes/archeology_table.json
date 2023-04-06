@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bS",
+    "OO",
+    "OO"
+  ],
+  "key": {
+    "b": {
+      "tag": "c:brushitems"
+    },
+    "S": {
+      "item": "betterarcheology:artifact_shards"
+    },
+    "O": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "betterarcheology:archeology_table",
+    "count": 1
+  }
+}

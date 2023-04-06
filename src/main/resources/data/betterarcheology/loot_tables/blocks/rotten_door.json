@@ -19,13 +19,6 @@
               ],
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
-                  "block": "betterarcheology:rotten_door",
-                  "properties": {
-                    "half": "lower"
-                  }
-                },
-                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
@@ -33,6 +26,13 @@
                         "enchantment": "minecraft:silk_touch"
                       }
                     ]
+                  }
+                },
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "betterarcheology:rotten_door",
+                  "properties": {
+                    "half": "lower"
                   }
                 }
               ]

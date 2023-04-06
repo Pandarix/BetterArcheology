@@ -26,7 +26,7 @@ public class ModItemGroup {
         BETTER_ARCHEOLOGY_ITEMGROUP = FabricItemGroup.builder(
                         new Identifier(BetterArcheology.MOD_ID))
                 .displayName(Text.translatable("itemGroup.betterarcheology"))
-                .icon(() -> new ItemStack(Items.SAND))
+                .icon(() -> new ItemStack(ModItems.UNIDENTIFIED_ARTIFACT))
                 .build();
     }
 }

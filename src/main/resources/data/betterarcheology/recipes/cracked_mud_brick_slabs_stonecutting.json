@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "count": 2,
+    "ingredient": {
+        "item": "betterarcheology:cracked_mud_bricks"
+    },
+    "result": "betterarcheology:cracked_mud_brick_slab"
+}
