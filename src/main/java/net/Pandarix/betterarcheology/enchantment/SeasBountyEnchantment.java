@@ -2,7 +2,6 @@ package net.Pandarix.betterarcheology.enchantment;
 
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.FishingRodItem;
 import net.minecraft.item.ItemStack;
 
