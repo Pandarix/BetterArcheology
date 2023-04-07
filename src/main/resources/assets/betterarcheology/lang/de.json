@@ -28,5 +28,7 @@
   "enchantment.betterarcheology.penetrating_strike": "Durchdringender Hieb",
   "item.betterarcheology.penetrating_strike_tooltip": "Ignoriert die Effekte von Schutz-Verzauberungen teilweise",
   "enchantment.betterarcheology.seas_bounty": "Reichtum des Meeres",
-  "enchantment.betterarcheology.seas_bounty_tooltip": "Ermöglicht das Fangen eines größeren Spektrums von Schätzen"
+  "item.betterarcheology.seas_bounty_tooltip": "Ermöglicht das Fangen eines größeren Spektrums von Schätzen",
+  "enchantment.betterarcheology.soaring_winds": "Aufwinde",
+  "item.betterarcheology.soaring_winds_tooltip": "Bändigt den Wind, um beim Starten mit Elytren einen Start-Boost zu geben"
 }

@@ -3,6 +3,7 @@ package net.Pandarix.betterarcheology.mixin;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
+import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
@@ -30,7 +31,7 @@ public abstract class SeasBountyEnchantmentMixin {
     //INJECTED CODE-------------------------------------------------------------------------//
     private void injectMethod(ItemStack usedItem, CallbackInfoReturnable<Integer> cir, PlayerEntity playerEntity, int i, LootContext.Builder builder, LootTable lootTable, List list) {
         //if there are no enchantments, we can save ourselves the more complex check
-        if (usedItem.hasEnchantments()) {
+        if (ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED && usedItem.hasEnchantments()) {
             //if the used Item has the SeasBounty Enchantment at Level 1
             if (EnchantmentHelper.getLevel(ModEnchantments.SEAS_BOUNTY, usedItem) == 1) {
                 list = builder.getWorld().getServer().getLootManager().getTable(enchantedLootTable).generateLoot(builder.build(LootContextTypes.FISHING));

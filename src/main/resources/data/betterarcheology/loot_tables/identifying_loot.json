@@ -58,6 +58,34 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "betterarcheology:soaring_winds": 1
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "translate": "item.betterarcheology.soaring_winds_tooltip",
+                  "color": "dark_gray"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "item.betterarcheology.identified_artifact"
+              }
+            }
+          ]
         }
       ]
     }
