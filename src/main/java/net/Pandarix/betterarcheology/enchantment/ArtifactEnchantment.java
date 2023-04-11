@@ -5,7 +5,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
 public class ArtifactEnchantment extends Enchantment {
-    protected ArtifactEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slotTypes) {
+    protected ArtifactEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot... slotTypes) {
         super(weight, target, slotTypes);
     }
 

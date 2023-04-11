@@ -30,5 +30,7 @@
   "enchantment.betterarcheology.seas_bounty": "Sea's Bounty",
   "item.betterarcheology.seas_bounty_tooltip": "Catch a wider variety of treasures from the depths",
   "enchantment.betterarcheology.soaring_winds": "Soaring Winds",
-  "item.betterarcheology.soaring_winds_tooltip": "Harnesses winds to give a startup-boost when using an Elytra"
+  "item.betterarcheology.soaring_winds_tooltip": "Harnesses winds to give a startup-boost when using an Elytra",
+  "enchantment.betterarcheology.tunneling": "Tunneling",
+  "item.betterarcheology.tunneling_tooltip": "Also breaks the Block below the mined block"
 }

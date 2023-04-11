@@ -18,6 +18,8 @@ public class ModEnchantments {
     public static Enchantment PENETRATING_STRIKE = register("penetrating_strike", new PenetratingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.MAINHAND));
     public static Enchantment SEAS_BOUNTY = register("seas_bounty", new SeasBountyEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.FISHING_ROD, EquipmentSlot.MAINHAND));
     public static Enchantment SOARING_WINDS = register("soaring_winds", new SoaringWindsEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.ARMOR_CHEST, EquipmentSlot.MAINHAND));
+    public static Enchantment TUNNELING = register("tunneling", new TunnelingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND) {
+    });
 
     private static Enchantment register(String name, Enchantment enchantment) {
         registerEnchantedBookWith(enchantment);

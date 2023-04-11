@@ -5,12 +5,9 @@ import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,10 +24,10 @@ public abstract class ElytraStartupMixin {
             if(EnchantmentHelper.getLevel(ModEnchantments.SOARING_WINDS, this.getEquippedStack(EquipmentSlot.CHEST)) == 1){
 
                 PlayerEntity player = (PlayerEntity) (Object) this;
-
+                float boost = ModConfigs.SOARING_WINDS_BOOST * 0.5f;
                 Vec3d vec3d = player.getRotationVector();
                 Vec3d vec3d2 = player.getVelocity();
-                player.setVelocity(vec3d2.add(vec3d.x * 0.1 + (vec3d.x * 1.5 - vec3d2.x) * 0.5, vec3d.y * 0.1 + (vec3d.y * 1.5 - vec3d2.y) * 0.5, vec3d.z * 0.1 + (vec3d.z * 1.5 - vec3d2.z) * 0.5));
+                player.setVelocity(vec3d2.add(vec3d.x * 0.1 + (vec3d.x * 1.5 - vec3d2.x) * boost, vec3d.y * 0.1 + (vec3d.y * 1.5 - vec3d2.y) * boost, vec3d.z * 0.1 + (vec3d.z * 1.5 - vec3d2.z) * boost));
 
                 BetterArcheology.LOGGER.info("Enchantment is on Elytra");
             }

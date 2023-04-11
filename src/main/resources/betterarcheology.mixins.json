@@ -6,7 +6,8 @@
   "mixins": [
     "CustomSusSandCompatibilityMixin",
     "ElytraStartupMixin",
-    "SeasBountyEnchantmentMixin"
+    "SeasBountyEnchantmentMixin",
+    "TunnelingEnchantmentMixin"
   ],
   "client": [
     "BetterArcheologyMixin"
