@@ -3,6 +3,7 @@ package net.Pandarix.betterarcheology.block.entity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import joptsimple.util.KeyValuePair;
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.BrushItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,6 +37,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -212,11 +215,27 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         return hasShardInFirstSlot && hasBrushInSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
     }
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {               //defines canInsertItemIntoOutputSlot
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        //only extract on the bottom
+        return side == Direction.DOWN && slot == 2;
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        //no insertion into the output slot
+        if (side == Direction.DOWN) {return false;}
+        //if the top is targeted and the item is a Brush, insert
+        if (side == Direction.UP) {return slot == 0 && stack.getItem() instanceof BrushItem;}
+        //for the sides: if it is an unidentified artifact
+        return slot == 1 && stack.isOf(ModItems.UNIDENTIFIED_ARTIFACT);
+    }
+
+    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
         return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {                           //defines canInsertAmountIntoOutputSlot
+    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
 }
