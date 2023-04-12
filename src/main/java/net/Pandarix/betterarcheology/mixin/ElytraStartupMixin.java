@@ -27,7 +27,7 @@ public abstract class ElytraStartupMixin {
                 float boost = ModConfigs.SOARING_WINDS_BOOST * 0.5f;
                 Vec3d vec3d = player.getRotationVector();
                 Vec3d vec3d2 = player.getVelocity();
-                player.setVelocity(vec3d2.add(vec3d.x * 0.1 + (vec3d.x * 1.5 - vec3d2.x) * boost, vec3d.y * 0.1 + (vec3d.y * 1.5 - vec3d2.y) * boost, vec3d.z * 0.1 + (vec3d.z * 1.5 - vec3d2.z) * boost));
+                player.setVelocity(vec3d2.add(vec3d.x * 0.1 + (vec3d.x * 1.5 - vec3d2.x) * boost, vec3d.y * 0.1 + (vec3d.y * 1.5 - vec3d2.y) * boost/2, vec3d.z * 0.1 + (vec3d.z * 1.5 - vec3d2.z) * boost));
 
                 BetterArcheology.LOGGER.info("Enchantment is on Elytra");
             }

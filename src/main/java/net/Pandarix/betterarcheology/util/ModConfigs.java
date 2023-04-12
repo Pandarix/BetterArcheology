@@ -22,7 +22,7 @@ public class ModConfigs {
     private static void createConfigs() {
         configs.addKeyValuePair(new Pair<>("artifact.enchantments.enabled", true), "Set to true or false to enable or disable effects");
         configs.addKeyValuePair(new Pair<>("penetrating.strike.protection.ignorance", 0.33f), "Set to % of damage-reduction from Protection Enchantments that should be ignored, keep in range of 0-1.00");
-        configs.addKeyValuePair(new Pair<>("soaring.winds.boost", 0.3f), "Set to movement speed multiplier, that should be applied when starting to fly");
+        configs.addKeyValuePair(new Pair<>("soaring.winds.boost", 0.5f), "Set to movement speed multiplier, that should be applied when starting to fly");
     }
 
     private static void assignConfigs() {
