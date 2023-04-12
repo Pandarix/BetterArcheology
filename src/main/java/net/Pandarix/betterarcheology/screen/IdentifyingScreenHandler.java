@@ -73,9 +73,11 @@ public class IdentifyingScreenHandler extends ScreenHandler {
             //BRUSHES
             if (originalStack.getItem() instanceof BrushItem) {
                 if (isInInv(invSlot)) {
-                    if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                    //inventory -> slots
+                    if (!this.insertItem(originalStack, 0, this.slots.size(), true)) {
                         return ItemStack.EMPTY;
                     }
+                    //slots -> inventory
                 } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                     return ItemStack.EMPTY;
                 }
@@ -84,9 +86,11 @@ public class IdentifyingScreenHandler extends ScreenHandler {
             //ARTIFACTS
             if (originalStack.isOf(ModItems.UNIDENTIFIED_ARTIFACT)) {
                 if (isInInv(invSlot)) {
-                    if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                    //inventory -> slots
+                    if (!this.insertItem(originalStack, 1, this.slots.size(), true)) {
                         return ItemStack.EMPTY;
                     }
+                    //slots -> inventory
                 } else if (!this.insertItem(originalStack, 1, this.inventory.size(), false)) {
                     return ItemStack.EMPTY;
                 }
@@ -97,15 +101,15 @@ public class IdentifyingScreenHandler extends ScreenHandler {
                     return ItemStack.EMPTY;
                 }
             } else {
+                slot.markDirty();
                 return ItemStack.EMPTY;
             }
 
             //If the to-be-moved-Itemstack is empty, replace the ItemStack with "Empty-Item"
             if (originalStack.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
-            } else {
-                slot.markDirty();
             }
+            slot.markDirty();
         }
 
         return newStack;

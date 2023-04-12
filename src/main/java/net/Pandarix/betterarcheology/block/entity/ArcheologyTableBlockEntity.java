@@ -6,9 +6,13 @@ import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItems;
+import net.Pandarix.betterarcheology.networking.ModMessages;
 import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,9 +30,11 @@ import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -69,24 +75,17 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             public int get(int index) {
-                switch (index) {
-                    case 0:
-                        return ArcheologyTableBlockEntity.this.progress;
-                    case 1:
-                        return ArcheologyTableBlockEntity.this.maxProgress;
-                    default:
-                        return 0;
-                }
+                return switch (index) {
+                    case 0 -> ArcheologyTableBlockEntity.this.progress;
+                    case 1 -> ArcheologyTableBlockEntity.this.maxProgress;
+                    default -> 0;
+                };
             }
 
             public void set(int index, int value) {
                 switch (index) {
-                    case 0:
-                        ArcheologyTableBlockEntity.this.progress = value;
-                        break;
-                    case 1:
-                        ArcheologyTableBlockEntity.this.maxProgress = value;
-                        break;
+                    case 0 -> ArcheologyTableBlockEntity.this.progress = value;
+                    case 1 -> ArcheologyTableBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -143,7 +142,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             entity.progress++;
             markDirty(world, blockPos, blockState);
             if (entity.progress >= entity.maxProgress) {              //if crafting progress is bigger or as big as the maxProgress, then craft the Item, else reset the timer
-                craftItem(entity);
+                entity.craftItem();
             }
         } else {
             world.setBlockState(blockPos, blockState.with(DUSTING, false));
@@ -152,36 +151,37 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         }
     }
 
-    private static void craftItem(ArcheologyTableBlockEntity entity) {
-        SimpleInventory inventory = new SimpleInventory(entity.size());
-        for (int i = 0; i < entity.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
+    private void craftItem() {
+        SimpleInventory inventory = new SimpleInventory(this.size());
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i, this.getStack(i));
         }
 
-        if (hasRecipe(entity) && entity.getStack(2).isEmpty()) {
-            entity.removeStack(1, 1);
-            ItemStack brush = entity.getStack(0);
+        if (hasRecipe(this) && this.getStack(2).isEmpty()) {
+            this.removeStack(1, 1);
+            ItemStack brush = this.getStack(0);
 
             int newDamage = brush.getDamage() + 1;//calculate new Damage Value the item would have
             //if the item is supposed to break or the durability is smaller than zero
             if (newDamage > brush.getMaxDamage()) {
-                entity.removeStack(0, 1);   //remove the Item
-                assert entity.world != null;
-                if (!entity.world.isClient()) {
+                this.removeStack(0, 1);   //remove the Item
+                assert this.world != null;
+                if (!this.world.isClient()) {
                     //play break sound
-                    entity.world.playSound(null, entity.pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.BLOCKS, 0.25f, 1f);
+                    this.world.playSound(null, this.pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.BLOCKS, 0.25f, 1f);
                 }
             } else {
                 //if not, set the damage to the calculated damage above
                 brush.setDamage(newDamage);    //TODO: Balance Damage taken
             }
 
-            if (!entity.world.isClient()) {
+            if (!this.world.isClient()) {
                 //play sound after crafting
-                entity.world.playSound(null, entity.pos, SoundEvents.ITEM_BRUSH_BRUSH_SAND_COMPLETED, SoundCategory.BLOCKS, 0.5f, 1f);
+                this.world.playSound(null, this.pos, SoundEvents.ITEM_BRUSH_BRUSH_SAND_COMPLETED, SoundCategory.BLOCKS, 0.5f, 1f);
             }
-            entity.setStack(2, generateCraftingLoot(entity, entity.world));    //set crafted output in the output slot, TODO: Replace Output
-            entity.resetProgress(); //resets crafting progress
+            this.setStack(2, generateCraftingLoot(this, this.world));    //set crafted output in the output slot, TODO: Replace Output
+            this.resetProgress(); //resets crafting progress
+            this.markDirty();
         }
 
     }
@@ -237,5 +237,34 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
+    }
+
+    public List<ItemStack> getInventoryContents() {
+        return Arrays.asList(this.getStack(0),this.getStack(1),this.getStack(2));
+    }
+
+    public void setInventory(DefaultedList<ItemStack> inventory) {
+        for (int i = 0; i < inventory.size(); i++) {
+            this.inventory.set(i, inventory.get(i));
+        }
+    }
+
+    @Override
+    public void markDirty() {
+        assert world != null;
+        if(!world.isClient()) {
+            PacketByteBuf data = PacketByteBufs.create();
+            data.writeInt(inventory.size());
+            for (ItemStack itemStack : inventory) {
+                data.writeItemStack(itemStack);
+            }
+            data.writeBlockPos(getPos());
+
+            for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
+                ServerPlayNetworking.send(player, ModMessages.ITEM_SYNC, data);
+            }
+        }
+
+        super.markDirty();
     }
 }
