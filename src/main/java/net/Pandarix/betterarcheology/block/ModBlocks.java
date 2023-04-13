@@ -17,6 +17,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -29,9 +30,9 @@ public class ModBlocks {
      */
 
     //-----------SUS VARIANTS-------------//
-    public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new BrushableBlock(Blocks.GRAVEL, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-------------FOSSILS---------------//
     public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);

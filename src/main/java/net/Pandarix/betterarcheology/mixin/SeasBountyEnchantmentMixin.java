@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.mixin;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.util.ModConfigs;
@@ -15,7 +14,6 @@ import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -34,7 +32,7 @@ public abstract class SeasBountyEnchantmentMixin {
         if (ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED && usedItem.hasEnchantments()) {
             //if the used Item has the SeasBounty Enchantment at Level 1
             if (EnchantmentHelper.getLevel(ModEnchantments.SEAS_BOUNTY, usedItem) == 1) {
-                list = builder.getWorld().getServer().getLootManager().getTable(enchantedLootTable).generateLoot(builder.build(LootContextTypes.FISHING));
+                list = builder.getWorld().getServer().getLootManager().getLootTable(enchantedLootTable).generateLoot(builder.build(LootContextTypes.FISHING));
             }
         }
     }

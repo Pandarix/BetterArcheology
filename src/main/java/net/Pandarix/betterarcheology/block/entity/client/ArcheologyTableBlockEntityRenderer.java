@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.block.entity.client;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;

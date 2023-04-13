@@ -25,10 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 public class VillagerFossilBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private static final Identifier identifier = new Identifier(BetterArcheology.MOD_ID, "villager_fossil_block_entity");
-
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
-
     public VillagerFossilBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.VILLAGER_FOSSIL, pos, state);
     }

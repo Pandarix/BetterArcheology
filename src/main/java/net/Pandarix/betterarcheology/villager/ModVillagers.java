@@ -41,7 +41,7 @@ public class ModVillagers {
     public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
         return Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(BetterArcheology.MOD_ID, name),
                 VillagerProfessionBuilder.create(). id(new Identifier(BetterArcheology.MOD_ID, name)).workstation(type)
-                        .workSound(SoundEvents.ITEM_BRUSH_BRUSHING).build());                                            //TODO: Sound change later?
+                        .workSound(SoundEvents.ITEM_BRUSH_BRUSHING_SAND).build());                                            //TODO: Sound change later?
     }
     public static PointOfInterestType registerPOI(String name, Block block) {
         return PointOfInterestHelper.register(new Identifier(BetterArcheology.MOD_ID, name),
