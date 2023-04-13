@@ -1,25 +1,11 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
-import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
-import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -28,11 +14,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class VillagerFossilBlock extends BlockWithEntity implements BlockEntityProvider {
+public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     private static final Map<Direction, VoxelShape> VILLAGER_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -62,27 +47,12 @@ public class VillagerFossilBlock extends BlockWithEntity implements BlockEntityP
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof ArcheologyTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, (ArcheologyTableBlockEntity) blockEntity);
+            if (blockEntity instanceof VillagerFossilBlockEntity) {
+                ItemScatterer.spawn(world, pos, (VillagerFossilBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
         }
         super.onStateReplaced(state, world, pos, newState, moved);
-    }
-
-    //Creates the Screen-Handler belonging to the BlockEntity//
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory handledScreen = state.createScreenHandlerFactory(world, pos);
-
-            if (handledScreen != null) {
-                player.openHandledScreen(handledScreen);
-            }
-        }
-
-        return ActionResult.SUCCESS;
-
     }
 
     @Nullable
@@ -91,28 +61,7 @@ public class VillagerFossilBlock extends BlockWithEntity implements BlockEntityP
         return new VillagerFossilBlockEntity(pos, state);
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip"));
-        super.appendTooltip(stack, world, tooltip, options);
-    }
-
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return VILLAGER_SHAPES_FOR_DIRECTION.get(state.get(FACING));
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
     }
 }
