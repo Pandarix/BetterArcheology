@@ -1,0 +1,26 @@
+{
+  "itemGroup.betterarcheology": "Better Archeology",
+
+  "block.betterarcheology.rotten_log": "Verrotteter Stamm",
+  "block.betterarcheology.rotten_planks": "Verrottete Bretter",
+  "block.betterarcheology.rotten_slab": "Verrottete Stufen",
+  "block.betterarcheology.rotten_stairs": "Verrottete Treppen",
+  "block.betterarcheology.rotten_fence": "Verrotteter Zaun",
+  "block.betterarcheology.rotten_fence_gate": "Verrottetes Zauntor",
+  "block.betterarcheology.rotten_trapdoor": "Verrottete Falltür",
+  "block.betterarcheology.rotten_door": "Verrottete Tür",
+  "block.betterarcheology.infested_mud_bricks": "Verseuchte Schlammziegel",
+  "block.betterarcheology.cracked_mud_bricks": "Rissige Schlammziegel",
+  "block.betterarcheology.cracked_mud_brick_slab": "Rissige Schlammziegelstufe",
+  "block.betterarcheology.cracked_mud_brick_stairs": "Rissige Schlammziegeltreppe",
+  "block.betterarcheology.suspicious_red_sand": "Seltsamer Roter Sand",
+  "block.betterarcheology.suspicious_dirt": "Seltsame Erde",
+
+  "item.betterarcheology.iron_brush": "Eisener Pinsel",
+  "item.betterarcheology.diamond_brush": "Diamantener Pinsel",
+  "block.betterarcheology.archeology_table": "Tisch der Archäologie",
+  "item.betterarcheology.artifact_shards": "Artefaktscherben",
+  "item.betterarcheology.unidentified_artifact": "Unidentifiziertes Artefakt",
+
+  "entity.minecraft.villager.archeologist": "Archäologe"
+}
