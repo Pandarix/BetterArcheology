@@ -3,6 +3,7 @@ package net.Pandarix.betterarcheology.block;
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
 import net.Pandarix.betterarcheology.block.custom.InfestedMudBricks;
+import net.Pandarix.betterarcheology.block.custom.VillagerFossilBlock;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -15,7 +16,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
@@ -32,6 +32,9 @@ public class ModBlocks {
     public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new SuspiciousSandBlock(FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    //-------------FOSSILS---------------//
+    public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");

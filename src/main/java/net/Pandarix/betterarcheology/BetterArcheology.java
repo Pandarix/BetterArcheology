@@ -5,6 +5,7 @@ import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
+import net.Pandarix.betterarcheology.networking.ModMessages;
 import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
 import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.Pandarix.betterarcheology.util.ModLootTableModifiers;
@@ -29,14 +30,19 @@ public class BetterArcheology implements ModInitializer {
 		LOGGER.info("Better Archeology says Hello");	//info message
 
 		ModConfigs.registerConfigs();
+
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
+
 		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
 		ModScreenHandlers.registerAllScreenHandlers(); //registers all Screen-Handlers
+
 		ModVillagers.registerVillagers(); //registers all Villagers from BetterArcheology
 		ModVillagers.registerTrades(); //registers all Villager Trades
+
 		ModLootTableModifiers.modifyLootTables();	//TODO: enable when 1.20 loottables are active
+		ModMessages.registerC2SPackets();
 		ModEnchantments.registerModEnchantments();
 	}
 }

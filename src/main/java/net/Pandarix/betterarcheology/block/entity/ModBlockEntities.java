@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.entity;
 
+
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.suspicious_blocks.SuspiciousDirtBlockEntity;
@@ -12,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
+    public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
     public static BlockEntityType<SuspiciousDirtBlockEntity> SUSPICIOUS_DIRT;
     public static BlockEntityType<SuspiciousRedSandBlockEntity> SUSPICIOUS_RED_SAND;
 
@@ -20,6 +22,11 @@ public class ModBlockEntities {
                 new Identifier(BetterArcheology.MOD_ID, "archeology_table"),
                 FabricBlockEntityTypeBuilder.create(ArcheologyTableBlockEntity::new,
                         ModBlocks.ARCHEOLOGY_TABLE).build(null));
+
+        VILLAGER_FOSSIL = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "villager_fossil"),
+                FabricBlockEntityTypeBuilder.create(VillagerFossilBlockEntity::new,
+                        ModBlocks.VILLAGER_FOSSIL).build(null));
 
         SUSPICIOUS_DIRT = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "suspicious_dirt"),

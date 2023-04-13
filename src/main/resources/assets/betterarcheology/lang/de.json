@@ -15,6 +15,8 @@
   "block.betterarcheology.cracked_mud_brick_stairs": "Rissige Schlammziegeltreppe",
   "block.betterarcheology.suspicious_red_sand": "Seltsamer Roter Sand",
   "block.betterarcheology.suspicious_dirt": "Seltsame Erde",
+  "block.betterarcheology.villager_fossil": "Dorfbewohner Fossil",
+  "block.betterarcheology.villager_fossil_tooltip": "Hmmmm",
 
   "item.betterarcheology.iron_brush": "Eisener Pinsel",
   "item.betterarcheology.diamond_brush": "Diamantener Pinsel",
@@ -32,5 +34,5 @@
   "enchantment.betterarcheology.soaring_winds": "Aufwinde",
   "item.betterarcheology.soaring_winds_tooltip": "Bändigt den Wind, um beim Starten mit Elytren einen Start-Boost zu geben",
   "enchantment.betterarcheology.tunneling": "Tunnelbau",
-  "item.betterarcheology.tunneling_tooltip": "Baut auch den Block unterhalb des abgebauten Blocks ab"
+  "item.betterarcheology.tunneling_tooltip": "Baut auch den Block unterhalb des abgebauten Blocks ab",
 }
