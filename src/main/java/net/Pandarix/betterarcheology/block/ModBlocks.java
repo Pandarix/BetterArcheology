@@ -2,6 +2,7 @@ package net.Pandarix.betterarcheology.block;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
+import net.Pandarix.betterarcheology.block.custom.FossiliferousBlock;
 import net.Pandarix.betterarcheology.block.custom.InfestedMudBricks;
 import net.Pandarix.betterarcheology.block.custom.VillagerFossilBlock;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
@@ -33,6 +34,10 @@ public class ModBlocks {
     public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand",new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new BrushableBlock(Blocks.GRAVEL, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
+    //---------FOSSILIFEROUS BLOCKS-----------//
+    public static final Block FOSSILIFEROUS_DIRT = registerBlock("fossiliferous_dirt",new FossiliferousBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.DIRT), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK),
+            ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-------------FOSSILS---------------//
     public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);

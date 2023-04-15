@@ -6,10 +6,12 @@
   "mixins": [
     "ElytraStartupMixin",
     "SeasBountyEnchantmentMixin",
+    "ShovelDiggingMixin",
     "TunnelingEnchantmentMixin"
   ],
   "client": [
-    "BetterArcheologyMixin"
+    "BetterArcheologyMixin",
+    "ShovelDigAnimationMixin"
   ],
   "server": [
   ],

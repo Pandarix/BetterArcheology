@@ -17,8 +17,8 @@
   "block.betterarcheology.suspicious_dirt": "Suspicious Dirt",
   "block.betterarcheology.villager_fossil": "Villager Fossil",
   "block.betterarcheology.villager_fossil_tooltip": "Hmmmm",
-
-
+  "block.betterarcheology.fossiliferous_dirt": "Fossiliferous Dirt",
+  "block.betterarcheology.fossiliferous_dirt_tooltip": "Maybe it can be uncovered with a shovel?",
 
   "item.betterarcheology.iron_brush": "Iron Brush",
   "item.betterarcheology.diamond_brush": "Diamond Brush",
