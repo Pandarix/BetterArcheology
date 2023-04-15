@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
@@ -63,5 +64,10 @@ public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements Bl
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return VILLAGER_SHAPES_FOR_DIRECTION.get(state.get(FACING));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
     }
 }

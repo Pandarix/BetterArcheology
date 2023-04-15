@@ -1,10 +1,7 @@
 package net.Pandarix.betterarcheology.block;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
-import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
-import net.Pandarix.betterarcheology.block.custom.FossiliferousBlock;
-import net.Pandarix.betterarcheology.block.custom.InfestedMudBricks;
-import net.Pandarix.betterarcheology.block.custom.VillagerFossilBlock;
+import net.Pandarix.betterarcheology.block.custom.*;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -40,6 +37,8 @@ public class ModBlocks {
             ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-------------FOSSILS---------------//
+    public static final Block VILLAGER_FOSSIL_HEAD = registerBlock("villager_fossil_head",new FossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
     public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-----------ROTTEN WOOD-------------//
