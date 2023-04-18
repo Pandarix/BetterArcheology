@@ -1,11 +1,12 @@
 package net.Pandarix.betterarcheology.block.entity;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.block.custom.VillagerFossilBlock;
 import net.Pandarix.betterarcheology.networking.ModMessages;
 import net.Pandarix.betterarcheology.screen.FossilInventoryScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +20,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
@@ -53,6 +53,13 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
         return Text.translatable(getCachedState().getBlock().getTranslationKey());
     }
 
+    @Override
+    public void onClose(PlayerEntity player) {
+        ImplementedInventory.super.onClose(player);
+        int luminance = Block.getBlockFromItem(this.getInventoryContents().getItem()).getDefaultState().getLuminance();
+        player.getWorld().setBlockState(this.getPos(), world.getBlockState(this.getPos()).with(VillagerFossilBlock.INVENTORY_LUMINANCE, luminance));
+    }
+
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player){
@@ -83,6 +90,9 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
             for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
                 ServerPlayNetworking.send(player, ModMessages.ITEM_SYNC, data);
             }
+
+            int luminance = Block.getBlockFromItem(this.getInventoryContents().getItem()).getDefaultState().getLuminance();
+            world.setBlockState(this.getPos(), getCachedState().with(VillagerFossilBlock.INVENTORY_LUMINANCE, luminance));
         }
 
         super.markDirty();

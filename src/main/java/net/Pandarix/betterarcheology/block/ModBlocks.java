@@ -17,6 +17,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class ModBlocks {
     //ITEM ENTRIES-------------------------------------------------------------------------//
@@ -37,9 +38,15 @@ public class ModBlocks {
             ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //-------------FOSSILS---------------//
-    public static final Block VILLAGER_FOSSIL_HEAD = registerBlock("villager_fossil_head",new FossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    //Villager
+    public static final Block VILLAGER_FOSSIL = registerBlockWithRarity("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) ->{
+        return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
+    })), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
-    public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block VILLAGER_FOSSIL_HEAD = registerBlockWithRarity("villager_fossil_head",new FossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block VILLAGER_FOSSIL_BODY = registerBlockWithRarity("villager_fossil_body",new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
 
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
@@ -75,13 +82,18 @@ public class ModBlocks {
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
     private static Block registerBlock(String name, Block block, ItemGroup group){
-        registerBlockItem(name, block, group);
+        registerBlockItem(name, block, group, Rarity.COMMON);
+        return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithRarity(String name, Block block, ItemGroup group, Rarity rarity){
+        registerBlockItem(name, block, group, rarity);
         return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
     }
 
     //Registers given Block as an BlockItem and adds it to an ItemGroup
-    private static Item registerBlockItem(String name, Block block, ItemGroup group){
-        Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+    private static Item registerBlockItem(String name, Block block, ItemGroup group, Rarity rarity){
+        Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;

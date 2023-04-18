@@ -1,25 +1,40 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
+import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
+import net.Pandarix.betterarcheology.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.service.modlauncher.ModLauncherAuditTrail;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
 public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    public static final IntProperty INVENTORY_LUMINANCE = IntProperty.of("inventory_luminance", 0, 15);
     private static final Map<Direction, VoxelShape> VILLAGER_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(4.75, 0, 9, 11, 10, 12),
@@ -40,7 +55,7 @@ public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements Bl
 
     public VillagerFossilBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(INVENTORY_LUMINANCE, 0));
     }
 
     //Drops Items present in the table at the time of destruction//
@@ -69,5 +84,6 @@ public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements Bl
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
+        builder.add(INVENTORY_LUMINANCE);
     }
 }

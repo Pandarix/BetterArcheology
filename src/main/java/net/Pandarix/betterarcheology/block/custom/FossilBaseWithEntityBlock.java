@@ -36,7 +36,7 @@ public class FossilBaseWithEntityBlock extends BlockWithEntity {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.DARK_GRAY));
+        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, options);
     }
 

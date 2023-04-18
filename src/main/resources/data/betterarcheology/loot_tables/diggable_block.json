@@ -6,7 +6,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:villager_fossil"
+          "name": "betterarcheology:villager_fossil_head"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "betterarcheology:villager_fossil_body"
         }
       ],
       "rolls": 1.0
