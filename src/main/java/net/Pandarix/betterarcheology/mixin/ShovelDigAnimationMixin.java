@@ -42,10 +42,6 @@ public abstract class ShovelDigAnimationMixin {
 
         float n = MathHelper.sin(this.client.player.getItemUseTimeLeft() / 5F * (float) Math.PI) * 45 + 45;
 
-        BetterArcheology.LOGGER.info("useTimeLeft: " + this.client.player.getItemUseTimeLeft());
-        BetterArcheology.LOGGER.info("tickDelta: " + tickDelta);
-        BetterArcheology.LOGGER.info("Rotation: " + n);
-
         if (arm != Arm.RIGHT) {
             //matrices.translate(0.1, 0.83, 0.35);
             matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-145.0F));

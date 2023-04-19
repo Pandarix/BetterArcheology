@@ -33,7 +33,7 @@
   "item.betterarcheology.unidentified_artifact": "Unidentified Artifact",
   "item.betterarcheology.identified_artifact": "Identified Artifact",
 
-  "entity.betterarcheology.villager.archeologist": "Archeologist",
+  "entity.minecraft.villager.archeologist": "Archeologist",
 
   "enchantment.betterarcheology.penetrating_strike": "Penetrating Strike",
   "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments",
