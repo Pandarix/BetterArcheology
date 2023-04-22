@@ -47,6 +47,7 @@ public class ModBlocks {
 
     public static final Block VILLAGER_FOSSIL_BODY = registerBlockWithRarity("villager_fossil_body",new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
+    public static final Block OCELOT_FOSSIL = registerBlockWithRarity("ocelot_fossil",new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
