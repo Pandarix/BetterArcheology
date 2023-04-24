@@ -25,6 +25,8 @@
   "block.betterarcheology.villager_fossil_body": "Dorfbewohner-Fossil Körper",
   "block.betterarcheology.villager_fossil_body_tooltip": "Sieht nicht so aus, als hätten sie sich viel entwickelt...",
   "block.betterarcheology.villager_fossil_body_count": " [2/2]",
+  "block.betterarcheology.ocelot_fossil": "Ozelot-Fossil",
+  "block.betterarcheology.ocelot_fossil_tooltip": "Mreow",
 
   "item.betterarcheology.iron_brush": "Eisener Pinsel",
   "item.betterarcheology.diamond_brush": "Diamantener Pinsel",

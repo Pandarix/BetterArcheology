@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "betterarcheology:block/fossils/villager_fossil",
-		"particle": "minecraft:item/bone"
+		"particle": "item/bone"
 	},
 	"elements": [
 		{
@@ -85,7 +85,8 @@
 			"scale": [0.5, 0.5, 0.5]
 		},
 		"ground": {
-			"translation": [0, 4, 0]
+			"translation": [0, 4, 0],
+			"scale": [0.5, 0.5, 0.5]
 		},
 		"gui": {
 			"rotation": [11, -132, 0],

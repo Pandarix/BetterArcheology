@@ -6,11 +6,11 @@
         "y": 90
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_1",
         "y": 90
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_2",
         "y": 90
       }
     ],
@@ -19,10 +19,10 @@
         "model": "betterarcheology:block/fossils/ocelot_fossil_0"
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0"
+        "model": "betterarcheology:block/fossils/ocelot_fossil_1"
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0"
+        "model": "betterarcheology:block/fossils/ocelot_fossil_2"
       }
     ],
     "facing=south": [
@@ -31,11 +31,11 @@
         "y": 180
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_1",
         "y": 180
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_2",
         "y": 180
       }
     ],
@@ -45,11 +45,11 @@
         "y": 270
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_1",
         "y": 270
       },
       {
-        "model": "betterarcheology:block/fossils/ocelot_fossil_0",
+        "model": "betterarcheology:block/fossils/ocelot_fossil_2",
         "y": 270
       }
     ]
