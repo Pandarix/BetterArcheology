@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:cracked_mud_bricks"
+              "betterarcheology:ocelot_fossil_head"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:cracked_mud_brick_slabs"
+        "recipe": "betterarcheology:ocelot_fossil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,8 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:cracked_mud_brick_slabs",
-      "betterarcheology:cracked_mud_brick_slabs_stonecutting"
+      "betterarcheology:ocelot_fossil"
     ]
   }
 }

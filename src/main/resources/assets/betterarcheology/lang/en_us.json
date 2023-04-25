@@ -27,6 +27,12 @@
   "block.betterarcheology.villager_fossil_body_count": " [2/2]",
   "block.betterarcheology.ocelot_fossil": "Ocelot-Fossil",
   "block.betterarcheology.ocelot_fossil_tooltip": "Mreow",
+  "block.betterarcheology.ocelot_fossil_head": "Ocelot-Fossil Skull",
+  "block.betterarcheology.ocelot_fossil_head_tooltip": "They don't seem to have evolved a lot...",
+  "block.betterarcheology.ocelot_fossil_head_count": " [1/2]",
+  "block.betterarcheology.ocelot_fossil_body": "Ocelot-Fossil Body",
+  "block.betterarcheology.ocelot_fossil_body_tooltip": "They don't seem to have evolved a lot...",
+  "block.betterarcheology.ocelot_fossil_body_count": " [2/2]",
 
   "item.betterarcheology.iron_brush": "Iron Brush",
   "item.betterarcheology.diamond_brush": "Diamond Brush",
