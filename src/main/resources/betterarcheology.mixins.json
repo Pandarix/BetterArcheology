@@ -4,6 +4,7 @@
   "package": "net.Pandarix.betterarcheology.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AddCreeperGoalsMixin",
     "ElytraStartupMixin",
     "SeasBountyEnchantmentMixin",
     "ShovelDiggingMixin",

@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
     public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
+    public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
     public static BlockEntityType<SuspiciousDirtBlockEntity> SUSPICIOUS_DIRT;
     public static BlockEntityType<SuspiciousRedSandBlockEntity> SUSPICIOUS_RED_SAND;
 
@@ -45,5 +46,10 @@ public class ModBlockEntities {
                 new Identifier(BetterArcheology.MOD_ID, "diggable_block"),
                 FabricBlockEntityTypeBuilder.create(DiggableBlockEntity::new,
                         ModBlocks.FOSSILIFEROUS_DIRT).build(null));
+
+        FLEE_FROM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "flee_from"),
+                FabricBlockEntityTypeBuilder.create(FleeFromBlockEntity::new,
+                        ModBlocks.OCELOT_FOSSIL).build(null));
     }
 }

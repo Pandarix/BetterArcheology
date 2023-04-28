@@ -13,6 +13,7 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelSet;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -21,17 +22,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class FossilHeadBlock extends HorizontalFacingBlock {
-    private static VoxelShape SHAPE;
     public static DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
-    public FossilHeadBlock(Settings settings, VoxelShape shape) {
+    public FossilHeadBlock(Settings settings) {
         super(settings);
-        SHAPE = shape;
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return VoxelShapes.empty();
     }
 
     @Override

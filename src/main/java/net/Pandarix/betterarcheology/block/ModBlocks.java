@@ -18,6 +18,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.shape.VoxelShape;
 
 public class ModBlocks {
     //ITEM ENTRIES-------------------------------------------------------------------------//
@@ -43,13 +44,14 @@ public class ModBlocks {
         return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
     })), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
-    public static final Block VILLAGER_FOSSIL_HEAD = registerBlockWithRarity("villager_fossil_head",new FossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE),  Block.createCuboidShape(4, 0, 4, 12, 10, 12)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+    public static final Block VILLAGER_FOSSIL_HEAD = registerBlockWithRarity("villager_fossil_head",new VillagerFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     public static final Block VILLAGER_FOSSIL_BODY = registerBlockWithRarity("villager_fossil_body",new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
+    //Ocelot
     public static final Block OCELOT_FOSSIL = registerBlockWithRarity("ocelot_fossil",new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
-    public static final Block OCELOT_FOSSIL_HEAD = registerBlockWithRarity("ocelot_fossil_head",new FossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE), Block.createCuboidShape(4, 0, 4, 12, 4, 12)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+    public static final Block OCELOT_FOSSIL_HEAD = registerBlockWithRarity("ocelot_fossil_head",new OcelotFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     public static final Block OCELOT_FOSSIL_BODY = registerBlockWithRarity("ocelot_fossil_body",new OcelotFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 

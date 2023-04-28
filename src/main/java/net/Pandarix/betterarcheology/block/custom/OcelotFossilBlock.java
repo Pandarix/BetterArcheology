@@ -1,19 +1,24 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
+import net.Pandarix.betterarcheology.block.entity.FleeFromBlockEntity;
+import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
+import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class OcelotFossilBlock extends FossilBaseBlock {
+public class OcelotFossilBlock extends FossilBaseWithEntityBlock {
     private static final Map<Direction, VoxelShape> OCELOT_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(5.5, 0, 0, 11.5, 9.5, 17.75),
@@ -30,6 +35,12 @@ public class OcelotFossilBlock extends FossilBaseBlock {
 
     public OcelotFossilBlock(Settings settings) {
         super(settings);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new FleeFromBlockEntity(pos, state);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
