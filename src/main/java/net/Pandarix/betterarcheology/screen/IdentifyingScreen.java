@@ -2,6 +2,8 @@ package net.Pandarix.betterarcheology.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -29,28 +31,28 @@ public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
     }
 
     @Override
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionColorTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
-        renderProgressArrow(matrices, x, y);
+        renderProgressArrow(context, x, y);
     }
 
     //renders the Progress-Arrow
-    private void renderProgressArrow(MatrixStack matrices, int x, int y) {
+    private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCrafting()) {                                                                                      //TODO: Fix coordinates
-            drawTexture(matrices, x + 51, y + 48, 176, 0, handler.getScaledProgress(), 17);
+            context.drawTexture(TEXTURE, x + 51, y + 48, 176, 0, handler.getScaledProgress(), 17);
         }
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
-        super.render(matrices, mouseX, mouseY, delta);
-        drawMouseoverTooltip(matrices, mouseX, mouseY);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        renderBackground(context);
+        super.render(context, mouseX, mouseY, delta);
+        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

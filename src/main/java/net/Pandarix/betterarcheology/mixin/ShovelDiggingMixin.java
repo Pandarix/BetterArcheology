@@ -79,8 +79,7 @@ public class ShovelDiggingMixin implements ShovelUsageInterface {
                         Block block = blockState.getBlock();
 
                         SoundEvent soundEvent;
-                        if (block instanceof FossiliferousBlock) {
-                            FossiliferousBlock fossiliferousBlock = (FossiliferousBlock)block;
+                        if (block instanceof FossiliferousBlock fossiliferousBlock) {
                             soundEvent = fossiliferousBlock.getDiggingSound();
                         } else {
                             soundEvent = SoundEvents.BLOCK_GRAVEL_BREAK;
@@ -91,8 +90,7 @@ public class ShovelDiggingMixin implements ShovelUsageInterface {
 
                             BlockEntity blockEntity = world.getBlockEntity(blockPos);
 
-                            if (blockEntity instanceof DiggableBlockEntity) {
-                                DiggableBlockEntity diggableBlockEntity = (DiggableBlockEntity)blockEntity;
+                            if (blockEntity instanceof DiggableBlockEntity diggableBlockEntity) {
                                 boolean bl2 = diggableBlockEntity.dig(world.getTime(), playerEntity, blockHitResult.getSide());
                                 if (bl2) {
                                     EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
