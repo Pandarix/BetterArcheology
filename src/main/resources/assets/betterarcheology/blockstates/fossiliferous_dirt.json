@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "dug=0": {
+      "model": "betterarcheology:block/fossiliferous/fossiliferous_dirt_0"
+    },
+    "dug=1": {
+      "model": "betterarcheology:block/fossiliferous/fossiliferous_dirt_1"
+    },
+    "dug=2": {
+      "model": "betterarcheology:block/fossiliferous/fossiliferous_dirt_2"
+    },
+    "dug=3": {
+      "model": "betterarcheology:block/fossiliferous/fossiliferous_dirt_3"
+    }
+  }
+}

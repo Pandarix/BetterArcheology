@@ -1,6 +1,8 @@
 package net.Pandarix.betterarcheology.block.entity.client;
 
 import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
@@ -19,6 +21,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Objects;
 
+@Environment(EnvType.CLIENT)
 public class ArcheologyTableBlockEntityRenderer implements BlockEntityRenderer<ArcheologyTableBlockEntity> {
     public ArcheologyTableBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
     }

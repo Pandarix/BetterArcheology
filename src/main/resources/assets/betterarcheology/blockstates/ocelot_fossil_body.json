@@ -1,0 +1,42 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_0",
+        "y": 90
+      },
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_1",
+        "y": 90
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_0"
+      },
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_1"
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_0",
+        "y": 180
+      },
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_1",
+        "y": 180
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_0",
+        "y": 270
+      },
+      {
+        "model": "betterarcheology:block/fossils/ocelot_fossil_body_1",
+        "y": 270
+      }
+    ]
+  }
+}

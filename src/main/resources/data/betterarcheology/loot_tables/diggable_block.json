@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "betterarcheology:villager_fossil_head"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "betterarcheology:villager_fossil_body"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "betterarcheology:ocelot_fossil_head"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "betterarcheology:ocelot_fossil_body"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

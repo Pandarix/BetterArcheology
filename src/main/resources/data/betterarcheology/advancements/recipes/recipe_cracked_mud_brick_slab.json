@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "betterarcheology:cracked_mud_bricks"
+            "items": [
+              "betterarcheology:cracked_mud_bricks"
+            ]
           }
         ]
       },

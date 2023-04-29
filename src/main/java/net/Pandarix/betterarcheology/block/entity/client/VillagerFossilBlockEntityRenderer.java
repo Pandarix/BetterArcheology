@@ -2,6 +2,8 @@ package net.Pandarix.betterarcheology.block.entity.client;
 
 import net.Pandarix.betterarcheology.block.custom.FossilBaseWithEntityBlock;
 import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
@@ -20,6 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.Objects;
 
+@Environment(EnvType.CLIENT)
 public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<VillagerFossilBlockEntity> {
     public VillagerFossilBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
     }

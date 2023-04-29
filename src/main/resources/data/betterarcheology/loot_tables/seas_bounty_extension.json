@@ -5,6 +5,11 @@
       "rolls": 1,
       "entries": [
         {
+          "type": "minecraft:tag",
+          "weight": 350,
+          "name": "minecraft:creeper_drop_music_discs"
+        },
+        {
           "type": "minecraft:item",
           "weight": 70,
           "name": "minecraft:diamond_horse_armor"
@@ -43,66 +48,6 @@
           "type": "minecraft:item",
           "weight": 20,
           "name": "betterarcheology:diamond_brush"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_11"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_13"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_blocks"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_cat"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_chirp"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_far"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_mall"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_mellohi"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_stal"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_strad"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_wait"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 33,
-          "name": "minecraft:music_disc_ward"
         },
         {
           "type": "minecraft:item",

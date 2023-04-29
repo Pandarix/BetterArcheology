@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "betterarcheology:block/fossils/villager_fossil",
-		"particle": "minecraft:item/bone"
+		"particle": "item/bone"
 	},
 	"elements": [
 		{
@@ -36,9 +36,9 @@
 		},
 		{
 			"name": "RightLeg",
-			"from": [9, 0, 9.5],
-			"to": [11, 12, 11.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"from": [9.5, 0, 8.5],
+			"to": [11.5, 12, 10.5],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0.5, 6.5, 1, 9.5], "texture": "#0"},
 				"east": {"uv": [0, 6.5, 0.5, 9.5], "texture": "#0"},
@@ -50,9 +50,9 @@
 		},
 		{
 			"name": "RightLeg inverted",
-			"from": [11, 12, 11.5],
-			"to": [9, 0, 9.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"from": [11.5, 12, 10.5],
+			"to": [9.5, 0, 8.5],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [1.5, 9.5, 2, 6.5], "texture": "#0"},
 				"east": {"uv": [1, 9.5, 1.5, 6.5], "texture": "#0"},
@@ -148,9 +148,9 @@
 		},
 		{
 			"name": "head",
-			"from": [12.40314, 17.73177, 1],
-			"to": [20.40314, 27.73177, 9],
-			"rotation": {"angle": 22.5, "axis": "z", "origin": [7, 0, 8]},
+			"from": [-4.59686, 18.48177, 1],
+			"to": [3.40314, 28.48177, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [7, 0, 8]},
 			"faces": {
 				"north": {"uv": [2, 2, 4, 4.5], "texture": "#0"},
 				"east": {"uv": [0, 2, 2, 4.5], "texture": "#0"},
@@ -162,7 +162,7 @@
 		},
 		{
 			"name": "nose",
-			"from": [7, 19, -1.01],
+			"from": [7, 18, -1.01],
 			"to": [9, 23, 0.99],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 8]},
 			"faces": {
@@ -176,9 +176,9 @@
 		},
 		{
 			"name": "head inverted",
-			"from": [20.40314, 27.73177, 9],
-			"to": [12.40314, 17.73177, 1],
-			"rotation": {"angle": 22.5, "axis": "z", "origin": [7, 0, 8]},
+			"from": [3.40314, 28.48177, 9],
+			"to": [-4.59686, 18.48177, 1],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [7, 0, 8]},
 			"faces": {
 				"north": {"uv": [6, 4.5, 8, 2], "texture": "#0"},
 				"east": {"uv": [4, 4.5, 6, 2], "texture": "#0"},
@@ -190,8 +190,8 @@
 		},
 		{
 			"name": "nose inverted",
-			"from": [9, 23, 1],
-			"to": [7, 19, -1],
+			"from": [9, 23, 0.99],
+			"to": [7, 18, -1.01],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 8]},
 			"faces": {
 				"north": {"uv": [2, 7.5, 1.5, 6.5], "texture": "#0"},

@@ -1,9 +1,7 @@
 package net.Pandarix.betterarcheology.block;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
-import net.Pandarix.betterarcheology.block.custom.ArchelogyTable;
-import net.Pandarix.betterarcheology.block.custom.InfestedMudBricks;
-import net.Pandarix.betterarcheology.block.custom.VillagerFossilBlock;
+import net.Pandarix.betterarcheology.block.custom.*;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -19,6 +17,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
+import net.minecraft.util.shape.VoxelShape;
 
 public class ModBlocks {
     //ITEM ENTRIES-------------------------------------------------------------------------//
@@ -34,8 +34,26 @@ public class ModBlocks {
 
     public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",new BrushableBlock(Blocks.GRAVEL, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    //---------FOSSILIFEROUS BLOCKS-----------//
+    public static final Block FOSSILIFEROUS_DIRT = registerBlock("fossiliferous_dirt",new FossiliferousBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.DIRT), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK),
+            ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
     //-------------FOSSILS---------------//
-    public static final Block VILLAGER_FOSSIL = registerBlock("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    //Villager
+    public static final Block VILLAGER_FOSSIL = registerBlockWithRarity("villager_fossil",new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) ->{
+        return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
+    })), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block VILLAGER_FOSSIL_HEAD = registerBlockWithRarity("villager_fossil_head",new VillagerFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block VILLAGER_FOSSIL_BODY = registerBlockWithRarity("villager_fossil_body",new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    //Ocelot
+    public static final Block OCELOT_FOSSIL = registerBlockWithRarity("ocelot_fossil",new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block OCELOT_FOSSIL_HEAD = registerBlockWithRarity("ocelot_fossil_head",new OcelotFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block OCELOT_FOSSIL_BODY = registerBlockWithRarity("ocelot_fossil_body",new OcelotFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
@@ -71,13 +89,18 @@ public class ModBlocks {
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
     private static Block registerBlock(String name, Block block, ItemGroup group){
-        registerBlockItem(name, block, group);
+        registerBlockItem(name, block, group, Rarity.COMMON);
+        return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithRarity(String name, Block block, ItemGroup group, Rarity rarity){
+        registerBlockItem(name, block, group, rarity);
         return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
     }
 
     //Registers given Block as an BlockItem and adds it to an ItemGroup
-    private static Item registerBlockItem(String name, Block block, ItemGroup group){
-        Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+    private static Item registerBlockItem(String name, Block block, ItemGroup group, Rarity rarity){
+        Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;

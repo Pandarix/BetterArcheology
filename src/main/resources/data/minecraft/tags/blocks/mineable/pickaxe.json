@@ -3,6 +3,10 @@
   "values": [
     "betterarcheology:cracked_mud_bricks",
     "betterarcheology:cracked_mud_brick_slab",
-    "betterarcheology:cracked_mud_brick_stairs"
+    "betterarcheology:cracked_mud_brick_stairs",
+    "betterarcheology:villager_fossil",
+    "betterarcheology:villager_fossil_head",
+    "betterarcheology:villager_fossil_body",
+    "betterarcheology:ocelot_fossil"
   ]
 }
