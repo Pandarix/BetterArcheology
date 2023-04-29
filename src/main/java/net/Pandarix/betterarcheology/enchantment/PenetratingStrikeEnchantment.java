@@ -69,10 +69,6 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
         //calculates total damage that was reduced
         float totalProtectedDamage = (float) (damageInflicted * damagePercentageProtected);
 
-        BetterArcheology.LOGGER.info("Total Armor of Target: " + enchantmentProtectionFactor);
-        BetterArcheology.LOGGER.info("Total Damage Reduction: " + totalProtectedDamage + " bzw. " + damagePercentageProtected + "%");
-        BetterArcheology.LOGGER.info("Total Damage Weapon would inflict: " + damageInflicted);
-
         if (level == 1) {
             target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE));
             BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE);

@@ -206,7 +206,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
         boolean hasBrushInSlot = entity.getStack(0).getItem() == ModItems.IRON_BRUSH ||
                 entity.getStack(0).getItem() == ModItems.DIAMOND_BRUSH ||
                 entity.getStack(0).getItem() == Items.BRUSH;
-        return hasShardInFirstSlot && hasBrushInSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, Items.ACACIA_FENCE);                                  //TODO: REPLACE OUTPUT
+        return hasShardInFirstSlot && hasBrushInSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, entity.getStack(2).getItem());                                  //TODO: REPLACE OUTPUT
     }
 
     @Override

@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -88,18 +89,18 @@ public class ModBlocks {
 
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
-    private static Block registerBlock(String name, Block block, ItemGroup group){
+    private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group){
         registerBlockItem(name, block, group, Rarity.COMMON);
         return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
     }
 
-    private static Block registerBlockWithRarity(String name, Block block, ItemGroup group, Rarity rarity){
+    private static Block registerBlockWithRarity(String name, Block block, RegistryKey<ItemGroup> group, Rarity rarity){
         registerBlockItem(name, block, group, rarity);
         return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
     }
 
     //Registers given Block as an BlockItem and adds it to an ItemGroup
-    private static Item registerBlockItem(String name, Block block, ItemGroup group, Rarity rarity){
+    private static Item registerBlockItem(String name, Block block, RegistryKey<ItemGroup> group, Rarity rarity){
         Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));

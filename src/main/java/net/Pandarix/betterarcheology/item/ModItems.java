@@ -9,6 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.UseAction;
@@ -36,7 +37,7 @@ public class ModItems {
      * @param item Instance of Item
      * @return Registry entry of given Item
      */
-    public static Item registerItem(String name, Item item, ItemGroup group) {
+    public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(registeredItem));
