@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class OcelotFossilHeadBlock extends FossilHeadBlock{
+public class OcelotFossilHeadBlock extends FossilBaseHeadBlock {
     private static final VoxelShape OCELOT_HEAD_SHAPE = Block.createCuboidShape(4, 0, 4, 12, 4, 12);
 
     public OcelotFossilHeadBlock(Settings settings) {
