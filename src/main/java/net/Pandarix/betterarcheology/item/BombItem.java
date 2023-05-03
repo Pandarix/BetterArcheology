@@ -21,14 +21,15 @@ public class BombItem extends Item {
 
         world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 
+        BombEntity bombEntity = new BombEntity(world, user);
+        world.playSoundFromEntity(null, bombEntity, SoundEvents.ENTITY_CREEPER_PRIMED,  SoundCategory.NEUTRAL, 1f, (float) world.getRandom().nextDouble()* 0.5f + 0.5f);
+
         user.getItemCooldownManager().set(this, 10);
+
         if (!world.isClient) {
-            BombEntity bombEntity = new BombEntity(world, user);
             bombEntity.setItem(itemStack);
             bombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 0.75F, 1.0F);
             world.spawnEntity(bombEntity);
-
-            world.playSoundFromEntity(null, bombEntity, SoundEvents.ENTITY_CREEPER_PRIMED,  SoundCategory.NEUTRAL, 1f, (float) world.getRandom().nextDouble()* 0.5f + 0.5f);
         }
 
         return TypedActionResult.success(itemStack, world.isClient());
