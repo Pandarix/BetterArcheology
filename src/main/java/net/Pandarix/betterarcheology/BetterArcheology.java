@@ -3,6 +3,7 @@ package net.Pandarix.betterarcheology;
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
+import net.Pandarix.betterarcheology.entity.ModEntityTypes;
 import net.Pandarix.betterarcheology.item.ModItemGroup;
 import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.networking.ModMessages;
@@ -33,6 +34,7 @@ public class BetterArcheology implements ModInitializer {
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab
 		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
+		ModEntityTypes.registerModEntityTypes();
 
 		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
 		ModScreenHandlers.registerAllScreenHandlers(); //registers all Screen-Handlers
