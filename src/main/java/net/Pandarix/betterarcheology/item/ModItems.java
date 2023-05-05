@@ -28,7 +28,7 @@ public class ModItems {
 
     //LOOT ITEMS
     public static final Item BOMB_ITEM = registerItem("bomb", new BombItem(new FabricItemSettings().rarity(Rarity.COMMON).maxCount(16)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-    public static final Item SHADOW_PEARL = registerItem("shadow_pearl", new ShadowPearlItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(16).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item TORRENT_TOTEM = registerItem("torrent_totem", new TorrentTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
 
     //REGISTERING--------------------------------------------------------------------------//

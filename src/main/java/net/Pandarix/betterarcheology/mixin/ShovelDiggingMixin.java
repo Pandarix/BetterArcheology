@@ -66,36 +66,36 @@ public class ShovelDiggingMixin implements ShovelUsageInterface {
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (remainingUseTicks >= 0 && user instanceof PlayerEntity playerEntity) {
-            HitResult hitResult = this.getHitResult(user);
-            if (hitResult instanceof BlockHitResult blockHitResult) {
-                if (hitResult.getType() == HitResult.Type.BLOCK) {
+            HitResult betterarcheology$hitResult = this.getHitResult(user);
+            if (betterarcheology$hitResult instanceof BlockHitResult betterarcheology$blockHitResult) {
+                if (betterarcheology$hitResult.getType() == HitResult.Type.BLOCK) {
                     int i = this.getMaxUseTime(stack) - remainingUseTicks + 1;
 
                     boolean bl = i % 10 == 5;
                     if (bl) {
-                        BlockPos blockPos = blockHitResult.getBlockPos();
-                        BlockState blockState = world.getBlockState(blockPos);
-                        this.addDigParticles(world, blockHitResult, blockState);
-                        Block block = blockState.getBlock();
+                        BlockPos betterarcheology$blockPos = betterarcheology$blockHitResult.getBlockPos();
+                        BlockState betterarcheology$blockState = world.getBlockState(betterarcheology$blockPos);
+                        this.addDigParticles(world, betterarcheology$blockHitResult, betterarcheology$blockState);
+                        Block betterarcheology$block = betterarcheology$blockState.getBlock();
 
-                        SoundEvent soundEvent;
-                        if (block instanceof FossiliferousBlock fossiliferousBlock) {
-                            soundEvent = fossiliferousBlock.getDiggingSound();
+                        SoundEvent betterarcheology$soundEvent;
+                        if (betterarcheology$block instanceof FossiliferousBlock betterarcheology$fossiliferousBlock) {
+                            betterarcheology$soundEvent = betterarcheology$fossiliferousBlock.getDiggingSound();
                         } else {
-                            soundEvent = SoundEvents.BLOCK_GRAVEL_BREAK;
+                            betterarcheology$soundEvent = SoundEvents.BLOCK_GRAVEL_BREAK;
                         }
-                        world.playSound(playerEntity, blockPos, soundEvent, SoundCategory.BLOCKS);
+                        world.playSound(playerEntity, betterarcheology$blockPos, betterarcheology$soundEvent, SoundCategory.BLOCKS);
 
                         if (!world.isClient()) {
 
-                            BlockEntity blockEntity = world.getBlockEntity(blockPos);
+                            BlockEntity betterarcheology$blockEntity = world.getBlockEntity(betterarcheology$blockPos);
 
-                            if (blockEntity instanceof DiggableBlockEntity diggableBlockEntity) {
-                                boolean bl2 = diggableBlockEntity.dig(world.getTime(), playerEntity, blockHitResult.getSide());
+                            if (betterarcheology$blockEntity instanceof DiggableBlockEntity betterarcheology$diggableBlockEntity) {
+                                boolean bl2 = betterarcheology$diggableBlockEntity.dig(world.getTime(), playerEntity, betterarcheology$blockHitResult.getSide());
                                 if (bl2) {
-                                    EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+                                    EquipmentSlot betterarcheology$equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
                                     stack.damage(1, user, (userx) -> {
-                                        userx.sendEquipmentBreakStatus(equipmentSlot);
+                                        userx.sendEquipmentBreakStatus(betterarcheology$equipmentSlot);
                                     });
                                 }
                             }
@@ -114,15 +114,15 @@ public class ShovelDiggingMixin implements ShovelUsageInterface {
 
     @Override
     public void addDigParticles(World world, BlockHitResult hitResult, BlockState state) {
-        Random random = world.getRandom();
+        Random betterarcheology$random = world.getRandom();
 
-        int i = random.nextBetweenExclusive(1, 3);
-        BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, state);
+        int i = betterarcheology$random.nextBetweenExclusive(1, 3);
+        BlockStateParticleEffect betterarcheology$blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, state);
 
-        BlockPos pos = hitResult.getBlockPos();
+        BlockPos betterarcheology$pos = hitResult.getBlockPos();
 
         for (int j = 0; j < i; ++j) {
-            world.addParticle(blockStateParticleEffect, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1), 0.0, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1));
+            world.addParticle(betterarcheology$blockStateParticleEffect, betterarcheology$pos.getX() + 0.5, betterarcheology$pos.getY() + 1, betterarcheology$pos.getZ() + 0.5, 3.0 * betterarcheology$random.nextDouble() * (betterarcheology$random.nextBoolean() ? 1:-1), 0.0, 3.0 * betterarcheology$random.nextDouble() * (betterarcheology$random.nextBoolean() ? 1:-1));
         }
     }
 }

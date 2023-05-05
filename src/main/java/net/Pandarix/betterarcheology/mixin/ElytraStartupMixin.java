@@ -23,11 +23,12 @@ public abstract class ElytraStartupMixin {
         if(ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED && this.getEquippedStack(EquipmentSlot.CHEST).hasEnchantments()){
             if(EnchantmentHelper.getLevel(ModEnchantments.SOARING_WINDS, this.getEquippedStack(EquipmentSlot.CHEST)) == 1){
 
-                PlayerEntity player = (PlayerEntity) (Object) this;
-                float boost = ModConfigs.SOARING_WINDS_BOOST * 0.5f;
-                Vec3d vec3d = player.getRotationVector();
-                Vec3d vec3d2 = player.getVelocity();
-                player.setVelocity(vec3d2.add(vec3d.x * 0.1 + (vec3d.x * 1.5 - vec3d2.x) * boost, vec3d.y * 0.1 + (vec3d.y * 1.5 - vec3d2.y) * boost/2, vec3d.z * 0.1 + (vec3d.z * 1.5 - vec3d2.z) * boost));
+                PlayerEntity betterarcheology$player = (PlayerEntity) (Object) this;
+                float betterarcheology$boost = ModConfigs.SOARING_WINDS_BOOST * 0.5f;
+                Vec3d betterarcheology$vec3d = betterarcheology$player.getRotationVector();
+                Vec3d betterarcheology$vec3d2 = betterarcheology$player.getVelocity();
+
+                betterarcheology$player.setVelocity(betterarcheology$vec3d2.add(betterarcheology$vec3d.x * 0.1 + (betterarcheology$vec3d.x * 1.5 - betterarcheology$vec3d2.x) * betterarcheology$boost, betterarcheology$vec3d.y * 0.1 + (betterarcheology$vec3d.y * 1.5 - betterarcheology$vec3d2.y) * betterarcheology$boost/2, betterarcheology$vec3d.z * 0.1 + (betterarcheology$vec3d.z * 1.5 - betterarcheology$vec3d2.z) * betterarcheology$boost));
 
                 BetterArcheology.LOGGER.info("Enchantment is on Elytra");
             }

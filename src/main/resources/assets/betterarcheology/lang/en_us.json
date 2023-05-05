@@ -40,6 +40,8 @@
   "item.betterarcheology.unidentified_artifact": "Unidentified Artifact",
   "item.betterarcheology.identified_artifact": "Identified Artifact",
   "item.betterarcheology.bomb": "Rusty Bomb",
+  "item.betterarcheology.torrent_totem": "Totem of Torrents",
+  "item.betterarcheology.torrent_totem_tooltip": "Use on land to torrent dash",
 
   "entity.minecraft.villager.archeologist": "Archeologist",
 
