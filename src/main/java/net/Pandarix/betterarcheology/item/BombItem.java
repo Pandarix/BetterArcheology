@@ -32,6 +32,8 @@ public class BombItem extends Item {
             world.spawnEntity(bombEntity);
         }
 
+        itemStack.decrement(1);
+
         return TypedActionResult.success(itemStack, world.isClient());
     }
 }

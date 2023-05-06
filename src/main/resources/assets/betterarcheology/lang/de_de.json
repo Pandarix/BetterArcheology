@@ -29,6 +29,11 @@
   "block.betterarcheology.ocelot_fossil_head_tooltip": "Im Gegensatz zu ihren Nachkommen hatten sie lange und scharfe Zähne",
   "block.betterarcheology.ocelot_fossil_body": "Ocelot-Fossil Body",
   "block.betterarcheology.ocelot_fossil_body_tooltip": "Es sieht weniger agil, aber stärker aus",
+  "block.betterarcheology.loot_vase": "Antike Vase",
+  "block.betterarcheology.vase": "Antike Vase",
+
+  "advancements.vase": "Porzellan-Plünderer",
+  "advancements.vase.description": "Zerbreche eine Vase für beute",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
