@@ -89,6 +89,9 @@ public class ModBlocks {
     public static final Block LOOT_VASE = registerBlockWithoutTab("loot_vase", new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)));
     public static final Block VASE = registerBlock("vase", new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block LOOT_VASE_CREEPER = registerBlockWithoutTab("loot_vase_creeper", new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)));
+    public static final Block VASE_CREEPER = registerBlock("vase_creeper", new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
     public static final Block EVOKER_TRAP = registerBlockWithoutTab("evoker_trap", new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f)));
 
     //REGISTERING--------------------------------------------------------------------------//

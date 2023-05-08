@@ -31,6 +31,8 @@
   "block.betterarcheology.ocelot_fossil_body_tooltip": "Es sieht weniger agil, aber stärker aus",
   "block.betterarcheology.loot_vase": "Antike Vase",
   "block.betterarcheology.vase": "Antike Vase",
+  "block.betterarcheology.loot_vase_creeper": "Antike Vase",
+  "block.betterarcheology.vase_creeper": "Antike Vase",
   "block.betterarcheology.evoker_trap": "Fangzahn Falle",
 
   "advancements.vase": "Porzellan-Plünderer",

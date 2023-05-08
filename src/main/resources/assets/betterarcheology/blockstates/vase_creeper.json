@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "betterarcheology:block/loot_vase_3"
+      },
+      {
+        "model": "betterarcheology:block/loot_vase_4"
+      },
+      {
+        "model": "betterarcheology:block/loot_vase_5"
+      }
+    ]
+  }
+}
