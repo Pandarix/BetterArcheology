@@ -89,6 +89,8 @@ public class ModBlocks {
     public static final Block LOOT_VASE = registerBlockWithoutTab("loot_vase", new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)));
     public static final Block VASE = registerBlock("vase", new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block EVOKER_TRAP = registerBlockWithoutTab("evoker_trap", new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f)));
+
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {

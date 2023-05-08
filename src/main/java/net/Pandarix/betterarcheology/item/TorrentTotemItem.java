@@ -4,7 +4,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -22,9 +21,7 @@ public class TorrentTotemItem extends Item {
     public TorrentTotemItem(Settings settings) {
         super(settings);
     }
-
     private static final int speed = 3;
-
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
@@ -42,25 +39,26 @@ public class TorrentTotemItem extends Item {
         world.playSoundFromEntity(null, user, SoundEvents.ENTITY_PLAYER_SPLASH_HIGH_SPEED, SoundCategory.NEUTRAL, 0.25F, 0.35F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 
         //tool action completion
-        user.getItemCooldownManager().set(this, 30);
+        user.getItemCooldownManager().set(this, 60);
         itemStack.damage(1, user, (p) -> {
             p.sendToolBreakStatus(hand);
         });
 
         return TypedActionResult.consume(itemStack);
     }
-
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, context);
     }
-
     @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.BOW;
     }
-
     @Override
     public int getMaxUseTime(ItemStack stack) {
         return 0;
