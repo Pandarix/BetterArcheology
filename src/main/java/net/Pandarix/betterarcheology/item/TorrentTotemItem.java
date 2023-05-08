@@ -21,7 +21,7 @@ public class TorrentTotemItem extends Item {
     public TorrentTotemItem(Settings settings) {
         super(settings);
     }
-    private static final int speed = 3;
+    private static final int speed = 2;
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
@@ -39,7 +39,7 @@ public class TorrentTotemItem extends Item {
         world.playSoundFromEntity(null, user, SoundEvents.ENTITY_PLAYER_SPLASH_HIGH_SPEED, SoundCategory.NEUTRAL, 0.25F, 0.35F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 
         //tool action completion
-        user.getItemCooldownManager().set(this, 60);
+        user.getItemCooldownManager().set(this, 80);
         itemStack.damage(1, user, (p) -> {
             p.sendToolBreakStatus(hand);
         });
