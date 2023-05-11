@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:stonehenge_grassy",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 4726446020,
+
+    "spacing": 64,
+
+    "separation": 32,
+
+    "exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": "minecraft:ocean_monuments"
+    }
+  }
+}

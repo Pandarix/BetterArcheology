@@ -52,6 +52,6 @@ public class BombEntity extends ThrownItemEntity {
             this.getWorld().sendEntityStatus(this, (byte) 3);
             this.discard();
         }
-        this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 1.5f, World.ExplosionSourceType.TNT);
+        this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, World.ExplosionSourceType.TNT);
     }
 }
