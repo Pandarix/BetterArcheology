@@ -9,6 +9,7 @@ import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,12 +28,12 @@ public abstract class SeasBountyEnchantmentMixin {
             ordinal = 1),
             locals = LocalCapture.CAPTURE_FAILSOFT)
     //INJECTED CODE-------------------------------------------------------------------------//
-    private void injectMethod(ItemStack usedItem, CallbackInfoReturnable<Integer> cir, PlayerEntity playerEntity, int i, LootContext.Builder builder, LootTable lootTable, List list) {
+    private void injectMethod(ItemStack usedItem, CallbackInfoReturnable<Integer> cir, PlayerEntity playerEntity, int i, LootContextParameterSet lootContextParameterSet, LootTable lootTable, List list) {
         //if there are no enchantments, we can save ourselves the more complex check
         if (ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED && usedItem.hasEnchantments()) {
             //if the used Item has the SeasBounty Enchantment at Level 1
             if (EnchantmentHelper.getLevel(ModEnchantments.SEAS_BOUNTY, usedItem) == 1) {
-                list = builder.getWorld().getServer().getLootManager().getLootTable(enchantedLootTable).generateLoot(builder.build(LootContextTypes.FISHING));
+                list = lootContextParameterSet.getWorld().getServer().getLootManager().getLootTable(enchantedLootTable).generateLoot(lootContextParameterSet);
             }
         }
     }

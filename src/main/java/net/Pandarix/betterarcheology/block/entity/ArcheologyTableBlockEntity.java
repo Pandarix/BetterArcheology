@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
@@ -183,9 +184,8 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private static ItemStack generateCraftingLoot(BlockEntity entity, World world) {
         LootTable lootTable = Objects.requireNonNull(world.getServer()).getLootManager().getLootTable(craftingLoot);
 
-        LootContext.Builder builder = new LootContext.Builder((ServerWorld) world).parameter(LootContextParameters.ORIGIN, Vec3d.ofCenter(entity.getPos())).random(world.getRandom()).luck(0);
-
-        ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(builder.build(LootContextTypes.CHEST));
+        LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld)world)).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(entity.getPos())).luck(0).build(LootContextTypes.BLOCK);
+        ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(lootContextParameterSet, world.random.nextLong());
 
         if (objectArrayList.size() == 0) {
             return ItemStack.EMPTY;
