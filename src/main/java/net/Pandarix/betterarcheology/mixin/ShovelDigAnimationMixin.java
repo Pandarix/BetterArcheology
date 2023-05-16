@@ -40,19 +40,19 @@ public abstract class ShovelDigAnimationMixin {
     private void applyDigTransformation(MatrixStack matrices, float tickDelta, Arm arm, ItemStack stack, float equipProgress) {
         this.applyEquipOffset(matrices, arm, equipProgress);
 
-        float n = MathHelper.sin(this.client.player.getItemUseTimeLeft() / 5F * (float) Math.PI) * 45 + 45;
+        float betterarcheology$n = MathHelper.sin(this.client.player.getItemUseTimeLeft() / 5F * (float) Math.PI) * 45 + 45;
 
         if (arm != Arm.RIGHT) {
             //matrices.translate(0.1, 0.83, 0.35);
             matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-145.0F));
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(115.0F));
             //matrices.translate(-0.1, -0.5, -0.3);
-            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(n));
+            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(betterarcheology$n));
         } else {
             matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-145.0F));
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(35.0F));
             matrices.translate(-0.1, -0.5, -0.3);
-            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(n));
+            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(betterarcheology$n));
         }
 
     }

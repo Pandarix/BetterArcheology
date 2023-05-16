@@ -29,6 +29,14 @@
   "block.betterarcheology.ocelot_fossil_head_tooltip": "Im Gegensatz zu ihren Nachkommen hatten sie lange und scharfe Zähne",
   "block.betterarcheology.ocelot_fossil_body": "Ocelot-Fossil Body",
   "block.betterarcheology.ocelot_fossil_body_tooltip": "Es sieht weniger agil, aber stärker aus",
+  "block.betterarcheology.loot_vase": "Antike Vase",
+  "block.betterarcheology.vase": "Antike Vase",
+  "block.betterarcheology.loot_vase_creeper": "Antike Vase",
+  "block.betterarcheology.vase_creeper": "Antike Vase",
+  "block.betterarcheology.evoker_trap": "Fangzahn Falle",
+
+  "advancements.vase": "Porzellan-Plünderer",
+  "advancements.vase.description": "Zerbreche eine Vase für beute",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
@@ -39,6 +47,9 @@
   "item.betterarcheology.artifact_shards": "Artefaktscherben",
   "item.betterarcheology.unidentified_artifact": "Unidentifiziertes Artefakt",
   "item.betterarcheology.identified_artifact": "Identifiziertes Artefakt",
+  "item.betterarcheology.bomb": "Rostige Bombe",
+  "item.betterarcheology.torrent_totem": "Totem der Strömungen",
+  "item.betterarcheology.torrent_totem_tooltip": "Nutze für einen Strömungs-Sprung and Land",
 
   "entity.minecraft.villager.archeologist": "Archäologe",
 

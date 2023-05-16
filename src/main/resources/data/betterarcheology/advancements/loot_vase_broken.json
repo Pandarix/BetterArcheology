@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "betterarcheology:vase"
+    },
+    "title": {
+      "translate": "advancements.vase"
+    },
+    "description": {
+      "translate": "advancements.vase.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "criteria": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "sends_telemetry_event": true
+}

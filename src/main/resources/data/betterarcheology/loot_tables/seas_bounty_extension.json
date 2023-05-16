@@ -7,7 +7,8 @@
         {
           "type": "minecraft:tag",
           "weight": 350,
-          "name": "minecraft:creeper_drop_music_discs"
+          "name": "minecraft:creeper_drop_music_discs",
+          "expand": true
         },
         {
           "type": "minecraft:item",

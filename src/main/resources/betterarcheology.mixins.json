@@ -8,6 +8,7 @@
     "ElytraStartupMixin",
     "SeasBountyEnchantmentMixin",
     "ShovelDiggingMixin",
+    "TorrentTotemItemTickMixin",
     "TunnelingEnchantmentMixin"
   ],
   "client": [
