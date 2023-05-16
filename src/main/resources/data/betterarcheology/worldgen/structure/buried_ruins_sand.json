@@ -1,0 +1,25 @@
+{
+  "type": "betterarcheology:betterarcheology_structures",
+
+  "start_pool": "betterarcheology:buried_ruins_sand",
+
+  "size": 1,
+
+  "max_distance_from_center": 80,
+
+  "biomes": "#betterarcheology:has_structure/buried_ruins_sand",
+
+  "step": "surface_structures",
+
+  "terrain_adaptation": "none",
+
+  "start_height": {
+    "absolute": -4
+  },
+
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+
+  "spawn_overrides": {
+
+  }
+}

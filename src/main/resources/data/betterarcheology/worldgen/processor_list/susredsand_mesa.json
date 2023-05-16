@@ -7,10 +7,10 @@
           {
             "block_entity_modifier": {
               "type": "minecraft:append_loot",
-              "loot_table": "betterarcheology:archeology/plains_gravel"
+              "loot_table": "betterarcheology:archeology/mesa_red_sand"
             },
             "input_predicate": {
-              "block": "minecraft:gravel",
+              "block": "minecraft:red_sand",
               "predicate_type": "minecraft:random_block_match",
               "probability": 0.1
             },
@@ -18,7 +18,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
+              "Name": "betterarcheology:suspicious_red_sand",
               "Properties": {
                 "dusted": "0"
               }

@@ -5,14 +5,9 @@
   "values": [
     "minecraft:plains",
     "minecraft:sunflower_plains",
-    "forest",
-    "birch_forest",
-    "dark_forest",
-    "old_growth_birch_forest",
-    "old_growth_pine_taiga",
-    "old_growth_spruce_taiga",
-    "taiga",
-    "meadow",
-    "cherry_grove"
+    "minecraft:forest",
+    "minecraft:birch_forest",
+    "minecraft:taiga",
+    "minecraft:meadow"
   ]
 }

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:stonehenge_grassy",
+      "structure": "betterarcheology:buried_ruins_sand",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
 
-    "salt": 122122102,
+    "salt": 122122100,
 
     "spacing": 64,
 
@@ -17,9 +17,8 @@
     "exclusion_zone": {
       "chunk_count": 5,
       "other_set": [
-        "betterarcheology:tumulus_grassy",
-        "betterarcheology:mott",
-        "minecraft:village"
+        "betterarcheology:ruins_sand",
+        "minecraft:desert_pyramid"
       ]
     }
   }
