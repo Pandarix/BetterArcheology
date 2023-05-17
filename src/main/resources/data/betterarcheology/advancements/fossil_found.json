@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "betterarcheology:villager_fossil_head"
+    },
+    "title": {
+      "translate": "advancements.fossils"
+    },
+    "description": {
+      "translate": "advancements.fossils.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "betterarcheology:fossiliferous_block_dug",
+  "criteria": {
+    "criteria": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "bettterarcheology:fossil_parts"
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": true
+}
+

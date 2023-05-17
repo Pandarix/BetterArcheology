@@ -4,6 +4,7 @@ import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.custom.DiggableBlockEntity;
 import net.Pandarix.betterarcheology.block.custom.FossiliferousBlock;
 import net.Pandarix.betterarcheology.item.ShovelUsageInterface;
+import net.Pandarix.betterarcheology.util.ServerPlayerHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -20,6 +21,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -38,6 +40,7 @@ import java.util.function.Predicate;
 
 @Mixin(ShovelItem.class)
 public class ShovelDiggingMixin implements ShovelUsageInterface {
+    Identifier ADVANCEMENT_ID = new Identifier(BetterArcheology.MOD_ID, "fossiliferous_block_dug");
     @Inject(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemUsageContext;getSide()Lnet/minecraft/util/math/Direction;", shift = At.Shift.BEFORE), locals = LocalCapture.CAPTURE_FAILSOFT)
     private void injectMethod(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir, World world, BlockPos blockPos, BlockState blockState) {
         if (blockState.getBlock() instanceof FossiliferousBlock block) {
@@ -45,6 +48,9 @@ public class ShovelDiggingMixin implements ShovelUsageInterface {
             Objects.requireNonNull(betterarcheology$player).playSound(block.getDiggingSound(), 0.35f, 0.25f);
 
             ItemUsage.consumeHeldItem(context.getWorld(), betterarcheology$player, betterarcheology$player.getActiveHand());
+            if(!world.isClient()){
+                ServerPlayerHelper.getServerPlayer(betterarcheology$player).getAdvancementTracker().grantCriterion(world.getServer().getAdvancementLoader().get(ADVANCEMENT_ID), "criteria");
+            }
         }
     }
 

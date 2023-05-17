@@ -37,6 +37,10 @@
 
   "advancements.vase": "Smashing Success",
   "advancements.vase.description": "Obtain loot by breaking a vase",
+  "advancements.fossiliferous_dirt": "Digging through Time",
+  "advancements.fossiliferous_dirt.description": "Use a Shovel on Fossiliferous Dirt to uncover its secrets",
+  "advancements.fossil_found": "Ancient Treasure",
+  "advancements.fossil_found.description": "Uncover a fossil inside of Fossiliferous Dirt",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
