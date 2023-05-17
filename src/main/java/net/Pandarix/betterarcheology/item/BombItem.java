@@ -1,17 +1,21 @@
 package net.Pandarix.betterarcheology.item;
 
+import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.entity.BombEntity;
 import net.Pandarix.betterarcheology.entity.ModEntityTypes;
+import net.Pandarix.betterarcheology.util.ServerPlayerHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class BombItem extends Item {
+    Identifier ADVANCEMENT_ID = new Identifier(BetterArcheology.MOD_ID, "used_bomb_item");
     public BombItem(Settings settings) {
         super(settings);
     }
@@ -30,10 +34,11 @@ public class BombItem extends Item {
             bombEntity.setItem(itemStack);
             bombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 0.75F, 1.0F);
             world.spawnEntity(bombEntity);
+            ServerPlayerHelper.getServerPlayer(user).getAdvancementTracker().grantCriterion(world.getServer().getAdvancementLoader().get(ADVANCEMENT_ID), "criteria");
         }
 
         itemStack.decrement(1);
 
-        return TypedActionResult.success(itemStack, world.isClient());
+        return TypedActionResult.consume(itemStack);
     }
 }

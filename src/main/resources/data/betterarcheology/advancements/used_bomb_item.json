@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "betterarcheology:bomb"
+    },
+    "title": "Kaboom?",
+    "description": "Yes Rico, Kaboom",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "criteria": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "sends_telemetry_event": true
+}
+
