@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "item/generated",
   "textures": {
     "layer0": "betterarcheology:item/unidentified_artifact"
   }

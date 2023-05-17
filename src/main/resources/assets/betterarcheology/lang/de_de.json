@@ -35,6 +35,10 @@
   "block.betterarcheology.vase_creeper": "Antike Vase",
   "block.betterarcheology.evoker_trap": "Fangzahn Falle",
 
+  "advancements.shards": "Fragmentiertes Wissen",
+  "advancements.shards.description": "Finde eine Artefaktscherbe",
+  "advancements.artifact": "Alles fügt sich zusammen",
+  "advancements.artifact.description": "Stelle ein Unidentifiziertes Artefakt aus den Scherben her. Nun beginnt die Identifizierung!",
   "advancements.vase": "Porzellan-Plünderer",
   "advancements.vase.description": "Zerbreche eine Vase für beute",
   "advancements.fossiliferous_dirt": "Fossile Fundgrube",

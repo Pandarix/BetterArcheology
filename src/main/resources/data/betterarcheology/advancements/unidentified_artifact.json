@@ -1,0 +1,38 @@
+{
+  "parent": "betterarcheology:artifact_shards",
+  "criteria": {
+    "betterarcheology:artifact": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:unidentified_artifact"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "betterarcheology:unidentified_artifact"
+    },
+    "title": {
+      "translate": "advancements.artifact"
+    },
+    "description": {
+      "translate": "advancements.artifact.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "betterarcheology:artifact"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
