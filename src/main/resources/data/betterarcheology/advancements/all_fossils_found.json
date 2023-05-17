@@ -1,0 +1,87 @@
+{
+  "parent": "betterarcheology:fossil_found",
+  "criteria": {
+    "betterarcheology:villager_fossil_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:villager_fossil_head"
+            ]
+          }
+        ]
+      }
+    },
+    "betterarcheology:villager_fossil_body": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:villager_fossil_body"
+            ]
+          }
+        ]
+      }
+    },
+    "betterarcheology:ocelot_fossil_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:ocelot_fossil_head"
+            ]
+          }
+        ]
+      }
+    },
+    "betterarcheology:ocelot_fossil_body": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:ocelot_fossil_body"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "betterarcheology:villager_fossil"
+    },
+    "title": {
+      "translate": "advancements.all_fossils_found"
+    },
+    "description": {
+      "translate": "advancements.all_fossils_found.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "requirements": [
+    [
+      "betterarcheology:villager_fossil_head"
+    ],
+    [
+      "betterarcheology:villager_fossil_body"
+    ],
+    [
+      "betterarcheology:ocelot_fossil_head"
+    ],
+    [
+      "betterarcheology:ocelot_fossil_body"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
+

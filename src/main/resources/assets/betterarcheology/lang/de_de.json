@@ -41,6 +41,8 @@
   "advancements.fossiliferous_dirt.description": "Nutze eine Schaufel, um die Geheimnisse der Fossilreichen Erde zu entdecken",
   "advancements.fossil_found": "Antiker Schatz",
   "advancements.fossil_found.description": "Finde ein Fossil in Fossilreicher Erde",
+  "advancements.all_fossils_found": "Der Stolz des Paläontologen",
+  "advancements.all_fossils_found.description": "Sammle alle Fossilteile!",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",

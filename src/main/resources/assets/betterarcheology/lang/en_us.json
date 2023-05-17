@@ -41,6 +41,8 @@
   "advancements.fossiliferous_dirt.description": "Use a Shovel on Fossiliferous Dirt to uncover its secrets",
   "advancements.fossil_found": "Ancient Treasure",
   "advancements.fossil_found.description": "Uncover a fossil inside of Fossiliferous Dirt",
+  "advancements.all_fossils_found": "Paleontologist's Pride",
+  "advancements.all_fossils_found.description": "Collect all fossil parts!",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
