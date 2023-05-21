@@ -1,7 +1,7 @@
 package net.Pandarix.betterarcheology.mixin;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
-import net.Pandarix.betterarcheology.block.custom.DiggableBlockEntity;
+import net.Pandarix.betterarcheology.block.entity.DiggableBlockEntity;
 import net.Pandarix.betterarcheology.block.custom.FossiliferousBlock;
 import net.Pandarix.betterarcheology.item.ShovelUsageInterface;
 import net.Pandarix.betterarcheology.util.ServerPlayerHelper;

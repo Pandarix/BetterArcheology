@@ -1,8 +1,8 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import net.Pandarix.betterarcheology.block.entity.DiggableBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;

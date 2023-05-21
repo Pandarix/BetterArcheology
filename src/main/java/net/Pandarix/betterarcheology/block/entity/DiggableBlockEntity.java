@@ -1,8 +1,9 @@
-package net.Pandarix.betterarcheology.block.custom;
+package net.Pandarix.betterarcheology.block.entity;
 
 import com.mojang.logging.LogUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.block.custom.FossiliferousBlock;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;

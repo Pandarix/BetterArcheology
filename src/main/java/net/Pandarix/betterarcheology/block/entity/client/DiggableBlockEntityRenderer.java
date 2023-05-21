@@ -1,6 +1,6 @@
 package net.Pandarix.betterarcheology.block.entity.client;
 
-import net.Pandarix.betterarcheology.block.custom.DiggableBlockEntity;
+import net.Pandarix.betterarcheology.block.entity.DiggableBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
