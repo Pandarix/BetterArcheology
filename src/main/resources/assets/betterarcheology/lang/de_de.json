@@ -60,8 +60,8 @@
   "item.betterarcheology.bomb": "Rostige Bombe",
   "item.betterarcheology.torrent_totem": "Totem der Strömungen",
   "item.betterarcheology.torrent_totem_tooltip": "Nutze für einen Strömungs-Sprung and Land",
-  "item.betterarcheology.soul_sword": "Seelen Schwert",
-  "item.betterarcheology.soul_sword_description": "Fähigkeit: Seelen-Sauger",
+  "item.betterarcheology.soul_totem": "Totem der Seelen",
+  "item.betterarcheology.soul_totem_description": "Fähigkeit: Ziel schaden zufügen & Leben regenerieren",
 
   "entity.minecraft.villager.archeologist": "Archäologe",
 

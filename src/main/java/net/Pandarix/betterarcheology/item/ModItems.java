@@ -28,7 +28,7 @@ public class ModItems {
     public static final Item BOMB_ITEM = registerItem("bomb", new BombItem(new FabricItemSettings().rarity(Rarity.COMMON).maxCount(16)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
     public static final Item TORRENT_TOTEM = registerItem("torrent_totem", new TorrentTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item SOUL_SWORD = registerItem("soul_sword", new SoulSwordItem(ToolMaterials.DIAMOND, 3, -2.85F, new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item SOUL_TOTEM = registerItem("soul_totem", new SoulTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //REGISTERING--------------------------------------------------------------------------//
 

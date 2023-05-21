@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:consuming_sculk",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 122122108,
+
+    "spacing": 64,
+
+    "separation": 32,
+
+    "exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": [
+        "minecraft:ancient_city",
+        "minecraft:mineshaft",
+        "minecraft:stronghold"
+      ]
+    }
+  }
+}

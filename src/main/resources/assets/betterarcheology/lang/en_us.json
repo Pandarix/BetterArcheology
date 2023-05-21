@@ -60,8 +60,8 @@
   "item.betterarcheology.bomb": "Rusty Bomb",
   "item.betterarcheology.torrent_totem": "Totem of Torrents",
   "item.betterarcheology.torrent_totem_tooltip": "Use on land to torrent dash",
-  "item.betterarcheology.soul_sword": "Soul Sword",
-  "item.betterarcheology.soul_sword_description": "Ability: Soul-drain",
+  "item.betterarcheology.soul_totem": "Totem of Souls",
+  "item.betterarcheology.soul_totem_description": "Ability: Damage target & regain health",
 
   "entity.minecraft.villager.archeologist": "Archeologist",
 

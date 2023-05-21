@@ -6,9 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.sound.SoundCategory;
@@ -27,9 +26,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SoulSwordItem extends SwordItem {
-    public SoulSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+public class SoulTotemItem extends Item {
+    public SoulTotemItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -67,7 +66,7 @@ public class SoulSwordItem extends SwordItem {
                         Vec3d targetPos = entity.getPos();
                         Vec3d toPlayerPos = playerPos.subtract(targetPos);
                         BetterArcheology.LOGGER.info("Movement: " + toPlayerPos);
-                        for (float f = 0; f <= 1; f += 0.1) {
+                        for (float f = 0; f <= 1; f += 0.05) {
                             world.addParticle(ParticleTypes.SCULK_SOUL,
                                     lerp(playerPos.x, targetPos.x, f),
                                     lerp(playerPos.y, targetPos.y, f) + 1,
@@ -77,9 +76,9 @@ public class SoulSwordItem extends SwordItem {
                     } else {
                         world.playSoundFromEntity(null, player, SoundEvents.ENTITY_MULE_EAT, SoundCategory.PLAYERS, 0.5f, 1f);
                         world.playSoundFromEntity(null, player, SoundEvents.ENTITY_WITHER_SHOOT, SoundCategory.PLAYERS, 0.1f, 0.25f);
-                        entity.damage(entity.getDamageSources().playerAttack(player), this.getAttackDamage() / 2);
-                        player.heal(this.getAttackDamage() / 2);
-                        player.getItemCooldownManager().set(this, 120);
+                        entity.damage(entity.getDamageSources().playerAttack(player), 4);
+                        player.heal(4);
+                        player.getItemCooldownManager().set(this, 180);
                         stack.damage(1, user, (p) -> {
                             p.sendToolBreakStatus(player.getActiveHand());
                         });
@@ -98,6 +97,6 @@ public class SoulSwordItem extends SwordItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.translatable(this.getTranslationKey()+"_description").formatted(Formatting.DARK_AQUA));
+        tooltip.add(Text.translatable(this.getTranslationKey() + "_description").formatted(Formatting.DARK_AQUA));
     }
 }
