@@ -17,7 +17,8 @@
     "exclusion_zone": {
       "chunk_count": 5,
       "other_set": [
-        "minecraft:village"
+        "minecraft:village",
+        "minecraft:mineshaft"
       ]
     }
   }
