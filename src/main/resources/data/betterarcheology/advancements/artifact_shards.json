@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "betterarcheology:artifact_shards"
+    },
+    "title": {
+      "translate": "advancements.shards"
+    },
+    "description": {
+      "translate": "advancements.shards.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "betterarcheology:loot_vase_broken",
+  "criteria": {
+    "has_shards": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:artifact_shards"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "betterarcheology:unidentified_artifact"
+    ]
+  }
+}

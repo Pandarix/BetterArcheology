@@ -30,9 +30,9 @@ public class ModBlocks {
      */
 
     //-----------SUS VARIANTS-------------//
-    public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand", new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand", new SusBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt", new BrushableBlock(Blocks.GRAVEL, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Block SUSPICIOUS_DIRT = registerBlock("suspicious_dirt", new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //---------FOSSILIFEROUS BLOCKS-----------//
     public static final Block FOSSILIFEROUS_DIRT = registerBlock("fossiliferous_dirt", new FossiliferousBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.DIRT), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK),

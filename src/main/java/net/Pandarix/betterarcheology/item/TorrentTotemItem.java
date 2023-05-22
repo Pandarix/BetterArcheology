@@ -39,7 +39,7 @@ public class TorrentTotemItem extends Item {
         world.playSoundFromEntity(null, user, SoundEvents.ENTITY_PLAYER_SPLASH_HIGH_SPEED, SoundCategory.NEUTRAL, 0.25F, 0.35F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 
         //tool action completion
-        user.getItemCooldownManager().set(this, 80);
+        user.getItemCooldownManager().set(this, 120);
         itemStack.damage(1, user, (p) -> {
             p.sendToolBreakStatus(hand);
         });
@@ -52,7 +52,7 @@ public class TorrentTotemItem extends Item {
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.DARK_AQUA));
         super.appendTooltip(stack, world, tooltip, context);
     }
     @Override

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "betterarcheology:villager_fossil_head",
+    "betterarcheology:villager_fossil_body",
+    "betterarcheology:ocelot_fossil_head",
+    "betterarcheology:ocelot_fossil_body"
+  ]
+}

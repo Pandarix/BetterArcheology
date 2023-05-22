@@ -1,6 +1,7 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
+import net.Pandarix.betterarcheology.util.ServerPlayerHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -35,17 +36,9 @@ public class LootVaseBlock extends Block {
                 Entity xpOrb = new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), 4);
                 world.spawnEntity(xpOrb);
             }
-            getServerPlayer(player).getAdvancementTracker().grantCriterion(world.getServer().getAdvancementLoader().get(ADVANCEMENT_ID), "criteria");
+            ServerPlayerHelper.getServerPlayer(player).getAdvancementTracker().grantCriterion(world.getServer().getAdvancementLoader().get(ADVANCEMENT_ID), "criteria");
         }
         super.onBreak(world, pos, state, player);
-    }
-
-    private static ServerPlayerEntity getServerPlayer(PlayerEntity player) {
-        if (player instanceof ServerPlayerEntity) {
-            return (ServerPlayerEntity) player;
-        } else {
-            return null;
-        }
     }
 
     @Override

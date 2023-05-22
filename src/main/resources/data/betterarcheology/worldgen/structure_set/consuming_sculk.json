@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:mesa_ruins",
+      "structure": "betterarcheology:consuming_sculk",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
 
-    "salt": 122122105,
+    "salt": 122122108,
 
     "spacing": 64,
 
@@ -17,8 +17,9 @@
     "exclusion_zone": {
       "chunk_count": 5,
       "other_set": [
-        "minecraft:village",
-        "minecraft:mineshaft"
+        "minecraft:ancient_city",
+        "minecraft:mineshaft",
+        "minecraft:stronghold"
       ]
     }
   }

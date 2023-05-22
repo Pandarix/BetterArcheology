@@ -1,0 +1,41 @@
+{
+  "parent": "betterarcheology:fossiliferous_block_dug",
+  "criteria": {
+    "betterarcheology:fossil_found": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:villager_fossil_head",
+              "betterarcheology:villager_fossil_body",
+              "betterarcheology:ocelot_fossil_head",
+              "betterarcheology:ocelot_fossil_body"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "betterarcheology:villager_fossil_head"
+    },
+    "title": {
+      "translate": "advancements.fossil_found"
+    },
+    "description": {
+      "translate": "advancements.fossil_found.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "betterarcheology:fossil_found"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

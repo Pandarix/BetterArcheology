@@ -35,8 +35,18 @@
   "block.betterarcheology.vase_creeper": "Ancient Vase",
   "block.betterarcheology.evoker_trap": "Evoker Trap",
 
+  "advancements.shards": "Shattered Knowledge",
+  "advancements.shards.description": "Find an Artifact Shard",
+  "advancements.artifact": "It's all coming together",
+  "advancements.artifact.description": "Craft an Unidentified Artifact from Shards. Now the identifying begins!",
   "advancements.vase": "Smashing Success",
   "advancements.vase.description": "Obtain loot by breaking a vase",
+  "advancements.fossiliferous_dirt": "Digging through Time",
+  "advancements.fossiliferous_dirt.description": "Use a Shovel on Fossiliferous Dirt to uncover its secrets",
+  "advancements.fossil_found": "Ancient Treasure",
+  "advancements.fossil_found.description": "Uncover a fossil inside of Fossiliferous Dirt",
+  "advancements.all_fossils_found": "Paleontologist's Pride",
+  "advancements.all_fossils_found.description": "Collect all fossil parts!",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
@@ -50,6 +60,8 @@
   "item.betterarcheology.bomb": "Rusty Bomb",
   "item.betterarcheology.torrent_totem": "Totem of Torrents",
   "item.betterarcheology.torrent_totem_tooltip": "Use on land to torrent dash",
+  "item.betterarcheology.soul_totem": "Totem of Souls",
+  "item.betterarcheology.soul_totem_description": "Ability: Damage target & regain health",
 
   "entity.minecraft.villager.archeologist": "Archeologist",
 

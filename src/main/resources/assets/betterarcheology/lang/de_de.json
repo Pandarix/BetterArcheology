@@ -35,8 +35,18 @@
   "block.betterarcheology.vase_creeper": "Antike Vase",
   "block.betterarcheology.evoker_trap": "Fangzahn Falle",
 
+  "advancements.shards": "Fragmentiertes Wissen",
+  "advancements.shards.description": "Finde eine Artefaktscherbe",
+  "advancements.artifact": "Alles fügt sich zusammen",
+  "advancements.artifact.description": "Stelle ein Unidentifiziertes Artefakt aus den Scherben her. Nun beginnt die Identifizierung!",
   "advancements.vase": "Porzellan-Plünderer",
   "advancements.vase.description": "Zerbreche eine Vase für beute",
+  "advancements.fossiliferous_dirt": "Fossile Fundgrube",
+  "advancements.fossiliferous_dirt.description": "Nutze eine Schaufel, um die Geheimnisse der Fossilreichen Erde zu entdecken",
+  "advancements.fossil_found": "Antiker Schatz",
+  "advancements.fossil_found.description": "Finde ein Fossil in Fossilreicher Erde",
+  "advancements.all_fossils_found": "Der Stolz des Paläontologen",
+  "advancements.all_fossils_found.description": "Sammle alle Fossilteile!",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
@@ -50,6 +60,8 @@
   "item.betterarcheology.bomb": "Rostige Bombe",
   "item.betterarcheology.torrent_totem": "Totem der Strömungen",
   "item.betterarcheology.torrent_totem_tooltip": "Nutze für einen Strömungs-Sprung and Land",
+  "item.betterarcheology.soul_totem": "Totem der Seelen",
+  "item.betterarcheology.soul_totem_description": "Fähigkeit: Ziel schaden zufügen & Leben regenerieren",
 
   "entity.minecraft.villager.archeologist": "Archäologe",
 

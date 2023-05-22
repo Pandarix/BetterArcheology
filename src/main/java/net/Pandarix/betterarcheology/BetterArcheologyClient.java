@@ -4,6 +4,7 @@ import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.block.entity.client.ArcheologyTableBlockEntityRenderer;
 import net.Pandarix.betterarcheology.block.entity.client.DiggableBlockEntityRenderer;
+import net.Pandarix.betterarcheology.block.entity.client.SusBlockEntityRenderer;
 import net.Pandarix.betterarcheology.block.entity.client.VillagerFossilBlockEntityRenderer;
 import net.Pandarix.betterarcheology.entity.BombEntity;
 import net.Pandarix.betterarcheology.entity.ModEntityTypes;
@@ -15,8 +16,11 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BrushableBlockEntityRenderer;
 import net.minecraft.client.render.entity.*;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.item.Item;
@@ -32,6 +36,7 @@ public class BetterArcheologyClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(ModBlockEntities.ARCHEOLOGY_TABLE, ArcheologyTableBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.VILLAGER_FOSSIL, VillagerFossilBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.DIGGABLE_BLOCK, DiggableBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(ModBlockEntities.SUSBLOCK, SusBlockEntityRenderer::new);
 
         EntityRendererRegistry.register(ModEntityTypes.BOMB_ENTITY, FlyingItemEntityRenderer::new);
 
