@@ -48,11 +48,35 @@
           }
         ]
       }
+    },
+    "betterarcheology:sheep_fossil_body": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:sheep_fossil_body"
+            ]
+          }
+        ]
+      }
+    },
+    "betterarcheology:sheep_fossil_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:sheep_fossil_head"
+            ]
+          }
+        ]
+      }
     }
   },
   "display": {
     "icon": {
-      "item": "betterarcheology:villager_fossil"
+      "item": "betterarcheology:sheep_fossil"
     },
     "title": {
       "translate": "advancements.all_fossils_found"
@@ -80,6 +104,12 @@
     ],
     [
       "betterarcheology:ocelot_fossil_body"
+    ],
+    [
+      "betterarcheology:sheep_fossil_head"
+    ],
+    [
+      "betterarcheology:sheep_fossil_body"
     ]
   ],
   "sends_telemetry_event": true

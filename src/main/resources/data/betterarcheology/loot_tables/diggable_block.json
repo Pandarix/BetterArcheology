@@ -27,6 +27,16 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 1,
+          "name": "betterarcheology:sheep_fossil_head"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "betterarcheology:sheep_fossil_body"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 4,
           "name": "minecraft:bone"
         },
