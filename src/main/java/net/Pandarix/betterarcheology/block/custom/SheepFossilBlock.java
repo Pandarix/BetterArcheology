@@ -1,6 +1,7 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
+import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -30,7 +31,8 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class SheepFossilBlock extends FossilBaseBlock {
-    public static final BooleanProperty TRIGGERED = Properties.TRIGGERED;
+    public static final BooleanProperty PLAYING = BooleanProperty.of("playing");
+    private static final int playCooldown = 80;
     public static final IntProperty HORN_SOUND = IntProperty.of("horn_sound", 0, 7);
     private static final Map<Direction, VoxelShape> SHEEP_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -52,7 +54,7 @@ public class SheepFossilBlock extends FossilBaseBlock {
 
     public SheepFossilBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(TRIGGERED, false).with(HORN_SOUND, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(HORN_SOUND, 0).with(PLAYING, false));
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -61,25 +63,31 @@ public class SheepFossilBlock extends FossilBaseBlock {
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean bl2 = (Boolean) state.get(TRIGGERED);
-        if (bl && !bl2) {
-            world.scheduleBlockTick(pos, this, 4);
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, true), 4);
-        } else if (!bl && bl2) {
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, false), 4);
-        }
+        boolean bl2 = (Boolean) state.get(PLAYING);
 
+        if (bl && !bl2) {
+            //play sound and set state to playing
+            if(!world.isClient()){
+                world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(state.get(HORN_SOUND)).value(), SoundCategory.BLOCKS);
+            }
+            world.setBlockState(pos, state.with(PLAYING, true));
+            //set cooldown for playing to be reset
+            world.scheduleBlockTick(pos, this, playCooldown);
+        }
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if(state.get(PLAYING)){return ActionResult.FAIL;}
+
         if (!world.isClient()) {
             if (state.get(HORN_SOUND) + 1 <= 7) {
-                world.setBlockState(pos, state.with(HORN_SOUND, state.get(HORN_SOUND) + 1));
+                world.setBlockState(pos, state.with(HORN_SOUND, state.get(HORN_SOUND) + 1).with(PLAYING, true));
             } else {
-                world.setBlockState(pos, state.with(HORN_SOUND, 0));
+                world.setBlockState(pos, state.with(HORN_SOUND, 0).with(PLAYING, true));
             }
             world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(world.getBlockState(pos).get(HORN_SOUND)).value(), SoundCategory.BLOCKS);
+            world.scheduleBlockTick(pos, this, playCooldown);
         } else {
             world.addParticle(ParticleTypes.NOTE, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5, 0, 0.2, 0);
         }
@@ -87,10 +95,10 @@ public class SheepFossilBlock extends FossilBaseBlock {
     }
 
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(state.get(HORN_SOUND)).value(), SoundCategory.BLOCKS);
+        world.setBlockState(pos, state.with(PLAYING, false));
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, TRIGGERED, HORN_SOUND);
+        builder.add(FACING, HORN_SOUND, PLAYING);
     }
 }
