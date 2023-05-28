@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:fossil_jungle_1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 122122110,
+
+    "spacing": 64,
+
+    "separation": 32,
+
+    "exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": [
+        "minecraft:village",
+        "minecraft:jungle_temple",
+        "minecraft:fossil_jungle_0"
+      ]
+    }
+  }
+}
