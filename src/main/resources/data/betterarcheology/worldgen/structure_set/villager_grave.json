@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:villager_grave",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 122122112,
+
+    "spacing": 96,
+
+    "separation": 64,
+
+    "exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": [
+        "betterarcheology:tumulus_grassy",
+        "betterarcheology:mott",
+        "betterarcheology:stonehenge_grassy"
+      ]
+    }
+  }
+}
