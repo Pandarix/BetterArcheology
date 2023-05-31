@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "betterarcheology:chicken_fossil_head"
+    },
+    {
+      "item": "betterarcheology:chicken_fossil_body"
+    }
+  ],
+  "result": {
+    "item": "betterarcheology:chicken_fossil",
+    "count": 1
+  }
+}
