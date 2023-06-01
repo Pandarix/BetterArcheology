@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
     public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
+    public static BlockEntityType<ChickenFossilBlockEntity> CHICKEN_FOSSIL;
     public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
     public static BlockEntityType<DiggableBlockEntity> DIGGABLE_BLOCK;
 
@@ -27,6 +28,11 @@ public class ModBlockEntities {
                 new Identifier(BetterArcheology.MOD_ID, "villager_fossil"),
                 FabricBlockEntityTypeBuilder.create(VillagerFossilBlockEntity::new,
                         ModBlocks.VILLAGER_FOSSIL).build(null));
+
+        CHICKEN_FOSSIL = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "chicken_fossil"),
+                FabricBlockEntityTypeBuilder.create(ChickenFossilBlockEntity::new,
+                        ModBlocks.CHICKEN_FOSSIL).build(null));
 
         DIGGABLE_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "diggable_block"),
