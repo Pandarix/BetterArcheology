@@ -17,10 +17,10 @@ public class ChickenFossilBlockEntity extends BlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, ChickenFossilBlockEntity blockEntity) {
-        List<PlayerEntity> playersInRange = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos).expand(20)));
+        List<PlayerEntity> playersInRange = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos).expand(10)));
 
         for (PlayerEntity player : playersInRange) {
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0, false, true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 200, 0, false, true));
         }
     }
 }
