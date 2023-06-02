@@ -17,10 +17,18 @@
     "exclusion_zone": {
       "chunk_count": 5,
       "other_set": [
-        "betterarcheology:tumulus_grassy",
+        "#minecraft:village",
+        "minecraft:swamp_hut",
+        "#minecraft:ruined_portal",
+        "betterarcheology:buried_ruins_sand",
+        "betterarcheology:fossil_jungle_0",
+        "betterarcheology:fossil_jungle_1",
+        "betterarcheology:fossil_sheep_0",
+        "betterarcheology:mesa_ruins",
         "betterarcheology:mott",
-        "minecraft:village",
-        "betterarcheology:fossil_sheep"
+        "betterarcheology:ruins_sand",
+        "betterarcheology:tumulus_grassy",
+        "betterarcheology:villager_grave"
       ]
     }
   }

@@ -18,7 +18,19 @@
       "chunk_count": 5,
       "other_set": [
         "betterarcheology:ruins_sand",
-        "minecraft:desert_pyramid"
+        "minecraft:desert_pyramid",
+        "#minecraft:village",
+        "minecraft:swamp_hut",
+        "#minecraft:ruined_portal",
+        "betterarcheology:fossil_jungle_0",
+        "betterarcheology:fossil_jungle_1",
+        "betterarcheology:fossil_sheep_0",
+        "betterarcheology:mesa_ruins",
+        "betterarcheology:mott",
+        "betterarcheology:ruins_sand",
+        "betterarcheology:stonehenge_grassy",
+        "betterarcheology:tumulus_grassy",
+        "betterarcheology:villager_grave"
       ]
     }
   }
