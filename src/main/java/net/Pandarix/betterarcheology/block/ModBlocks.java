@@ -69,6 +69,11 @@ public class ModBlocks {
 
     public static final Block CHICKEN_FOSSIL_BODY = registerBlockWithRarity("chicken_fossil_body", new ChickenFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
+    //Creeper
+    public static final Block CREEPER_FOSSIL = registerBlockWithRarity("creeper_fossil", new CreeperFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) -> {
+        return state.get(CreeperFossilBlock.ON) ? 15 : 0;
+    })), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");

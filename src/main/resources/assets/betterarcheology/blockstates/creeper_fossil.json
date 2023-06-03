@@ -1,0 +1,50 @@
+{
+	"variants": {
+		"facing=east,on=false": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil",
+				"y": 90
+			}
+		],
+		"facing=north,on=false": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil"
+			}
+		],
+		"facing=south,on=false": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil",
+				"y": 180
+			}
+		],
+		"facing=west,on=false": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil",
+				"y": 270
+			}
+		],
+		"facing=east,on=true": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
+				"y": 90
+			}
+		],
+		"facing=north,on=true": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil_charged"
+			}
+		],
+		"facing=south,on=true": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
+				"y": 180
+			}
+		],
+		"facing=west,on=true": [
+			{
+				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
+				"y": 270
+			}
+		]
+	}
+}
