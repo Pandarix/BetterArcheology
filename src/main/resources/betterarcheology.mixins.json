@@ -7,13 +7,11 @@
     "AddCreeperGoalsMixin",
     "ElytraStartupMixin",
     "SeasBountyEnchantmentMixin",
-    "ShovelDiggingMixin",
     "TorrentTotemItemTickMixin",
     "TunnelingEnchantmentMixin"
   ],
   "client": [
-    "BetterArcheologyMixin",
-    "ShovelDigAnimationMixin"
+    "BetterArcheologyMixin"
   ],
   "server": [
   ],
