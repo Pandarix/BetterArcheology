@@ -1,0 +1,83 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"2": "betterarcheology:block/fossils/creeper",
+		"particle": "item/bone"
+	},
+	"elements": [
+		{
+			"name": "Head",
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 7, 8]},
+			"faces": {
+				"north": {"uv": [2, 4, 4, 8], "texture": "#2"},
+				"east": {"uv": [0, 4, 2, 8], "texture": "#2"},
+				"south": {"uv": [6, 4, 8, 8], "texture": "#2"},
+				"west": {"uv": [4, 4, 6, 8], "texture": "#2"},
+				"up": {"uv": [2, 4, 4, 0], "texture": "#2"},
+				"down": {"uv": [4, 0, 6, 4], "texture": "#2"}
+			}
+		},
+		{
+			"name": "Head inverted",
+			"from": [12, 8, 12],
+			"to": [4, 0, 4],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 7, 8]},
+			"faces": {
+				"north": {"uv": [6, 8, 8, 4], "texture": "#2"},
+				"east": {"uv": [4, 8, 6, 4], "texture": "#2"},
+				"south": {"uv": [2, 8, 4, 4], "texture": "#2"},
+				"west": {"uv": [0, 8, 2, 4], "texture": "#2"},
+				"up": {"uv": [6, 0, 4, 4], "texture": "#2"},
+				"down": {"uv": [4, 4, 2, 0], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [54.75, 45, 0],
+			"translation": [0.25, 2, 1],
+			"scale": [0.45, 0.45, 0.45]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [54.75, 45, 0],
+			"translation": [0.25, 2, 1],
+			"scale": [0.45, 0.45, 0.45]
+		},
+		"firstperson_righthand": {
+			"rotation": [178.53, 53.61, -166.32],
+			"translation": [0, 5.5, 3],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [178.53, 53.61, -166.32],
+			"translation": [0, 5.5, 3],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, 3.5, 0]
+		},
+		"head": {
+			"translation": [0, 7.5, 0],
+			"scale": [1.75, 1.75, 1.75]
+		},
+		"fixed": {
+			"translation": [-0.25, 4, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "head",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

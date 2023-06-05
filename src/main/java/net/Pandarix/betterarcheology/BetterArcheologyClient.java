@@ -2,10 +2,7 @@ package net.Pandarix.betterarcheology;
 
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
-import net.Pandarix.betterarcheology.block.entity.client.ArcheologyTableBlockEntityRenderer;
-import net.Pandarix.betterarcheology.block.entity.client.DiggableBlockEntityRenderer;
-import net.Pandarix.betterarcheology.block.entity.client.SusBlockEntityRenderer;
-import net.Pandarix.betterarcheology.block.entity.client.VillagerFossilBlockEntityRenderer;
+import net.Pandarix.betterarcheology.block.entity.client.*;
 import net.Pandarix.betterarcheology.entity.BombEntity;
 import net.Pandarix.betterarcheology.entity.ModEntityTypes;
 import net.Pandarix.betterarcheology.networking.ModMessages;
@@ -54,5 +51,8 @@ public class BetterArcheologyClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHICKEN_FOSSIL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHICKEN_FOSSIL_HEAD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHICKEN_FOSSIL_BODY, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CREEPER_FOSSIL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CREEPER_FOSSIL_BODY, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CREEPER_FOSSIL_HEAD, RenderLayer.getCutout());
     }
 }
