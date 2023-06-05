@@ -14,8 +14,6 @@ public class ModBlockEntities {
     public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
     public static BlockEntityType<ChickenFossilBlockEntity> CHICKEN_FOSSIL;
     public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
-    public static BlockEntityType<DiggableBlockEntity> DIGGABLE_BLOCK;
-
     public static BlockEntityType<SusBlockEntity> SUSBLOCK;
 
     public static void registerBlockEntities() {
@@ -34,15 +32,10 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(ChickenFossilBlockEntity::new,
                         ModBlocks.CHICKEN_FOSSIL).build(null));
 
-        DIGGABLE_BLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(BetterArcheology.MOD_ID, "diggable_block"),
-                FabricBlockEntityTypeBuilder.create(DiggableBlockEntity::new,
-                        ModBlocks.FOSSILIFEROUS_DIRT).build(null));
-
         SUSBLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "sus_block"),
                 FabricBlockEntityTypeBuilder.create(SusBlockEntity::new,
-                        ModBlocks.SUSPICIOUS_DIRT, ModBlocks.SUSPICIOUS_RED_SAND).build(null));
+                        ModBlocks.SUSPICIOUS_DIRT, ModBlocks.SUSPICIOUS_RED_SAND, ModBlocks.FOSSILIFEROUS_DIRT).build(null));
 
         FLEE_FROM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "flee_from"),
