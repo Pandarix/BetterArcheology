@@ -20,7 +20,7 @@ public class ChickenFossilBlockEntity extends BlockEntity {
         List<PlayerEntity> playersInRange = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos).expand(10)));
 
         for (PlayerEntity player : playersInRange) {
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 200, 0, false, true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 200, 0, false, false));
         }
     }
 }
