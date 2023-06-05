@@ -8,7 +8,7 @@
 
         "location": "betterarcheology:tumulus_grassy",
 
-        "processors": "betterarcheology:susgravel_plains",
+        "processors": "betterarcheology:tumulus",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
