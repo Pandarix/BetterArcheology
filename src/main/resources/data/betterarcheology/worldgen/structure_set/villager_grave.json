@@ -10,12 +10,12 @@
 
     "salt": 122122112,
 
-    "spacing": 96,
+    "spacing": 128,
 
     "separation": 64,
 
     "exclusion_zone": {
-      "chunk_count": 5,
+      "chunk_count": 16,
       "other_set": [
         "#minecraft:village",
         "minecraft:swamp_hut",

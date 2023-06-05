@@ -23,9 +23,12 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty TRIGGERED = Properties.TRIGGERED;
 
+    private static final int fangCooldown = 40;
+    public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
+
     public EvokerTrapBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState) ((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(TRIGGERED, false));
+        this.setDefaultState((BlockState) ((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(TRIGGERED, false).with(ACTIVE, false));
     }
 
     @Override
@@ -35,17 +38,20 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean bl2 = (Boolean) state.get(TRIGGERED);
+        boolean bl2 = (Boolean) state.get(ACTIVE);
         if (bl && !bl2) {
-            world.scheduleBlockTick(pos, this, 4);
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, true), 4);
+            world.setBlockState(pos, state.with(ACTIVE, true));
+            spawnFangs(state, world, pos, world.getRandom());
+            //set cooldown for playing to be reset
+            world.scheduleBlockTick(pos, this, fangCooldown);
         } else if (!bl && bl2) {
-            world.setBlockState(pos, (BlockState) state.with(TRIGGERED, false), 4);
+            //world.setBlockState(pos, (BlockState) state.with(TRIGGERED, false), 4);
         }
-
     }
 
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    private  void spawnFangs(BlockState state, World world, BlockPos pos, Random random){
+        if(world.isClient()){return;}
+
         int maxFangs = 3;
         switch (state.get(FACING)) {
             case NORTH -> {
@@ -76,6 +82,10 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
         }
     }
 
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        world.setBlockState(pos, state.with(ACTIVE, false));
+    }
+
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return (BlockState) state.with(FACING, rotation.rotate((Direction) state.get(FACING)));
     }
@@ -86,6 +96,6 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, TRIGGERED);
+        builder.add(FACING, TRIGGERED, ACTIVE);
     }
 }
