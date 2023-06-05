@@ -1,94 +1,25 @@
 {
 	"variants": {
-		"facing=east,on=false,overlay=false": [
+		"facing=east": [
 			{
 				"model": "betterarcheology:block/fossils/creeper_fossil",
 				"y": 90
 			}
 		],
-		"facing=north,on=false,overlay=false": [
+		"facing=north": [
 			{
 				"model": "betterarcheology:block/fossils/creeper_fossil"
 			}
 		],
-		"facing=south,on=false,overlay=false": [
+		"facing=south": [
 			{
 				"model": "betterarcheology:block/fossils/creeper_fossil",
 				"y": 180
 			}
 		],
-		"facing=west,on=false,overlay=false": [
+		"facing=west": [
 			{
 				"model": "betterarcheology:block/fossils/creeper_fossil",
-				"y": 270
-			}
-		],
-		"facing=east,on=true,overlay=false": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
-				"y": 90
-			}
-		],
-		"facing=north,on=true,overlay=false": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_charged"
-			}
-		],
-		"facing=south,on=true,overlay=false": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
-				"y": 180
-			}
-		],
-		"facing=west,on=true,overlay=false": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_charged",
-				"y": 270
-			}
-		],
-		"facing=east,on=false,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
-				"y": 90
-			}
-		],
-		"facing=north,on=false,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay"
-			}
-		],
-		"facing=south,on=false,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
-				"y": 180
-			}
-		],
-		"facing=west,on=false,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
-				"y": 270
-			}
-		],
-		"facing=east,on=true,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
-				"y": 90
-			}
-		],
-		"facing=north,on=true,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay"
-			}
-		],
-		"facing=south,on=true,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
-				"y": 180
-			}
-		],
-		"facing=west,on=true,overlay=true": [
-			{
-				"model": "betterarcheology:block/fossils/creeper_fossil_overlay",
 				"y": 270
 			}
 		]

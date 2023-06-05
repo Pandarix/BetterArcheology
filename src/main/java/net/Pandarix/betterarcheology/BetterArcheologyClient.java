@@ -34,7 +34,6 @@ public class BetterArcheologyClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(ModBlockEntities.VILLAGER_FOSSIL, VillagerFossilBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.DIGGABLE_BLOCK, DiggableBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.SUSBLOCK, SusBlockEntityRenderer::new);
-        BlockEntityRendererRegistry.register(ModBlockEntities.CREEPER_FOSSIL, CreeperFossilBlockEntityRenderer::new);
 
         EntityRendererRegistry.register(ModEntityTypes.BOMB_ENTITY, FlyingItemEntityRenderer::new);
 

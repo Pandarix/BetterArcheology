@@ -1,14 +1,12 @@
 package net.Pandarix.betterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
-import net.Pandarix.betterarcheology.block.entity.CreeperFossilBlockEntity;
-import net.Pandarix.betterarcheology.block.entity.VillagerFossilBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -28,9 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class CreeperFossilBlock extends FossilBaseWithEntityBlock {
-    public static final BooleanProperty ON = BooleanProperty.of("on");
-    public static final BooleanProperty OVERLAY = BooleanProperty.of("overlay");
+public class CreeperFossilBlock extends FossilBaseBlock {
     private static final Map<Direction, VoxelShape> CHICKEN_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5),
@@ -55,31 +51,26 @@ public class CreeperFossilBlock extends FossilBaseWithEntityBlock {
 
     public CreeperFossilBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(ON, false).with(OVERLAY, false));
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(!world.isClient()){
-            world.setBlockState(pos, state.cycle(ON));
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        super.randomDisplayTick(state, world, pos, random);
+        if (world.isClient()) {
+            if (random.nextBoolean()) {
+                world.addParticle(ParticleTypes.SMALL_FLAME,
+                        pos.getX() + random.nextFloat(), pos.getY() + random.nextFloat(), pos.getZ() + random.nextFloat(),
+                        random.nextFloat() / 50f * (random.nextBetween(0, 2) - 1),
+                        random.nextFloat() / 30f,
+                        random.nextFloat() / 50f * (random.nextBetween(0, 2) - 1));
+            } else {
+                world.addParticle(ParticleTypes.SMOKE, pos.getX(), pos.getY(), pos.getZ(), random.nextFloat() / 50f * (random.nextBetween(0, 2) - 1), random.nextFloat() / 30f,
+                        random.nextFloat() / 50f * (random.nextBetween(0, 2) - 1));
+            }
         }
-        world.playSoundAtBlockCenter(pos, SoundEvents.ENTITY_CREEPER_HURT, SoundCategory.BLOCKS, 0.5f, 1f, true);
-        return ActionResult.SUCCESS;
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return CHICKEN_SHAPES_FOR_DIRECTION.get(state.get(FACING));
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
-        builder.add(ON, OVERLAY);
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CreeperFossilBlockEntity(pos, state);
     }
 }
