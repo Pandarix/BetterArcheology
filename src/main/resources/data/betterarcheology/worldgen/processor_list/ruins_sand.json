@@ -1,0 +1,54 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:capped",
+      "limit": 6,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "input_predicate": {
+              "predicate_type": "minecraft:random_block_match",
+              "block": "minecraft:gravel",
+              "probability": 0.1
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            },
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "betterarcheology:archeology/plains_gravel"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:chest"
+          },
+          "output_state": {
+            "Name": "minecraft:chest"
+          },
+          "block_entity_modifier": {
+            "type": "minecraft:append_loot",
+            "loot_table": "betterarcheology:archeology/chest_buried_ruins_sand"
+          }
+        }
+      ]
+    }
+  ]
+}
