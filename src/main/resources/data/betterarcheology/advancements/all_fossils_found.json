@@ -96,6 +96,30 @@
           }
         ]
       }
+    },
+    "betterarcheology:creeper_fossil_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:creeper_fossil_head"
+            ]
+          }
+        ]
+      }
+    },
+    "betterarcheology:creeper_fossil_body": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "betterarcheology:creeper_fossil_body"
+            ]
+          }
+        ]
+      }
     }
   },
   "display": {
@@ -140,6 +164,12 @@
     ],
     [
       "betterarcheology:chicken_fossil_body"
+    ],
+    [
+      "betterarcheology:creeper_fossil_head"
+    ],
+    [
+      "betterarcheology:creeper_fossil_body"
     ]
   ],
   "sends_telemetry_event": true

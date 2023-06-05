@@ -29,7 +29,26 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class CreeperFossilBlock extends FossilBaseBlock {
-    private static final Map<Direction, VoxelShape> CHICKEN_SHAPES_FOR_DIRECTION = ImmutableMap.of(Direction.NORTH, Stream.of(Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5), Block.createCuboidShape(3.5, 5.25, 5.5, 12.5, 17.25, 10.5), Block.createCuboidShape(3, 0, 9.5, 13, 6.5, 14.5), Block.createCuboidShape(3, 0, 1.5, 13, 6.5, 6.5)).reduce(VoxelShapes::union).get(), Direction.SOUTH, Stream.of(Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5), Block.createCuboidShape(3.5, 5.25, 5.5, 12.5, 17.25, 10.5), Block.createCuboidShape(3, 0, 9.5, 13, 6.5, 14.5), Block.createCuboidShape(3, 0, 1.5, 13, 6.5, 6.5)).reduce(VoxelShapes::union).get(), Direction.WEST, Stream.of(Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5), Block.createCuboidShape(5.5, 5.25, 3.5, 10.5, 17.25, 12.5), Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13), Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get(), Direction.EAST, Stream.of(Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5), Block.createCuboidShape(5.5, 5.25, 3.5, 10.5, 17.25, 12.5), Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13), Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get());
+    private static final Map<Direction, VoxelShape> CREEPER_SHAPES_FOR_DIRECTION = ImmutableMap.of(
+            Direction.NORTH, Stream.of(
+                    Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5),
+                    Block.createCuboidShape(3.5, 5.25, 5.5, 12.5, 17.25, 10.5),
+                    Block.createCuboidShape(3, 0, 9.5, 13, 6.5, 14.5),
+                    Block.createCuboidShape(3, 0, 1.5, 13, 6.5, 6.5)).reduce(VoxelShapes::union).get(),
+            Direction.SOUTH, Stream.of(
+                    Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5),
+                    Block.createCuboidShape(3.5, 5.25, 5.5, 12.5, 17.25, 10.5),
+                    Block.createCuboidShape(3, 0, 9.5, 13, 6.5, 14.5),
+                    Block.createCuboidShape(3, 0, 1.5, 13, 6.5, 6.5)).reduce(VoxelShapes::union).get(),
+            Direction.WEST, Stream.of(
+                    Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5),
+                    Block.createCuboidShape(5.5, 5.25, 3.5, 10.5, 17.25, 12.5),
+                    Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13),
+                    Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get(),
+            Direction.EAST, Stream.of(Block.createCuboidShape(3.5, 17.25, 3.5, 12.5, 26.25, 12.5),
+                    Block.createCuboidShape(5.5, 5.25, 3.5, 10.5, 17.25, 12.5),
+                    Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13),
+                    Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get());
 
     public CreeperFossilBlock(Settings settings) {
         super(settings);
@@ -59,6 +78,6 @@ public class CreeperFossilBlock extends FossilBaseBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return CHICKEN_SHAPES_FOR_DIRECTION.get(state.get(FACING));
+        return CREEPER_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }
