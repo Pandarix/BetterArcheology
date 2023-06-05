@@ -1,0 +1,17 @@
+{
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:temple_jungle",
+
+        "processors": "betterarcheology:temple_jungle",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
