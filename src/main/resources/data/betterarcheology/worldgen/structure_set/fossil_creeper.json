@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:tumulus_grassy",
+      "structure": "betterarcheology:fossil_creeper",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
 
-    "salt": 122122103,
+    "salt": 122122217,
 
     "spacing": 64,
 
@@ -21,15 +21,14 @@
         "minecraft:swamp_hut",
         "#minecraft:ruined_portal",
         "betterarcheology:buried_ruins_sand",
-        "betterarcheology:fossil_jungle_0",
         "betterarcheology:fossil_jungle_1",
         "betterarcheology:fossil_sheep_0",
         "betterarcheology:mesa_ruins",
         "betterarcheology:mott",
         "betterarcheology:ruins_sand",
         "betterarcheology:stonehenge_grassy",
-        "betterarcheology:villager_grave",
-        "betterarcheology:fossil_creeper"
+        "betterarcheology:tumulus_grassy",
+        "betterarcheology:villager_grave"
       ]
     }
   }
