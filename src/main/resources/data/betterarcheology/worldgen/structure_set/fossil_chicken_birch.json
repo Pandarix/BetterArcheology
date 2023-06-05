@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:buried_ruins_sand",
+      "structure": "betterarcheology:fossil_chicken_birch",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
 
-    "salt": 122122100,
+    "salt": 122122235,
 
     "spacing": 128,
 
@@ -17,12 +17,10 @@
     "exclusion_zone": {
       "chunk_count": 16,
       "other_set": [
-        "betterarcheology:ruins_sand",
-        "minecraft:desert_pyramid",
         "#minecraft:village",
         "minecraft:swamp_hut",
         "#minecraft:ruined_portal",
-        "betterarcheology:fossil_jungle_0",
+        "betterarcheology:buried_ruins_sand",
         "betterarcheology:fossil_jungle_1",
         "betterarcheology:fossil_sheep_0",
         "betterarcheology:mesa_ruins",
@@ -32,8 +30,7 @@
         "betterarcheology:tumulus_grassy",
         "betterarcheology:villager_grave",
         "betterarcheology:fossil_creeper",
-        "betterarcheology:fossil_chicken",
-        "betterarcheology:fossil_chicken_birch"
+        "betterarcheology:fossil_chicken"
       ]
     }
   }

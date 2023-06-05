@@ -29,7 +29,9 @@
         "betterarcheology:ruins_sand",
         "betterarcheology:stonehenge_grassy",
         "betterarcheology:tumulus_grassy",
-        "betterarcheology:fossil_creeper"
+        "betterarcheology:fossil_creeper",
+        "betterarcheology:fossil_chicken",
+        "betterarcheology:fossil_chicken_birch"
       ]
     }
   }

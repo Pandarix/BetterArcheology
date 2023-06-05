@@ -1,0 +1,28 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "betterarcheology:fossiliferous_dirt"
+          },
+          "output_state": {
+            "Name": "betterarcheology:fossiliferous_dirt",
+            "Properties": {
+              "dusted": "0"
+            }
+          },
+          "block_entity_modifier": {
+            "type": "minecraft:append_loot",
+            "loot_table": "betterarcheology:archeology/fossiliferous_dirt_chicken"
+          }
+        }
+      ]
+    }
+  ]
+}
