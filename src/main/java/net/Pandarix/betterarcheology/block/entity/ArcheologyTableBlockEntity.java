@@ -8,6 +8,7 @@ import net.Pandarix.betterarcheology.screen.IdentifyingScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
@@ -64,7 +64,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private int progress = 0;
     private int maxProgress = 72;
 
-    private static final Identifier craftingLoot = new Identifier(BetterArcheology.MOD_ID, "identifying_loot");
+    private static final Identifier CRAFTING_LOOT = new Identifier(BetterArcheology.MOD_ID, "identifying_loot");
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);
@@ -181,17 +181,20 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     }
 
-    private static ItemStack generateCraftingLoot(BlockEntity entity, World world) {
-        LootTable lootTable = Objects.requireNonNull(world.getServer()).getLootManager().getLootTable(craftingLoot);
+    private ItemStack generateCraftingLoot(BlockEntity entity, World world) {
+        if (world != null && !world.isClient() && world.getServer() != null) {
+            LootTable lootTable = world.getServer().getLootManager().getLootTable(CRAFTING_LOOT);
 
-        LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld)world)).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(entity.getPos())).luck(0).build(LootContextTypes.BLOCK);
-        ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(lootContextParameterSet, world.random.nextLong());
+            LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld) world)).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(entity.getPos())).luck(0).build(LootContextTypes.CHEST);
 
-        if (objectArrayList.size() == 0) {
-            return ItemStack.EMPTY;
-        }
-        if (objectArrayList.size() == 1) {
-            return objectArrayList.get(0);
+            ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(lootContextParameterSet, world.random.nextLong());
+
+            if (objectArrayList.size() == 0) {
+                return ItemStack.EMPTY;
+            }
+            if (objectArrayList.size() == 1) {
+                return objectArrayList.get(0);
+            }
         }
         return ItemStack.EMPTY;
     }
