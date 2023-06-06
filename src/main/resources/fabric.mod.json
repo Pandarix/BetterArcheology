@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Better Archeology",
-  "description": "Fabric Mod that enhances the boring archeology-system in 1.20",
+  "description": "Discover artifacts & fossils by encountering new structures that'll enhance your adventure and exploration!",
   "authors": [
     "Pandarix",
     "Dunk3ll1cht"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://legacy.curseforge.com/minecraft/mc-mods/better-archeology",
     "sources": "https://github.com/Pandarix/BetterArcheology"
   },
 
