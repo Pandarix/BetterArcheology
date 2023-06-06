@@ -1,0 +1,18 @@
+{
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:desert_obelisk",
+
+        "processors": "betterarcheology:desert_obelisk",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ],
+  "values": []
+}
