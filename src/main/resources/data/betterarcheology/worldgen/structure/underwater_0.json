@@ -1,13 +1,13 @@
 {
   "type": "betterarcheology:betterarcheology_structures",
 
-  "start_pool": "betterarcheology:mesa_ruins",
+  "start_pool": "betterarcheology:underwater_0",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/mesa_ruins",
+  "biomes": "#betterarcheology:has_structure/underwater",
 
   "step": "surface_structures",
 
@@ -17,7 +17,7 @@
     "absolute": 0
   },
 
-  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
 
   "spawn_overrides": {},
   "values": []
