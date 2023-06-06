@@ -1,5 +1,5 @@
 {
-  "parent": "betterarcheology:fossiliferous_block_dug",
+  "parent": "minecraft:adventure/root",
   "criteria": {
     "betterarcheology:fossil_found": {
       "trigger": "minecraft:inventory_changed",
