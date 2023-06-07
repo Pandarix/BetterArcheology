@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:underwater_3",
+      "structure": "betterarcheology:archeologist_camp_grassy",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
 
-    "salt": 123172927,
+    "salt": 142825131,
 
     "spacing": 96,
 
@@ -18,29 +18,24 @@
       "chunk_count": 16,
       "other_set": [
         "betterarcheology:archeologist_camp_redsand",
-        "betterarcheology:archeologist_camp_sand",
-        "betterarcheology:archeologist_camp_grassy",
+        "betterarcheology:buried_ruins_sand",
+        "betterarcheology:ruins_sand",
+        "minecraft:desert_pyramid",
         "minecraft:village",
         "minecraft:swamp_hut",
         "minecraft:ruined_portal",
-        "betterarcheology:buried_ruins_sand",
         "betterarcheology:fossil_jungle_0",
         "betterarcheology:fossil_jungle_1",
         "betterarcheology:fossil_sheep_0",
         "betterarcheology:mesa_ruins",
+        "betterarcheology:mott",
         "betterarcheology:ruins_sand",
         "betterarcheology:stonehenge_grassy",
         "betterarcheology:tumulus_grassy",
         "betterarcheology:villager_grave",
         "betterarcheology:fossil_creeper",
         "betterarcheology:fossil_chicken",
-        "betterarcheology:fossil_chicken_birch",
-        "betterarcheology:underwater_0",
-        "betterarcheology:underwater_1",
-        "betterarcheology:underwater_2",
-        "minecraft:ocean_ruins",
-        "minecraft:shipwreck",
-        "minecraft:ocean_monument"
+        "betterarcheology:fossil_chicken_birch"
       ]
     }
   }

@@ -248,8 +248,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     @Override
     public void markDirty() {
-        assert world != null;
-        if(!world.isClient()) {
+        if(world != null && !world.isClient()) {
             PacketByteBuf data = PacketByteBufs.create();
             data.writeInt(inventory.size());
             for (ItemStack itemStack : inventory) {

@@ -17,6 +17,9 @@
     "exclusion_zone": {
       "chunk_count": 16,
       "other_set": [
+        "betterarcheology:archeologist_camp_redsand",
+        "betterarcheology:archeologist_camp_sand",
+        "betterarcheology:archeologist_camp_grassy",
         "betterarcheology:ruins_sand",
         "minecraft:desert_pyramid",
         "minecraft:village",
