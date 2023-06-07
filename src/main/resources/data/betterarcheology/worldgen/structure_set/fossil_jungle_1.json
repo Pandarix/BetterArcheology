@@ -17,9 +17,9 @@
     "exclusion_zone": {
       "chunk_count": 16,
       "other_set": [
-        "#minecraft:village",
+        "minecraft:village",
         "minecraft:swamp_hut",
-        "#minecraft:ruined_portal",
+        "minecraft:ruined_portal",
         "betterarcheology:buried_ruins_sand",
         "betterarcheology:fossil_jungle_0",
         "betterarcheology:fossil_sheep_0",
