@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class CreeperFossilBodyBlock extends FossilBaseBodyBlock {
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(3.5, 5.25, 5.5, 12.5, 17.25, 10.5),

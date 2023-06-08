@@ -17,8 +17,10 @@ public class ChickenFossilBlockEntity extends BlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, ChickenFossilBlockEntity blockEntity) {
+        //get players in bounding box of 10 blocks
         List<PlayerEntity> playersInRange = world.getNonSpectatingEntities(PlayerEntity.class, (new Box(pos).expand(10)));
 
+        //give every player in range slow-falling for 10 seconds, particles are not being displayed for ux
         for (PlayerEntity player : playersInRange) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 200, 0, false, false));
         }

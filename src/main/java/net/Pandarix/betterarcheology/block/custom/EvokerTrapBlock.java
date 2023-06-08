@@ -23,8 +23,8 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty TRIGGERED = Properties.TRIGGERED;
 
-    private static final int fangCooldown = 40;
-    public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
+    private static final int fangCooldown = 40; //cooldown used to prevent Fang-spamming
+    public static final BooleanProperty ACTIVE = BooleanProperty.of("active"); //active as long as fangs are spawning and for the duration of fangcooldown
 
     public EvokerTrapBlock(Settings settings) {
         super(settings);
@@ -37,22 +37,28 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean bl2 = (Boolean) state.get(ACTIVE);
-        if (bl && !bl2) {
+        boolean powered = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
+        boolean active = (Boolean) state.get(ACTIVE);
+
+        //if the Block is receiving a redstone signal and is not already activated
+        if (powered && !active) {
+            //set self to active state and spawn fangs
             world.setBlockState(pos, state.with(ACTIVE, true));
             spawnFangs(state, world, pos, world.getRandom());
-            //set cooldown for playing to be reset
+            //set cooldown for active-state to be reset
             world.scheduleBlockTick(pos, this, fangCooldown);
-        } else if (!bl && bl2) {
+        } else if (!powered && active) {
             //world.setBlockState(pos, (BlockState) state.with(TRIGGERED, false), 4);
         }
     }
 
+    //spawns 3 evoker fangs in a straight line in the direction the block is facing
     private  void spawnFangs(BlockState state, World world, BlockPos pos, Random random){
         if(world.isClient()){return;}
 
         int maxFangs = 3;
+
+        //spawns fangs with individual positional increase depending on the direction the block is facing
         switch (state.get(FACING)) {
             case NORTH -> {
                 for (int i = 0; i < maxFangs; ++i) {

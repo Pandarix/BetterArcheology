@@ -18,6 +18,8 @@ import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
 public class SusBlockEntityRenderer implements BlockEntityRenderer<SusBlockEntity> {
+    //just a hacky class to copy the behaviour of minecrafts BrushalbeBlockEntityRenderer
+    //discussed in Fabric forums an there doesn't seem to be a better way
     public final ItemRenderer itemRenderer;
 
     public SusBlockEntityRenderer(BlockEntityRendererFactory.Context context) {

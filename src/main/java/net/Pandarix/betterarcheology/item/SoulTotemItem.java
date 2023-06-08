@@ -56,11 +56,15 @@ public class SoulTotemItem extends Item {
 
         HitResult hitresult = ProjectileUtil.getCollision(player, Predicate.not(Entity::isSpectator), Math.sqrt(ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE) - 1.0);
 
+        //if an entity is being targeted
         if (hitresult instanceof EntityHitResult entityHitResult) {
             if (entityHitResult.getType() == HitResult.Type.ENTITY) {
 
                 Entity entity = entityHitResult.getEntity();
+                //if the entity could be attacked
                 if (entity.isAttackable()) {
+                    //spawn particles from player to target on client
+                    //particles move towards the player
                     if (world.isClient()) {
                         Vec3d playerPos = player.getPos();
                         Vec3d targetPos = entity.getPos();
@@ -74,10 +78,13 @@ public class SoulTotemItem extends Item {
                                     toPlayerPos.x * f / 15, toPlayerPos.y * f / 15, toPlayerPos.z * f / 15);
                         }
                     } else {
+                        //play sound effects
                         world.playSoundFromEntity(null, player, SoundEvents.ENTITY_MULE_EAT, SoundCategory.PLAYERS, 0.5f, 1f);
                         world.playSoundFromEntity(null, player, SoundEvents.ENTITY_WITHER_SHOOT, SoundCategory.PLAYERS, 0.1f, 0.25f);
+                        //damage target and heal user
                         entity.damage(entity.getDamageSources().playerAttack(player), 4);
                         player.heal(4);
+                        //set cooldown and damage stack
                         player.getItemCooldownManager().set(this, 180);
                         stack.damage(1, user, (p) -> {
                             p.sendToolBreakStatus(player.getActiveHand());

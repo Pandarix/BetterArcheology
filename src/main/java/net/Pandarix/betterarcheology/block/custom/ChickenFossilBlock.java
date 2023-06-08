@@ -34,6 +34,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class ChickenFossilBlock extends FossilBaseWithEntityBlock {
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> CHICKEN_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(5, 0, 1.5, 11, 11.25, 12.25),

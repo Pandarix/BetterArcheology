@@ -28,6 +28,7 @@ public class BombEntity extends ThrownItemEntity {
 
     @Environment(EnvType.CLIENT)
     public void handleStatus(byte status) {
+        //explosion effect addons
         if (status == 3) {
             Random random = this.getWorld().getRandom();
 
@@ -41,6 +42,7 @@ public class BombEntity extends ThrownItemEntity {
     public void tick() {
         Random random = this.getWorld().getRandom();
         if(random.nextBoolean()){
+            //trail particles for when the bomb is thrown
             this.getWorld().addParticle(random.nextBoolean() ? ParticleTypes.FLAME : ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
         }
         super.tick();
@@ -52,6 +54,7 @@ public class BombEntity extends ThrownItemEntity {
             this.getWorld().sendEntityStatus(this, (byte) 3);
             this.discard();
         }
+        //explode on collision
         this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, World.ExplosionSourceType.TNT);
     }
 }

@@ -31,9 +31,11 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class SheepFossilBlock extends FossilBaseBlock {
-    public static final BooleanProperty PLAYING = BooleanProperty.of("playing");
-    private static final int playCooldown = 80;
-    public static final IntProperty HORN_SOUND = IntProperty.of("horn_sound", 0, 7);
+    public static final BooleanProperty PLAYING = BooleanProperty.of("playing"); //true while sound is played and for the duration of "playCooldown"
+    private static final int playCooldown = 80; //used to prevent sound-spamming
+    public static final IntProperty HORN_SOUND = IntProperty.of("horn_sound", 0, 7); //index of the goat horn sound currently used
+
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHEEP_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(4, 0, 4, 12, 17.75, 19),
@@ -62,10 +64,10 @@ public class SheepFossilBlock extends FossilBaseBlock {
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean bl2 = (Boolean) state.get(PLAYING);
+        boolean powered = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
+        boolean playing = (Boolean) state.get(PLAYING);
 
-        if (bl && !bl2) {
+        if (powered && !playing) {
             //play sound and set state to playing
             if(!world.isClient()){
                 world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(state.get(HORN_SOUND)).value(), SoundCategory.BLOCKS);
@@ -76,19 +78,25 @@ public class SheepFossilBlock extends FossilBaseBlock {
         }
     }
 
+    //used to tune the SheepFossilBlock to an Index of the GoatHornsSounds
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        //if sound is already being played, abort
         if(state.get(PLAYING)){return ActionResult.FAIL;}
 
         if (!world.isClient()) {
+            //increase index or set to 0 if at max
             if (state.get(HORN_SOUND) + 1 <= 7) {
                 world.setBlockState(pos, state.with(HORN_SOUND, state.get(HORN_SOUND) + 1).with(PLAYING, true));
             } else {
                 world.setBlockState(pos, state.with(HORN_SOUND, 0).with(PLAYING, true));
             }
+
+            //play sound and set cooldown to reset "playing" property
             world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(world.getBlockState(pos).get(HORN_SOUND)).value(), SoundCategory.BLOCKS);
             world.scheduleBlockTick(pos, this, playCooldown);
         } else {
+            //if on clientside, display a note particle
             world.addParticle(ParticleTypes.NOTE, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5, 0, 0.2, 0);
         }
         return ActionResult.SUCCESS;

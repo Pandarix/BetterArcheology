@@ -10,7 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 public class SusBlock extends BrushableBlock {
-
     public SusBlock(Block baseBlock, Settings settings, SoundEvent brushingSound, SoundEvent brushingCompleteSound) {
         super(baseBlock, settings, brushingSound, brushingCompleteSound);
     }

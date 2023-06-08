@@ -28,6 +28,8 @@ public class FossilBaseBlock extends HorizontalFacingBlock {
         super(settings);
     }
 
+    //used to give all fossil blocks their own tooltip
+    //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));

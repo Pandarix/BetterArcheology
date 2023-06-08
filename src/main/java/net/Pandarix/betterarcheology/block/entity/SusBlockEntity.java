@@ -9,7 +9,6 @@ public class SusBlockEntity extends BrushableBlockEntity {
     public SusBlockEntity(BlockPos pos, BlockState state) {
         super(pos, state);
     }
-
     @Override
     public BlockEntityType<?> getType() {
         return ModBlockEntities.SUSBLOCK;

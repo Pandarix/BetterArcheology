@@ -20,7 +20,9 @@ public abstract class ElytraStartupMixin {
 
     @Inject(method = "startFallFlying", at = @At(value = "TAIL"))
     private void injectMethod(CallbackInfo ci){
+        //if it is enabled in the config and the chestslot is enchanted
         if(ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED && this.getEquippedStack(EquipmentSlot.CHEST).hasEnchantments()){
+            //if the enchantment in the chestslot is soaring winds
             if(EnchantmentHelper.getLevel(ModEnchantments.SOARING_WINDS, this.getEquippedStack(EquipmentSlot.CHEST)) == 1){
 
                 PlayerEntity betterarcheology$player = (PlayerEntity) (Object) this;
@@ -28,11 +30,12 @@ public abstract class ElytraStartupMixin {
                 Vec3d betterarcheology$vec3d = betterarcheology$player.getRotationVector();
                 Vec3d betterarcheology$vec3d2 = betterarcheology$player.getVelocity();
 
-                betterarcheology$player.setVelocity(betterarcheology$vec3d2.add(betterarcheology$vec3d.x * 0.1 + (betterarcheology$vec3d.x * 1.5 - betterarcheology$vec3d2.x) * betterarcheology$boost, betterarcheology$vec3d.y * 0.1 + (betterarcheology$vec3d.y * 1.5 - betterarcheology$vec3d2.y) * betterarcheology$boost/2, betterarcheology$vec3d.z * 0.1 + (betterarcheology$vec3d.z * 1.5 - betterarcheology$vec3d2.z) * betterarcheology$boost));
-
-                BetterArcheology.LOGGER.info("Enchantment is on Elytra");
+                //add player velocity when starting to fall-fly
+                betterarcheology$player.setVelocity(betterarcheology$vec3d2.add(
+                        betterarcheology$vec3d.x * 0.1 + (betterarcheology$vec3d.x * 1.5 - betterarcheology$vec3d2.x) * betterarcheology$boost,
+                        betterarcheology$vec3d.y * 0.1 + (betterarcheology$vec3d.y * 1.5 - betterarcheology$vec3d2.y) * betterarcheology$boost/2,
+                        betterarcheology$vec3d.z * 0.1 + (betterarcheology$vec3d.z * 1.5 - betterarcheology$vec3d2.z) * betterarcheology$boost));
             }
         }
-        BetterArcheology.LOGGER.info("Player started flying");
     }
 }

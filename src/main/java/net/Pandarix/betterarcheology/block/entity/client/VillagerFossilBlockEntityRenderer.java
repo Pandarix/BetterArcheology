@@ -37,6 +37,7 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
         BlockState state = entity.getWorld().getBlockState(entity.getPos());
         Direction facing = state.getBlock() instanceof FossilBaseWithEntityBlock ? state.get(FossilBaseWithEntityBlock.FACING) : Direction.NORTH;
 
+        //rotation based on direction the Block ist facing
         switch (facing) {
             case EAST -> {
                 matrices.translate(0.75f, 0.95f, 0.5f);
@@ -54,8 +55,10 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
             default -> matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90));
         }
 
+        //scale item to 0.5x size
         matrices.scale(0.5f, 0.5f, 0.5f);
 
+        //render item in inventory to hand position with lightlevel at blockpos
         itemRenderer.renderItem(entity.getInventoryContents(), ModelTransformationMode.FIXED, getLightLevel(Objects.requireNonNull(entity.getWorld()), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
 
         matrices.pop();

@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     /*
-    Gets called in onInitialise before the Item-Registration
+    Gets called in onInitialize before the Item-Registration
     Creates FabricItemGroup with an ItemStack as a Symbol
     The Name of the Tab is located in the .lang file under "itemGroup.betterarcheology"
      */

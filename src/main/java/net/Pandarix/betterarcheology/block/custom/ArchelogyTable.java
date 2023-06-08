@@ -12,7 +12,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -22,8 +21,9 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("ALL")
 public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider {
+    //indicates if the table is currently "crafting" the identified artifact
+    //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
 
     public ArchelogyTable(Settings settings) {
@@ -32,7 +32,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{DUSTING});
+        builder.add(DUSTING);
     }
 
     /* BLOCK ENTITY STUFF */
@@ -43,7 +43,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     }
 
 
-    //Drops Items present in the table at the time of destruction//
+    //Drops Items present in the table at the time of destruction
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
@@ -56,7 +56,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
         super.onStateReplaced(state, world, pos, newState, moved);
     }
 
-    //Creates the Screen-Handler belonging to the BlockEntity//
+    //Creates the Screen-Handler belonging to the BlockEntity
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
@@ -71,7 +71,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     }
 
-    // creates ArcheologyTableBlockEntity //
+    // creates ArcheologyTableBlockEntity for each ArcheologyTable
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
@@ -93,12 +93,22 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     }
 
     public void addDustParticles(World world, BlockPos pos, Random random) {
-        if(random.nextBoolean()){return;}
-        int i = random.nextBetweenExclusive(1, 3);
+        if (random.nextBoolean()) {
+            return;
+        } //create particles half of the time
+        int i = random.nextBetweenExclusive(1, 3); //number of particles to be created
+
         BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SAND.getDefaultState());
 
         for (int j = 0; j < i; ++j) {
-            world.addParticle(blockStateParticleEffect, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1), 0.0, 3.0 * random.nextDouble() * (random.nextBoolean() ? 1:-1));
+            //centering Block position
+            //setting base velocity to 3 and multiplying it with rand double with random sign
+            //that way particles can spread in every direction by chance
+            world.addParticle(blockStateParticleEffect,
+                    pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5,
+                    3.0 * random.nextDouble() * (random.nextBoolean() ? 1 : -1),
+                    0.0,
+                    3.0 * random.nextDouble() * (random.nextBoolean() ? 1 : -1));
         }
     }
 };

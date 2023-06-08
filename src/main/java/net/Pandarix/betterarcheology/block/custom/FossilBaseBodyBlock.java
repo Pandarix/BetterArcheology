@@ -62,6 +62,9 @@ public class FossilBaseBodyBlock extends HorizontalFacingBlock {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
+    //used to give all fossil blocks their own tooltip
+    //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
+    //also appends the [1/2] indicator for a set
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY).append(Text.translatable("block.betterarcheology.fossil_body_set").formatted(Formatting.BLUE)));

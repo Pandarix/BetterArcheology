@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class OcelotFossilBlock extends FossilBaseWithEntityBlock {
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> OCELOT_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(5.5, 0, 0, 11.5, 9.5, 17.75),

@@ -12,6 +12,7 @@ import net.minecraft.world.BlockView;
 import java.util.Map;
 
 public class OcelotFossilBodyBlock extends FossilBaseBodyBlock {
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Block.createCuboidShape(4, 0, 0, 12, 7, 16),
             Direction.SOUTH, Block.createCuboidShape(4, 0, 0, 12, 7, 16),

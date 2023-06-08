@@ -34,7 +34,9 @@ import java.util.stream.Stream;
 
 public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    public static final IntProperty INVENTORY_LUMINANCE = IntProperty.of("inventory_luminance", 0, 15);
+    public static final IntProperty INVENTORY_LUMINANCE = IntProperty.of("inventory_luminance", 0, 15); //used to store the amount of light that the item in its inventory would emit and to emit that luminance itself
+
+    //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> VILLAGER_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
                     Block.createCuboidShape(4.75, 0, 9, 11, 10, 12),

@@ -30,7 +30,6 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
         super(ModBlockEntities.VILLAGER_FOSSIL, pos, state);
     }
 
-
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
@@ -53,6 +52,7 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
         return Text.translatable(getCachedState().getBlock().getTranslationKey());
     }
 
+    //update luminance of block based on the luminance of the item given when it would be in its placed state
     @Override
     public void onClose(PlayerEntity player) {
         ImplementedInventory.super.onClose(player);

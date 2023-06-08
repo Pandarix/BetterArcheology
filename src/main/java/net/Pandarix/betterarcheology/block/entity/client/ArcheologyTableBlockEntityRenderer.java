@@ -31,26 +31,33 @@ public class ArcheologyTableBlockEntityRenderer implements BlockEntityRenderer<A
                        VertexConsumerProvider vertexConsumers, int light, int overlay) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
+        //gets List of all Items in inventory and stores corresponding indexes
         List<ItemStack> inventoryContents = entity.getInventoryContents();
         ItemStack brush = inventoryContents.get(0);
         ItemStack unidentified = inventoryContents.get(1);
         ItemStack identified = inventoryContents.get(2);
 
+        //BRUSH
+        //transform the items rotation, scale and position
         matrices.push();
         matrices.translate(0.35f, 1.025f, 0.7f);
         matrices.scale(0.65f, 0.65f, 0.65f);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
 
+        //display brush on top of the table
         itemRenderer.renderItem(brush, ModelTransformationMode.GUI, getLightLevel(Objects.requireNonNull(entity.getWorld()), entity.getPos().up()),
                 OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
 
         matrices.pop();
 
+        //ARTIFACTS
+        //transform the items rotation, scale and position
         matrices.push();
         matrices.translate(0.55f, 1.025, 0.4f);
         matrices.scale(0.55f, 0.55f, 0.55f);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
 
+        //if there is no identified artifact in the output slot, render the unidentified one
         if(identified.isEmpty()){
             itemRenderer.renderItem(unidentified, ModelTransformationMode.GUI, getLightLevel(Objects.requireNonNull(entity.getWorld()), entity.getPos().up()),
                     OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
