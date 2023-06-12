@@ -52,8 +52,9 @@ public class TorrentTotemItem extends Item {
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.DARK_AQUA));
+        tooltip.add(Text.translatable(this.getTranslationKey() + "_description").formatted(Formatting.DARK_AQUA));
         super.appendTooltip(stack, world, tooltip, context);
+
     }
     @Override
     public UseAction getUseAction(ItemStack stack) {
