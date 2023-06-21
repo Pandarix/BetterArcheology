@@ -6,6 +6,7 @@
   "mixins": [
     "AddCreeperGoalsMixin",
     "ElytraStartupMixin",
+    "FasterBrushingMixin",
     "TorrentTotemItemTickMixin",
     "TunnelingEnchantmentMixin"
   ],
