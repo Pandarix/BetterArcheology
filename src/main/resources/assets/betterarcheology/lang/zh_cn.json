@@ -18,7 +18,7 @@
   "block.betterarcheology.fossiliferous_dirt": "含有化石的泥土",
   "block.betterarcheology.fossiliferous_dirt_tooltip": "也许可以发掘出一些物品？",
   "block.betterarcheology.villager_fossil": "村民化石",
-  "block.betterarcheology.villager_fossil_tooltip": "这个化石的手臂可以作为一个展品。",
+  "block.betterarcheology.villager_fossil_tooltip": "这个化石的手臂可以放一个物品作为展品。",
   "block.betterarcheology.villager_fossil_head": "村民头骨化石",
   "block.betterarcheology.villager_fossil_head_tooltip": "这个头骨似乎并没有进化...",
   "block.betterarcheology.villager_fossil_body": "村民身体化石",
