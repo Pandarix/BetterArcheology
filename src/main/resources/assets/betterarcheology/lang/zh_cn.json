@@ -73,22 +73,22 @@
   "item.betterarcheology.diamond_brush": "钻石刷子",
   "block.betterarcheology.archeology_table": "考古表",
   "item.betterarcheology.artifact_shards": "文物碎片",
-  "item.betterarcheology.unidentified_artifact": "未知的文物",
+  "item.betterarcheology.unidentified_artifact": "未鉴定的文物",
   "item.betterarcheology.identified_artifact": "已鉴定的文物",
   "item.betterarcheology.bomb": "生锈的炸弹",
-  "item.betterarcheology.torrent_totem": "Torrents 图腾",
-  "item.betterarcheology.torrent_totem_description": "Use on land to torrent dash",
+  "item.betterarcheology.torrent_totem": "洪流图腾",
+  "item.betterarcheology.torrent_totem_description": "在陆地上使用，会有冲刺攻击的效果。",
   "item.betterarcheology.soul_totem": "魂之图腾",
   "item.betterarcheology.soul_totem_description": "能力：伤害目标并恢复自身健康。",
 
   "entity.minecraft.villager.archeologist": "考古学家",
 
-  "enchantment.betterarcheology.penetrating_strike": "穿刺攻击",
-  "item.betterarcheology.penetrating_strike_tooltip": "将有一部分对保护魔咒的效果无效",
+  "enchantment.betterarcheology.penetrating_strike": "穿透攻击",
+  "item.betterarcheology.penetrating_strike_tooltip": "将忽略部分保护魔咒的效果",
   "enchantment.betterarcheology.seas_bounty": "海洋的恩赐",
   "item.betterarcheology.seas_bounty_tooltip": "在深海中获得各种各样的宝藏",
-  "enchantment.betterarcheology.soaring_winds": "在风中翱翔",
+  "enchantment.betterarcheology.soaring_winds": "翱翔之风",
   "item.betterarcheology.soaring_winds_tooltip": "在装备了鞘翅并要飞行时，将有一阵风来帮助起飞。",
-  "enchantment.betterarcheology.tunneling": "地下通道",
-  "item.betterarcheology.tunneling_tooltip": "也会将该开采该开采方块下的方块"
+  "enchantment.betterarcheology.tunneling": "隧道挖掘",
+  "item.betterarcheology.tunneling_tooltip": "将会该开采被开采方块下的方块"
 }
