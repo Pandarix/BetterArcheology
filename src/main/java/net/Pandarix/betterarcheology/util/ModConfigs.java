@@ -9,6 +9,7 @@ public class ModConfigs {
     public static boolean ARTIFACT_ENCHANTMENTS_ENABLED;
     public static float PENETRATING_STRIKE_PROTECTION_IGNORANCE;
     public static float SOARING_WINDS_BOOST;
+    public static boolean ELYTRA_TRINKETS_COMPATIBILITY;
     public static int OCELOT_FOSSIL_FLEE_RANGE;
 
     public static void registerConfigs() {
@@ -24,6 +25,7 @@ public class ModConfigs {
         configs.addKeyValuePair(new Pair<>("artifact.enchantments.enabled", true), "Set to true or false to enable or disable effects");
         configs.addKeyValuePair(new Pair<>("penetrating.strike.protection.ignorance", 0.33f), "Set to % of damage-reduction from Protection Enchantments that should be ignored, keep in range of 0-1.00");
         configs.addKeyValuePair(new Pair<>("soaring.winds.boost", 0.5f), "Set to movement speed multiplier, that should be applied when starting to fly");
+        configs.addKeyValuePair(new Pair<>("elytra.trinkets.compatibility", true), "Set to true or false to enable or disable compatibility with Trinkets Mod");
         configs.addKeyValuePair(new Pair<>("ocelot.fossil.flee.range", 20), "Range in Block that the Fossil scares Creepers away");
     }
 
@@ -31,6 +33,7 @@ public class ModConfigs {
         ARTIFACT_ENCHANTMENTS_ENABLED = CONFIG.getOrDefault("artifact.enchantments.enabled", true);
         PENETRATING_STRIKE_PROTECTION_IGNORANCE = (float) CONFIG.getOrDefault("penetrating.strike.protection.ignorance", 0.33f);
         SOARING_WINDS_BOOST = (float) CONFIG.getOrDefault("soaring.winds.boost", 0.3f);
+        ELYTRA_TRINKETS_COMPATIBILITY = CONFIG.getOrDefault("elytra.trinkets.compatibility", true);
         OCELOT_FOSSIL_FLEE_RANGE = CONFIG.getOrDefault("ocelot.fossil.flee.range", 20);
 
         System.out.println("All " + configs.getConfigsList().size() + " have been set properly");
