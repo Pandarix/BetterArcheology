@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.enchantment;
 
+import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ElytraItem;
@@ -12,7 +13,7 @@ public class SoaringWindsEnchantment extends ArtifactEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return 1;
+        return ModConfigs.SOARING_WINDS_MAXLEVEL;
     }
 
     @Override
