@@ -8,6 +8,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Vec3d;
 
 public class ElytraHelper {
     /**
@@ -51,5 +52,30 @@ public class ElytraHelper {
             return 0;
         }
         return EnchantmentHelper.getLevel(enchantment, item);
+    }
+
+    /**
+     * Applies a boost to a given flying player.
+     * The boost vector is first multiplied with the rotation vector component wise
+     * and then added to the velocity vector. This boosts the current velocity
+     * in the direction of the boost vector.
+     *
+     * @param player the player to boost
+     * @param vec_boost the boost vector
+     */
+    public static void applyElytraBoost(PlayerEntity player, Vec3d vec_boost){
+        if (!player.isFallFlying()){
+            return;
+        }
+
+        Vec3d vec_rot = player.getRotationVector();
+        Vec3d vec_vel = player.getVelocity();
+
+        //first multiply the boost vector with the rotation vector component wise
+        //then add the result to the velocity vector to boost the current velocity by the boost vector
+        Vec3d vec_res = vec_vel.add(vec_rot.multiply(vec_boost));
+
+        //set the new velocity
+        player.setVelocity(vec_res);
     }
 }
