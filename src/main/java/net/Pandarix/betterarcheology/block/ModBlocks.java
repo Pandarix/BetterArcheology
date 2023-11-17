@@ -32,6 +32,10 @@ public class ModBlocks {
     public static final Block NAME = registerBlock("name", new Block(FabricBlockSettings.of(Material.MATERIAL).otherSettings()), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
      */
 
+    public static final Block GROWTH_TOTEM = registerBlockWithRarity("growth_totem", new GrowthTotemBlock(StatusEffects.GLOWING, 15, FabricBlockSettings.copy(Blocks.POPPY).sounds(BlockSoundGroup.AMETHYST_BLOCK).offset(AbstractBlock.OffsetType.NONE).luminance((state) -> 15)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block RADIANCE_TOTEM = registerBlockWithRarity("radiance_totem", new RadianceTotemBlock(FabricBlockSettings.copy(Blocks.LANTERN).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance((state) -> 15)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
     //-----------SUS VARIANTS-------------//
     public static final Block SUSPICIOUS_RED_SAND = registerBlock("suspicious_red_sand", new SusBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
@@ -85,6 +89,15 @@ public class ModBlocks {
 
     public static final Block WOLF_FOSSIL_BODY = registerBlockWithRarity("wolf_fossil_body", new WolfFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
+
+    //Guardian
+    public static final Block GUARDIAN_FOSSIL = registerBlockWithRarity("guardian_fossil", new GuardianFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block GUARDIAN_FOSSIL_HEAD = registerBlockWithRarity("guardian_fossil_head", new GuardianFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block GUARDIAN_FOSSIL_BODY = registerBlockWithRarity("guardian_fossil_body", new GuardianFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");
@@ -130,8 +143,6 @@ public class ModBlocks {
     public static final Block EVOKER_TRAP = registerBlockWithoutTab("evoker_trap", new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f).pistonBehavior(PistonBehavior.BLOCK)));
 
     public static final Block CHISELED_BONE_BLOCK = registerBlock("chiseled_bone_block", new PillarBlock(FabricBlockSettings.of().mapColor(MapColor.STONE_GRAY).strength(0.3F).instrument(Instrument.XYLOPHONE).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-
-    public static final Block GROWTH_TOTEM = registerBlockWithRarity("growth_totem", new GrowthTotemBlock(StatusEffects.GLOWING, 15, FabricBlockSettings.copy(Blocks.POPPY).sounds(BlockSoundGroup.AMETHYST_BLOCK).offset(AbstractBlock.OffsetType.NONE).luminance((state) -> 15)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well

@@ -32,10 +32,4 @@ public class WolfFossilBodyBlock extends FossilBaseBodyBlock {
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("block.betterarcheology.wolf_fossil_tooltip").formatted(Formatting.GRAY));
-        super.appendTooltip(stack, world, tooltip, options);
-    }
 }

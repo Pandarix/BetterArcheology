@@ -49,10 +49,4 @@ public class WolfFossilBlock extends FossilBaseWithEntityBlock {
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return WOLF_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("block.betterarcheology.wolf_fossil_tooltip").formatted(Formatting.GRAY));
-        super.appendTooltip(stack, world, tooltip, options);
-    }
 }

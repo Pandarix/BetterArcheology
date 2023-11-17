@@ -3,6 +3,7 @@ package net.Pandarix.betterarcheology.block.entity;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.ModBlocks;
+import net.Pandarix.betterarcheology.block.custom.RadianceTotemBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -13,10 +14,12 @@ public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
     public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
     public static BlockEntityType<ChickenFossilBlockEntity> CHICKEN_FOSSIL;
+    public static BlockEntityType<GuardianFossilBlockEntity> GUARDIAN_FOSSIl;
     public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
-
     public static BlockEntityType<SkeletonFleeFromBlockEntity> SKELETON_FLEE_FROM;
     public static BlockEntityType<SusBlockEntity> SUSBLOCK;
+
+    public static BlockEntityType<RadianceTotemBlockEntity> RADIANCE_TOTEM;
 
     public static void registerBlockEntities() {
         ARCHEOLOGY_TABLE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -34,6 +37,11 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(ChickenFossilBlockEntity::new,
                         ModBlocks.CHICKEN_FOSSIL).build(null));
 
+        GUARDIAN_FOSSIl = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "guardian_fossil"),
+                FabricBlockEntityTypeBuilder.create(GuardianFossilBlockEntity::new,
+                        ModBlocks.GUARDIAN_FOSSIL).build(null));
+
         SUSBLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(BetterArcheology.MOD_ID, "sus_block"),
                 FabricBlockEntityTypeBuilder.create(SusBlockEntity::new,
@@ -48,5 +56,10 @@ public class ModBlockEntities {
                 new Identifier(BetterArcheology.MOD_ID, "skeleton_flee_from"),
                 FabricBlockEntityTypeBuilder.create(SkeletonFleeFromBlockEntity::new,
                         ModBlocks.WOLF_FOSSIL).build(null));
+
+        RADIANCE_TOTEM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "radiance_Totem"),
+                FabricBlockEntityTypeBuilder.create(RadianceTotemBlockEntity::new,
+                        ModBlocks.RADIANCE_TOTEM).build(null));
     }
 }
