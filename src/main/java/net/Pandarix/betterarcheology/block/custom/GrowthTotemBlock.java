@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.FlowerBlock;
@@ -33,11 +34,10 @@ public class GrowthTotemBlock extends FlowerBlock {
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        super.randomDisplayTick(state, world, pos, random);
-        if (world.isClient() && random.nextBetweenExclusive(0, 15) == 0) {
+        if (world.isClient() && random.nextBetween(0, 15) == 0) {
             for (int i = -5; i <= 5; i++) {
                 for (int j = -5; j <= 5; j++) {
-                    if (random.nextBetweenExclusive(0, 3) == 3) {
+                    if (random.nextBetween(0, 3) == 3) {
                         Vec3d center = pos.add(i, 0, j).toCenterPos();
                         world.addParticle(ParticleTypes.INSTANT_EFFECT,
                                 center.x + randomDirectionModifier(random, 3),
@@ -49,6 +49,7 @@ public class GrowthTotemBlock extends FlowerBlock {
                 }
             }
         }
+        super.randomDisplayTick(state, world, pos, random);
     }
 
     @Override
@@ -87,7 +88,7 @@ public class GrowthTotemBlock extends FlowerBlock {
     }
 
     private static float randomDirectionModifier(Random pRandom, int pReduce) {
-        return ((pRandom.nextFloat() / pReduce) * pRandom.nextBetweenExclusive(-1, 1));
+        return ((pRandom.nextFloat() / pReduce) * pRandom.nextBetween(-1, 1));
     }
 
     @Override
