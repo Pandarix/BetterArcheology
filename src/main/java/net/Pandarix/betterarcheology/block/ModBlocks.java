@@ -78,6 +78,13 @@ public class ModBlocks {
 
     public static final Block CREEPER_FOSSIL_BODY = registerBlockWithRarity("creeper_fossil_body", new CreeperFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
+    //Wolf
+    public static final Block WOLF_FOSSIL = registerBlockWithRarity("wolf_fossil", new WolfFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block WOLF_FOSSIL_HEAD = registerBlockWithRarity("wolf_fossil_head", new WolfFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
+    public static final Block WOLF_FOSSIL_BODY = registerBlockWithRarity("wolf_fossil_body", new WolfFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
+
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");

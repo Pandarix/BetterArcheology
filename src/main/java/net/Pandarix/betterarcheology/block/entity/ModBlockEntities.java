@@ -14,6 +14,8 @@ public class ModBlockEntities {
     public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
     public static BlockEntityType<ChickenFossilBlockEntity> CHICKEN_FOSSIL;
     public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
+
+    public static BlockEntityType<SkeletonFleeFromBlockEntity> SKELETON_FLEE_FROM;
     public static BlockEntityType<SusBlockEntity> SUSBLOCK;
 
     public static void registerBlockEntities() {
@@ -41,5 +43,10 @@ public class ModBlockEntities {
                 new Identifier(BetterArcheology.MOD_ID, "flee_from"),
                 FabricBlockEntityTypeBuilder.create(FleeFromBlockEntity::new,
                         ModBlocks.OCELOT_FOSSIL).build(null));
+
+        SKELETON_FLEE_FROM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(BetterArcheology.MOD_ID, "skeleton_flee_from"),
+                FabricBlockEntityTypeBuilder.create(SkeletonFleeFromBlockEntity::new,
+                        ModBlocks.WOLF_FOSSIL).build(null));
     }
 }
