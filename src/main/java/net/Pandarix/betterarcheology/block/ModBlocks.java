@@ -10,6 +10,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -96,6 +98,8 @@ public class ModBlocks {
 
     public static final Block ROTTEN_DOOR = registerBlock("rotten_door", new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_BLOCKSET), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block ROTTEN_PRESSURE_PLATE = registerBlock("rotten_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE).sounds(BlockSoundGroup.STEM), ROTTEN_WOOD_BLOCKSET),  ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+
     //-------------MUD Brick Stuff----------------//
     public static final Block INFESTED_MUD_BRICKS = registerBlock("infested_mud_bricks", new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
@@ -116,10 +120,13 @@ public class ModBlocks {
     public static final Block LOOT_VASE_GREEN = registerBlockWithoutTab("loot_vase_green", new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)));
     public static final Block VASE_GREEN = registerBlock("vase_green", new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Block EVOKER_TRAP = registerBlockWithoutTab("evoker_trap", new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f)));
+    public static final Block EVOKER_TRAP = registerBlockWithoutTab("evoker_trap", new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f).pistonBehavior(PistonBehavior.BLOCK)));
 
     public static final Block CHISELED_BONE_BLOCK = registerBlock("chiseled_bone_block", new PillarBlock(FabricBlockSettings.of().mapColor(MapColor.STONE_GRAY).strength(0.3F).instrument(Instrument.XYLOPHONE).sounds(BlockSoundGroup.BONE)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
 
+    public static final Block GROWTH_TOTEM = registerBlockWithRarity("growth_totem", new GrowthTotemBlock(StatusEffects.GLOWING, 15, FabricBlockSettings.copy(Blocks.POPPY).sounds(BlockSoundGroup.AMETHYST_BLOCK).offset(AbstractBlock.OffsetType.NONE).luminance((state) -> {
+        return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
+    })), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP, Rarity.UNCOMMON);
 
     //REGISTERING--------------------------------------------------------------------------//
     //Registers Block and calls registerBlockItem to add it as an Item as well
