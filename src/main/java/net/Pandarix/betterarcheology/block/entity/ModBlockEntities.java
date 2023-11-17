@@ -58,7 +58,7 @@ public class ModBlockEntities {
                         ModBlocks.WOLF_FOSSIL).build(null));
 
         RADIANCE_TOTEM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(BetterArcheology.MOD_ID, "radiance_Totem"),
+                new Identifier(BetterArcheology.MOD_ID, "radiance_totem"),
                 FabricBlockEntityTypeBuilder.create(RadianceTotemBlockEntity::new,
                         ModBlocks.RADIANCE_TOTEM).build(null));
     }

@@ -81,6 +81,6 @@ public class GuardianFossilBlock extends FossilBaseWithEntityBlock implements Wa
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(WATERLOGGED, FACING);
+        builder.add(WATERLOGGED);
     }
 }
