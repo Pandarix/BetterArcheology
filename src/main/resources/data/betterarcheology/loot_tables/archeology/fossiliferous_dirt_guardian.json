@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "betterarcheology:guardian_fossil_head"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "betterarcheology:guardian_fossil_body"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:bone_meal"
+        }
+      ]
+    }
+  ]
+}

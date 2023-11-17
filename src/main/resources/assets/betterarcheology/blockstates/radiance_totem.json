@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"hanging=false": {
+			"model": "betterarcheology:block/radiance_totem"
+		},
+		"hanging=true": {
+			"model": "betterarcheology:block/radiance_totem_hanging"
+		}
+	}
+}

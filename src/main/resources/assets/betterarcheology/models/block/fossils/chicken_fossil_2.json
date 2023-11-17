@@ -5,6 +5,8 @@
 		"0": "betterarcheology:block/fossils/chicken",
 		"particle": "item/bone"
 	},
+	"render_type": "cutout",
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"from": [9.5, 6.64318, 3.3554],

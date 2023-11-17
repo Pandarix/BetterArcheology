@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "betterarcheology:block/chiseled_bone_block",
+		"side": "betterarcheology:block/chiseled_bone_block"
+	}
+}

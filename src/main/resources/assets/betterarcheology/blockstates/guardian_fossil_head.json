@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "betterarcheology:block/fossils/guardian_fossil_head_0",
+        "y": 90
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "betterarcheology:block/fossils/guardian_fossil_head_0"
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "betterarcheology:block/fossils/guardian_fossil_head_0",
+        "y": 180
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "betterarcheology:block/fossils/guardian_fossil_head_0",
+        "y": 270
+      }
+    ]
+  }
+}

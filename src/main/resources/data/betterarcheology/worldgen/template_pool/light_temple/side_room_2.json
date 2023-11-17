@@ -1,0 +1,18 @@
+{
+  "name": "betterarcheology:light_temple/side_room_2",
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:light_temple/side_room_2",
+
+        "processors": "betterarcheology:light_temple",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

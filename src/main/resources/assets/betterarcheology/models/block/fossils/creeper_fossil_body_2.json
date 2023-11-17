@@ -5,6 +5,8 @@
 		"2": "betterarcheology:block/fossils/creeper",
 		"particle": "item/bone"
 	},
+	"render_type": "cutout",
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"name": "Body inverted",

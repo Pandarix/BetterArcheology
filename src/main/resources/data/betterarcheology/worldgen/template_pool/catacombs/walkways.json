@@ -1,0 +1,150 @@
+{
+  "name": "betterarcheology:catacombs/walkways",
+  "fallback": "betterarcheology:catacombs/endpieces",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_1",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_2",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_3",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_4",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_5",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_6",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_tunnel_7",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_1",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_2",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_3",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_4",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_5",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_room_6",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
