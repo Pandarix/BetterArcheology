@@ -92,6 +92,12 @@ public class ModVillagers {
                             new ItemStack(ModBlocks.VASE, 1),
                             8, 10, 0.025f
                     )));
+
+                    factories.add(((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(ModBlocks.VASE_GREEN, 1),
+                            8, 10, 0.025f
+                    )));
                 });
 
         TradeOfferHelper.registerVillagerOffers(ARCHEOLOGIST, 5,
