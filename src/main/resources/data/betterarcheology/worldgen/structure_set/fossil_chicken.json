@@ -33,7 +33,10 @@
         "betterarcheology:tumulus_grassy",
         "betterarcheology:villager_grave",
         "betterarcheology:fossil_creeper",
-        "betterarcheology:fossil_chicken_birch"
+        "betterarcheology:fossil_chicken_birch",
+        "betterarcheology:fossil_wolf",
+        "betterarcheology:catacombs",
+        "betterarcheology:light_temple"
       ]
     }
   }

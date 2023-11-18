@@ -40,7 +40,10 @@
         "betterarcheology:underwater_3",
         "minecraft:ocean_ruins",
         "minecraft:shipwreck",
-        "minecraft:ocean_monument"
+        "minecraft:ocean_monument",
+        "betterarcheology:fossil_wolf",
+        "betterarcheology:catacombs",
+        "betterarcheology:light_temple"
       ]
     }
   }
