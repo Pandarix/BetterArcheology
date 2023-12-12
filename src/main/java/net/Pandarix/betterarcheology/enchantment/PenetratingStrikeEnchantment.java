@@ -8,6 +8,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -70,8 +71,9 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
         float totalProtectedDamage = (float) (damageInflicted * damagePercentageProtected);
 
         if (level == 1) {
-            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE));
-            BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE);
+            if(user instanceof PlayerEntity player) {
+                target.damage(player.getDamageSources().magic(), (float) (totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE));
+            }
         }
 
         //Audio Feedback
