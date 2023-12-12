@@ -57,7 +57,7 @@ public class RadianceTotemBlock extends FossilBaseWithEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.RADIANCE_TOTEM, RadianceTotemBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.RADIANCE_TOTEM, RadianceTotemBlockEntity::tick);
     }
 
     @Override

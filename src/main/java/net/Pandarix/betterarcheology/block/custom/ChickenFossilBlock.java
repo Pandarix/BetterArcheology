@@ -59,7 +59,7 @@ public class ChickenFossilBlock extends FossilBaseWithEntityBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.CHICKEN_FOSSIL, ChickenFossilBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.CHICKEN_FOSSIL, ChickenFossilBlockEntity::tick);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

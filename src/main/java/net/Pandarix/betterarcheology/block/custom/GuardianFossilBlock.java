@@ -65,7 +65,7 @@ public class GuardianFossilBlock extends FossilBaseWithEntityBlock implements Wa
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.GUARDIAN_FOSSIl, GuardianFossilBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.GUARDIAN_FOSSIl, GuardianFossilBlockEntity::tick);
     }
 
     @Override

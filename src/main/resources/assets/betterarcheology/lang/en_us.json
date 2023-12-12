@@ -107,7 +107,7 @@
   "block.betterarcheology.radiance_totem_message_2": "Displaying Animals",
   "block.betterarcheology.radiance_totem_message_3": "Displaying Players",
 
-  "entity.minecraft.villager.betterarcheology.archeologist": "Archeologist",
+  "entity.minecraft.villager.archeologist": "Archeologist",
 
   "enchantment.betterarcheology.penetrating_strike": "Penetrating Strike",
   "item.betterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments",
