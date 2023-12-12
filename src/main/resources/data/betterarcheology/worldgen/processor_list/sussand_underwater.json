@@ -12,14 +12,14 @@
             "block": "minecraft:suspicious_sand"
           },
           "output_state": {
-            "Name": "minecraft:suspicious_sand",
+            "Name": "betterarcheology:fossiliferous_dirt",
             "Properties": {
               "dusted": "0"
             }
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/sussand_underwater"
+            "loot_table": "betterarcheology:archeology/fossiliferous_dirt_guardian"
           }
         },
         {

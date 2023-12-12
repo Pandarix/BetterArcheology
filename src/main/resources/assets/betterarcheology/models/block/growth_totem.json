@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cross",
+	"textures": {
+		"cross": "betterarcheology:block/growth_totem_block"
+	}
+}

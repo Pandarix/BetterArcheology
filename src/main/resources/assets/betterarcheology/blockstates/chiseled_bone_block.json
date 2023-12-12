@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "betterarcheology:block/chiseled_bone_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "betterarcheology:block/chiseled_bone_block"
+    },
+    "axis=z": {
+      "model": "betterarcheology:block/chiseled_bone_block",
+      "x": 90
+    }
+  }
+}

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AddCreeperGoalsMixin",
+    "AddSkeletonGoalsMixin",
     "ElytraStartupMixin",
     "FasterBrushingMixin",
     "TorrentTotemItemTickMixin",

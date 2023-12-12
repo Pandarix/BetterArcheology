@@ -19,6 +19,14 @@
     "betterarcheology:creeper_fossil",
     "betterarcheology:creeper_fossil_head",
     "betterarcheology:creeper_fossil_body",
-    "betterarcheology:evoker_trap"
+    "betterarcheology:wolf_fossil",
+    "betterarcheology:wolf_fossil_head",
+    "betterarcheology:wolf_fossil_body",
+    "betterarcheology:guardian_fossil",
+    "betterarcheology:guardian_fossil_head",
+    "betterarcheology:guardian_fossil_body",
+    "betterarcheology:evoker_trap",
+    "betterarcheology:chiseled_bone_block",
+    "betterarcheology:radiance_totem"
   ]
 }

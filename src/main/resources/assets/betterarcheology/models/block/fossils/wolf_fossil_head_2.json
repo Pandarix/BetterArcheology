@@ -1,0 +1,73 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "cutout",
+	"texture_size": [64, 32],
+	"textures": {
+		"0": "betterarcheology:block/fossils/wolf",
+		"particle": "item/bone"
+	},
+	"elements": [
+		{
+			"from": [5, 1, 7],
+			"to": [11, 6, 12],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 2.525, 7.75]},
+			"faces": {
+				"north": {"uv": [1.25, 2, 2.75, 4.5], "texture": "#0"},
+				"east": {"uv": [1.25, 2, 0, 4.5], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [1.75, 10.5, 3, 13.5], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [4, 2, 2.75, 4.5], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [1.25, 2.5, 2.75, 0], "texture": "#0"},
+				"down": {"uv": [3.25, 5, 4.75, 7.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6.5, 0.05, 4],
+			"to": [9.5, 3.05, 8],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 2.525, 7.75]},
+			"faces": {
+				"north": {"uv": [1, 7, 1.75, 8.5], "texture": "#0"},
+				"east": {"uv": [2.75, 7, 1.75, 8.5], "texture": "#0"},
+				"south": {"uv": [1.75, 7, 2.5, 8.5], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 8.5, 1, 7], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [1, 7, 1.75, 5], "texture": "#0"},
+				"down": {"uv": [1.75, 5, 2.5, 7], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cube inverted",
+			"from": [11, 6, 11],
+			"to": [5, 1, 7],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 2.525, 7.75]},
+			"faces": {
+				"north": {"uv": [3, 10.5, 1.75, 13.5], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [2.75, 2, 4, 4], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [1.25, 4.5, 2.75, 2], "texture": "#0"},
+				"west": {"uv": [0, 2, 1.25, 4], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [4.25, 0, 2.75, 2], "texture": "#0"},
+				"down": {"uv": [2.75, 2.5, 1.25, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cube inverted",
+			"from": [9.5, 3.05, 8],
+			"to": [6.5, 0.05, 4],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 2.525, 7.75]},
+			"faces": {
+				"north": {"uv": [2.5, 7, 1.75, 8.5], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 7, 1, 8.5], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [1, 8.5, 1.75, 7], "texture": "#0"},
+				"west": {"uv": [2.75, 8.5, 1.75, 7], "texture": "#0"},
+				"up": {"uv": [2.5, 5, 1.75, 7], "texture": "#0"},
+				"down": {"uv": [1.75, 7, 1, 5], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "head",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

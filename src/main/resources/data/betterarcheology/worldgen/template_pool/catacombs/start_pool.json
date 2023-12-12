@@ -1,0 +1,18 @@
+{
+  "name": "betterarcheology:catacombs/start_pool",
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "betterarcheology:catacombs/catacombs_top",
+
+        "processors": "betterarcheology:catacombs",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

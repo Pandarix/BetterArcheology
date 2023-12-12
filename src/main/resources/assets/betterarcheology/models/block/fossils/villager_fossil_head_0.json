@@ -5,6 +5,8 @@
 		"0": "betterarcheology:block/fossils/villager_fossil",
 		"particle": "item/bone"
 	},
+	"render_type": "cutout",
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"name": "head",

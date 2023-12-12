@@ -5,6 +5,8 @@
 		"0": "betterarcheology:block/fossils/ocelot",
 		"particle": "item/bone"
 	},
+	"render_type": "cutout",
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"name": "l",
