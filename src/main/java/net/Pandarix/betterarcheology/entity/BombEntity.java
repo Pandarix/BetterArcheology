@@ -21,6 +21,10 @@ public class BombEntity extends ThrownItemEntity {
         super(ModEntityTypes.BOMB_ENTITY, owner, world);
     }
 
+    public BombEntity(World world, double x, double y, double z) {
+        super(ModEntityTypes.BOMB_ENTITY, x, y, z, world);
+    }
+
     @Override
     protected Item getDefaultItem() {
         return ModItems.BOMB_ITEM;
@@ -33,7 +37,7 @@ public class BombEntity extends ThrownItemEntity {
             Random random = this.getWorld().getRandom();
 
             for (int i = 0; i < 25; ++i) {
-                this.getWorld().addParticle(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY(), this.getZ(), random.nextDouble()/5f * random.nextBetween(-1, 1), random.nextDouble()/2f, random.nextDouble()/5f * random.nextBetween(-1, 1));
+                this.getWorld().addParticle(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY(), this.getZ(), random.nextDouble() / 5f * random.nextBetween(-1, 1), random.nextDouble() / 2f, random.nextDouble() / 5f * random.nextBetween(-1, 1));
             }
         }
     }
@@ -41,7 +45,7 @@ public class BombEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         Random random = this.getWorld().getRandom();
-        if(random.nextBoolean()){
+        if (random.nextBoolean()) {
             //trail particles for when the bomb is thrown
             this.getWorld().addParticle(random.nextBoolean() ? ParticleTypes.FLAME : ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
         }
