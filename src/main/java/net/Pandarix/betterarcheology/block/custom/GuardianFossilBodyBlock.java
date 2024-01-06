@@ -1,14 +1,9 @@
 package net.Pandarix.betterarcheology.block.custom;
 
-import com.google.common.collect.ImmutableMap;
-import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.Waterloggable;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -19,14 +14,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import org.apache.logging.log4j.core.config.builder.api.AppenderComponentBuilder;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Map;
-import java.util.stream.Stream;
 
 public class GuardianFossilBodyBlock extends FossilBaseBodyBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;

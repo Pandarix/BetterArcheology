@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.block.custom;
 
-import net.Pandarix.betterarcheology.block.entity.GuardianFossilBlockEntity;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.Pandarix.betterarcheology.block.entity.RadianceTotemBlockEntity;
 import net.minecraft.block.Block;

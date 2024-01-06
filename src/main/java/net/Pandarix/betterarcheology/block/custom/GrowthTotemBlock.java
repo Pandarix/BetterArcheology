@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.block.custom;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.FlowerBlock;

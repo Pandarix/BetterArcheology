@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.item;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BrushableBlock;

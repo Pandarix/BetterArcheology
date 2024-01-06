@@ -3,7 +3,6 @@ package net.Pandarix.betterarcheology.block.entity;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.block.ModBlocks;
-import net.Pandarix.betterarcheology.block.custom.RadianceTotemBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;

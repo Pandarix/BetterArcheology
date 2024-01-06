@@ -9,7 +9,6 @@ import net.Pandarix.betterarcheology.item.ModItems;
 import net.Pandarix.betterarcheology.networking.ModMessages;
 import net.Pandarix.betterarcheology.screen.ModScreenHandlers;
 import net.Pandarix.betterarcheology.structures.ModStructureFeatures;
-import net.Pandarix.betterarcheology.structures.ModStructures;
 import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.Pandarix.betterarcheology.util.ModDispenserBehaviour;
 import net.Pandarix.betterarcheology.villager.ModVillagers;

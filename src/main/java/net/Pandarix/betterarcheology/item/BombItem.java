@@ -2,7 +2,6 @@ package net.Pandarix.betterarcheology.item;
 
 import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.entity.BombEntity;
-import net.Pandarix.betterarcheology.entity.ModEntityTypes;
 import net.Pandarix.betterarcheology.util.ServerPlayerHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

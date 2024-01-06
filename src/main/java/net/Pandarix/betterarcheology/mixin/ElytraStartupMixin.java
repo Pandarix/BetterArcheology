@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.mixin;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.Pandarix.betterarcheology.enchantment.ModEnchantments;
 import net.Pandarix.betterarcheology.util.ModConfigs;
 import net.minecraft.enchantment.EnchantmentHelper;

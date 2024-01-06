@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.item;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;

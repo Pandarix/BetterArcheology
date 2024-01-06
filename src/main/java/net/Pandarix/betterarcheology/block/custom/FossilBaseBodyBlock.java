@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.block.custom;
 
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,13 +16,11 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Map;
 
 public class FossilBaseBodyBlock extends HorizontalFacingBlock {
     public static DirectionProperty FACING = HorizontalFacingBlock.FACING;

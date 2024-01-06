@@ -3,16 +3,9 @@ package net.Pandarix.betterarcheology.block.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 
 public class WolfFossilHeadBlock extends FossilBaseHeadBlock {

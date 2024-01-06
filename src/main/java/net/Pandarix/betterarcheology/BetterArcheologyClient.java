@@ -2,8 +2,9 @@ package net.Pandarix.betterarcheology;
 
 import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
-import net.Pandarix.betterarcheology.block.entity.client.*;
-import net.Pandarix.betterarcheology.entity.BombEntity;
+import net.Pandarix.betterarcheology.block.entity.client.ArcheologyTableBlockEntityRenderer;
+import net.Pandarix.betterarcheology.block.entity.client.SusBlockEntityRenderer;
+import net.Pandarix.betterarcheology.block.entity.client.VillagerFossilBlockEntityRenderer;
 import net.Pandarix.betterarcheology.entity.ModEntityTypes;
 import net.Pandarix.betterarcheology.networking.ModMessages;
 import net.Pandarix.betterarcheology.screen.FossilInventoryScreen;
@@ -13,14 +14,9 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.block.entity.BrushableBlockEntityRenderer;
-import net.minecraft.client.render.entity.*;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.item.Item;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
 public class BetterArcheologyClient implements ClientModInitializer {
     @Override
