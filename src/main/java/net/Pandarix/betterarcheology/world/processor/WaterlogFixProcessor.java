@@ -22,10 +22,8 @@ import java.util.Optional;
 
 /**
  * A patchwork fix for https://bugs.mojang.com/browse/MC-130584.
- */
-
-/**
- * A patchwork fix for https://bugs.mojang.com/browse/MC-130584.
+ *
+ * @author yungnickyoung
  */
 public class WaterlogFixProcessor extends StructureProcessor implements ISafeWorldModifier {
     public static final WaterlogFixProcessor INSTANCE = new WaterlogFixProcessor();
@@ -38,40 +36,40 @@ public class WaterlogFixProcessor extends StructureProcessor implements ISafeWor
      */
     @Nullable
     @Override
-    public StructureTemplate.StructureBlockInfo process(WorldView world,
-                                                             BlockPos pos,
-                                                             BlockPos pivot,
-                                                             StructureTemplate.StructureBlockInfo originalBlockInfo,
-                                                             StructureTemplate.StructureBlockInfo currentBlockInfo,
-                                                             StructurePlacementData data) {
+    public StructureTemplate.StructureBlockInfo process(WorldView levelReader,
+                                                             BlockPos jigsawPiecePos,
+                                                             BlockPos jigsawPieceBottomCenterPos,
+                                                             StructureTemplate.StructureBlockInfo blockInfoLocal,
+                                                             StructureTemplate.StructureBlockInfo blockInfoGlobal,
+                                                             StructurePlacementData structurePlacementData) {
         // Check if block is waterloggable and not intended to be waterlogged
-        if (currentBlockInfo.state().contains(Properties.WATERLOGGED) && !currentBlockInfo.state().get(Properties.WATERLOGGED)) {
-            ChunkPos currentChunkPos = new ChunkPos(currentBlockInfo.pos());
-            Chunk currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
-            int sectionYIndex = currentChunk.getSectionIndex(currentBlockInfo.pos().getY());
+        if (blockInfoGlobal.state().contains(Properties.WATERLOGGED) && !blockInfoGlobal.state().get(Properties.WATERLOGGED)) {
+            ChunkPos currentChunkPos = new ChunkPos(blockInfoGlobal.pos());
+            Chunk currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            int sectionYIndex = currentChunk.getSectionIndex(blockInfoGlobal.pos().getY());
 
             // Validate chunk section index. Sometimes the index is -1. Not sure why, but this will
             // at least prevent the game from crashing.
             if (sectionYIndex < 0) {
-                return currentBlockInfo;
+                return blockInfoGlobal;
             }
 
             ChunkSection currChunkSection = currentChunk.getSection(sectionYIndex);
 
-            if (getFluidStateSafe(world, currentBlockInfo.pos()).isIn(FluidTags.WATER)) {
-                setBlockStateSafe(world, currentBlockInfo.pos(), Blocks.STONE_BRICKS.getDefaultState());
+            if (getFluidStateSafe(levelReader, blockInfoGlobal.pos()).isIn(FluidTags.WATER)) {
+                setBlockStateSafe(levelReader, blockInfoGlobal.pos(), Blocks.STONE_BRICKS.getDefaultState());
             }
 
             // Remove water in adjacent blocks
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             for (Direction direction : Direction.values()) {
-                mutable.set(currentBlockInfo.pos()).move(direction);
+                mutable.set(blockInfoGlobal.pos()).move(direction);
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
                     currentChunkPos = new ChunkPos(mutable);
-                    currentChunk = world.getChunk(currentChunkPos.x, currentChunkPos.z);
+                    currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
                     sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     if (sectionYIndex < 0) {
-                        return currentBlockInfo;
+                        return blockInfoGlobal;
                     }
                     currChunkSection = currentChunk.getSection(sectionYIndex);
                 }
@@ -85,7 +83,7 @@ public class WaterlogFixProcessor extends StructureProcessor implements ISafeWor
             }
         }
 
-        return currentBlockInfo;
+        return blockInfoGlobal;
     }
 
     protected StructureProcessorType<?> getType() {
