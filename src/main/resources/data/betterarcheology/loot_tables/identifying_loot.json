@@ -18,7 +18,7 @@
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.penetrating_strike_tooltip",
+                  "translate": "enchantment.betterarcheology.penetrating_strike.desc",
                   "color": "dark_gray"
                 }
               ]
@@ -46,7 +46,7 @@
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.soaring_winds_tooltip",
+                  "translate": "enchantment.betterarcheology.soaring_winds.desc",
                   "color": "dark_gray"
                 }
               ]
@@ -74,7 +74,7 @@
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.tunneling_tooltip",
+                  "translate": "enchantment.betterarcheology.tunneling.desc",
                   "color": "dark_gray"
                 }
               ]

@@ -110,11 +110,11 @@
   "entity.minecraft.villager.betterarcheology.archeologist": "考古學家",
 
   "enchantment.betterarcheology.penetrating_strike": "穿透打擊",
-  "item.betterarcheology.penetrating_strike_tooltip": "無視部分保護效果",
+  "enchantment.betterarcheology.penetrating_strike.desc": "無視部分保護效果",
   "enchantment.betterarcheology.seas_bounty": "海洋恩賜",
-  "item.betterarcheology.seas_bounty_tooltip": "在深處獲得更多寶藏",
+  "enchantment.betterarcheology.seas_bounty.desc": "在深處獲得更多寶藏",
   "enchantment.betterarcheology.soaring_winds": "疾風翱翔",
-  "item.betterarcheology.soaring_winds_tooltip": "鞘翅使用風力原地飛行",
+  "enchantment.betterarcheology.soaring_winds.desc": "鞘翅使用風力原地飛行",
   "enchantment.betterarcheology.tunneling": "地道挖掘",
-  "item.betterarcheology.tunneling_tooltip": "也將破壞下方方塊"
+  "enchantment.betterarcheology.tunneling.desc": "也將破壞下方方塊"
 }

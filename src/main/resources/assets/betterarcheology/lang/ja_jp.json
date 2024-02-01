@@ -78,11 +78,11 @@
     "item.betterarcheology.soul_totem_description": "能力: 相手にダメージを与え、体力を吸収します。",
     "entity.minecraft.villager.betterarcheology.archeologist": "考古学者",
     "enchantment.betterarcheology.penetrating_strike": "会心の一撃",
-    "item.betterarcheology.penetrating_strike_tooltip": "ダメージ軽減の効果を一部貫通します。",
+    "enchantment.betterarcheology.penetrating_strike.desc": "ダメージ軽減の効果を一部貫通します。",
     "enchantment.betterarcheology.seas_bounty": "海の恵み",
-    "item.betterarcheology.seas_bounty_tooltip": "海からより多くの種類のお宝を手に入れます。",
+    "enchantment.betterarcheology.seas_bounty.desc": "海からより多くの種類のお宝を手に入れます。",
     "enchantment.betterarcheology.soaring_winds": "飛翔",
-    "item.betterarcheology.soaring_winds_tooltip": "エリトラの初速が増加します。",
+    "enchantment.betterarcheology.soaring_winds.desc": "エリトラの初速が増加します。",
     "enchantment.betterarcheology.tunneling": "坑道",
-    "item.betterarcheology.tunneling_tooltip": "採掘したブロックの下にあるブロックも同時に破壊します。"
+    "enchantment.betterarcheology.tunneling.desc": "採掘したブロックの下にあるブロックも同時に破壊します。"
 }
