@@ -1,0 +1,66 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:meadow",
+    {
+      "id": "biomesoplenty:field",
+      "required": false
+    },
+    {
+      "id": "#c:meadow",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:highland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:highland_moor",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rocky_shrubland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:clover_patch",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:pine_meadows",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:meadow",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:highland_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:shrubland",
+      "required": false
+    },
+    {
+      "id": "wythers:cold_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:cool_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:autumnal_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:harvest_fields",
+      "required": false
+    },
+    {
+      "id": "wythers:highland_plains",
+      "required": false
+    }
+  ]
+}

@@ -3,12 +3,7 @@
 
   "_comment": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
   "values": [
-    "minecraft:forest",
-    "minecraft:dark_forest",
-    "minecraft:old_growth_pine_taiga",
-    "old_growth_spruce_taiga",
-    "taiga",
-    "snowy_taiga",
-    "stony_peaks"
+    "#betterarcheology:collections/forests",
+    "#betterarcheology:collections/taigas"
   ]
 }
