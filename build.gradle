@@ -23,6 +23,14 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://maven.ladysnake.org/releases'
+	}
 }
 
 dependencies {
@@ -40,6 +48,8 @@ dependencies {
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	modImplementation "com.yungnickyoung.minecraft." +
 			"yungsapi:YungsApi:${yungsapi_mc_version}-Fabric-${yungsapi_version}"
+
+	modImplementation "dev.emi:trinkets:${trinkets_version}"
 }
 
 processResources {
