@@ -107,7 +107,7 @@
   "block.betterarcheology.radiance_totem_message_2": "Показывает животных",
   "block.betterarcheology.radiance_totem_message_3": "Показывает игроков",
 
-  "entity.minecraft.villager.betterarcheology.archeologist": "Археолог",
+  "entity.minecraft.villager.archeologist": "Археолог",
 
   "enchantment.betterarcheology.penetrating_strike": "Проникающий удар",
   "enchantment.betterarcheology.penetrating_strike.desc": "Частично игнорирует эффекты защитных зачарований",

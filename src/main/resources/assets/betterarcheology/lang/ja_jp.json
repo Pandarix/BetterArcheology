@@ -76,7 +76,7 @@
     "item.betterarcheology.torrent_totem_description": "地上で激流の効果を発動します。",
     "item.betterarcheology.soul_totem": "魂のトーテム",
     "item.betterarcheology.soul_totem_description": "能力: 相手にダメージを与え、体力を吸収します。",
-    "entity.minecraft.villager.betterarcheology.archeologist": "考古学者",
+    "entity.minecraft.villager.archeologist": "考古学者",
     "enchantment.betterarcheology.penetrating_strike": "会心の一撃",
     "enchantment.betterarcheology.penetrating_strike.desc": "ダメージ軽減の効果を一部貫通します。",
     "enchantment.betterarcheology.seas_bounty": "海の恵み",

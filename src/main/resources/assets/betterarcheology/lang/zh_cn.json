@@ -107,7 +107,7 @@
   "block.betterarcheology.radiance_totem_message_2": "显示动物",
   "block.betterarcheology.radiance_totem_message_3": "显示玩家",
 
-  "entity.minecraft.villager.betterarcheology.archeologist": "考古学家",
+  "entity.minecraft.villager.archeologist": "考古学家",
 
   "enchantment.betterarcheology.penetrating_strike": "穿透打击",
   "enchantment.betterarcheology.penetrating_strike.desc": "部分忽略保护附魔的效果",

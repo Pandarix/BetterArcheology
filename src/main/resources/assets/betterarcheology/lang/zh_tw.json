@@ -107,7 +107,7 @@
   "block.betterarcheology.radiance_totem_message_2": "顯示動物實體",
   "block.betterarcheology.radiance_totem_message_3": "顯示玩家實體",
 
-  "entity.minecraft.villager.betterarcheology.archeologist": "考古學家",
+  "entity.minecraft.villager.archeologist": "考古學家",
 
   "enchantment.betterarcheology.penetrating_strike": "穿透打擊",
   "enchantment.betterarcheology.penetrating_strike.desc": "無視部分保護效果",
