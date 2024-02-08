@@ -1,0 +1,21 @@
+{
+  "name": "structure_settings",
+  "subPath": "betterarcheology_structures",
+  "header": "This config is used to tweak the spawning-behaviour certain structures from the BetterArcheology Mod",
+  "config_type": "PLACEMENT",
+  "comments": {
+    "archeology_sites": "Normal buildings, ruins etc. without fossils.",
+    "fossil_sites": "Rather small fossil sites with fossiliferous dirt.",
+    "underwater_ruins": "Underwater ruins similar to shipwrecks containing fossiliferous dirt."
+  },
+  "structure_sets": [
+    {
+      "modid": "betterarcheology",
+      "structure_set": [
+        "betterarcheology:archeology_sites",
+        "betterarcheology:fossil_sites",
+        "betterarcheology:underwater_ruins"
+      ]
+    }
+  ]
+}
