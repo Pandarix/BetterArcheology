@@ -1,0 +1,46 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:fossil_chicken",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_chicken_birch",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_creeper",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_jungle_0",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_jungle_1",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_sheep_0",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:fossil_wolf",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:villager_grave",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 990880771,
+    "spacing": 24,
+    "separation": 12,
+    "exclusion_zone": {
+      "chunk_count": 6,
+      "other_set": "minecraft:villages"
+    }
+  }
+}

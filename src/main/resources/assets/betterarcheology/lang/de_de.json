@@ -116,5 +116,8 @@
   "enchantment.betterarcheology.soaring_winds": "Aufwinde",
   "enchantment.betterarcheology.soaring_winds.desc": "Bändigt den Wind, um beim Starten mit Elytren einen Start-Boost zu geben",
   "enchantment.betterarcheology.tunneling": "Tunnelbau",
-  "enchantment.betterarcheology.tunneling.desc": "Baut auch den Block unterhalb des abgebauten Blocks ab"
+  "enchantment.betterarcheology.tunneling.desc": "Baut auch den Block unterhalb des abgebauten Blocks ab",
+
+  "filled_map.catacombs": "Katakomben-Entdeckerkarte",
+  "filled_map.light": "Lichttempel-Entdeckerkarte"
 }

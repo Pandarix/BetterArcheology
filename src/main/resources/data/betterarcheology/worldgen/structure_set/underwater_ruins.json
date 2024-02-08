@@ -1,0 +1,30 @@
+{
+  "structures": [
+    {
+      "structure": "betterarcheology:underwater_0",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:underwater_1",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:underwater_2",
+      "weight": 5
+    },
+    {
+      "structure": "betterarcheology:underwater_3",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 990880772,
+    "spacing": 16,
+    "separation": 12,
+    "exclusion_zone": {
+      "chunk_count": 6,
+      "other_set": "minecraft:ocean_ruins"
+    }
+  }
+}

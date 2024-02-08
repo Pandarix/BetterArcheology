@@ -4,115 +4,63 @@
       "structure": "betterarcheology:archeologist_camp_grassy",
       "weight": 5
     },
-	    {
+    {
       "structure": "betterarcheology:archeologist_camp_redsand",
       "weight": 5
     },
-	    {
+    {
       "structure": "betterarcheology:archeologist_camp_sand",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:buried_ruins_sand",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:catacombs",
       "weight": 2
     },
-	{
+    {
       "structure": "betterarcheology:desert_obelisk",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:fossil_chicken",
-      "weight": 5
+      "weight": 6
     },
     {
-      "structure": "betterarcheology:fossil_chicken_birch",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:fossil_creeper",
-      "weight": 5
-    },
-    {
-      "structure": "betterarcheology:fossil_jungle_0",
-      "weight": 5
-    },
-    {
-      "structure": "betterarcheology:fossil_jungle_1",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:fossil_sheep_0",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:fossil_wolf",
-      "weight": 5
-    },
-	{
       "structure": "betterarcheology:light_temple",
       "weight": 2
     },
-	{
+    {
       "structure": "betterarcheology:mesa_ruins",
-      "weight": 5
+      "weight": 4
     },
-	{
+    {
       "structure": "betterarcheology:mott",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:ruins_sand",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:stonehenge_grassy",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:temple_jungle",
       "weight": 5
     },
-	{
+    {
       "structure": "betterarcheology:tumulus_grassy",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:underwater_0",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:underwater_1",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:underwater_2",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:underwater_3",
-      "weight": 5
-    },
-	{
-      "structure": "betterarcheology:villager_grave",
-      "weight": 5
+      "weight": 4
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-
     "salt": 990880770,
-
-    "spacing": 17,
-
-    "separation": 8,
-
+    "spacing": 32,
+    "separation": 16,
     "exclusion_zone": {
-      "chunk_count": 12,
-      "other_set": "minecraft:desert_pyramids"
+      "chunk_count": 6,
+      "other_set": "betterarcheology:fossil_sites"
     }
   }
 }

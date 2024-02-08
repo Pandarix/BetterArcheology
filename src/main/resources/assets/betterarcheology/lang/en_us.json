@@ -116,5 +116,8 @@
   "enchantment.betterarcheology.soaring_winds": "Soaring Winds",
   "enchantment.betterarcheology.soaring_winds.desc": "Harnesses winds to give a startup-boost when using an Elytra",
   "enchantment.betterarcheology.tunneling": "Tunneling",
-  "enchantment.betterarcheology.tunneling.desc": "Also breaks the Block below the mined block"
+  "enchantment.betterarcheology.tunneling.desc": "Also breaks the Block below the mined block",
+
+  "filled_map.catacombs": "Catacombs Explorer Map",
+  "filled_map.light": "Light Temple Explorer Map"
 }
