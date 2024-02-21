@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.util;
 
+import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.NoPenaltyTargeting;
 import net.minecraft.entity.ai.goal.Goal;
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 public class FleeBlockGoal<T extends BlockEntity> extends Goal {
     protected final PathAwareEntity mob;
@@ -56,9 +58,9 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
     private BlockEntity getClosestBlockEntity(PathAwareEntity fleeingEntity) {
         BlockEntity closestBlockEntity = null; //set to no Entity for now
         double closestDistanceSq = Double.MAX_VALUE; //initially the biggest value possible
-
+        List<BlockEntity> blockEntities = getBlockEntitiesInRange(fleeingEntity);
         //searches every blockEntity from the list
-        for (BlockEntity blockEntity : getBlockEntitiesInRange(fleeingEntity)) {
+        for (BlockEntity blockEntity : blockEntities) {
             double distanceSq = blockEntity.getPos().getSquaredDistance(fleeingEntity.getPos()); //calculate distance
             //if this distance is closer than the previous, set the closest Entity to this one
             if (distanceSq < closestDistanceSq) {
@@ -76,10 +78,11 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
         int chunkZ = MathHelper.floor(fleeingEntity.getPos().getZ()) >> 4;
 
         Chunk chunk = fleeingEntity.getEntityWorld().getChunk(chunkX, chunkZ);
+        Set<BlockPos> blockEntityPos = chunk.getBlockEntityPositions();
 
-        for (BlockPos blockPos : chunk.getBlockEntityPositions()) {
+        for (BlockPos blockPos : blockEntityPos) {
             BlockEntity blockEntity = fleeingEntity.getEntityWorld().getBlockEntity(blockPos);
-            if (blockEntity != null && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), ModConfigs.OCELOT_FOSSIL_FLEE_RANGE)) { // Check if within distance
+            if (blockEntity != null && (blockEntity.getClass()==this.classToFleeFrom) && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), ModConfigs.OCELOT_FOSSIL_FLEE_RANGE)) { // Check if within distance
                 blockEntities.add(blockEntity);
             }
         }
