@@ -17,30 +17,37 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
-public class SusBlockEntityRenderer implements BlockEntityRenderer<SusBlockEntity> {
+public class SusBlockEntityRenderer implements BlockEntityRenderer<SusBlockEntity>
+{
     //just a hacky class to copy the behaviour of minecrafts BrushalbeBlockEntityRenderer
     //discussed in Fabric forums an there doesn't seem to be a better way
     public final ItemRenderer itemRenderer;
 
-    public SusBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
+    public SusBlockEntityRenderer(BlockEntityRendererFactory.Context context)
+    {
         this.itemRenderer = context.getItemRenderer();
     }
 
-    public void render(SusBlockEntity susBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-        if (susBlockEntity.getWorld() != null) {
-            int k = (Integer)susBlockEntity.getCachedState().get(Properties.DUSTED);
-            if (k > 0) {
+    public void render(SusBlockEntity susBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j)
+    {
+        if (susBlockEntity.getWorld() != null)
+        {
+            int k = (Integer) susBlockEntity.getCachedState().get(Properties.DUSTED);
+            if (k > 0)
+            {
                 Direction direction = susBlockEntity.getHitDirection();
-                if (direction != null) {
+                if (direction != null)
+                {
                     ItemStack itemStack = susBlockEntity.getItem();
-                    if (!itemStack.isEmpty()) {
+                    if (!itemStack.isEmpty())
+                    {
                         matrixStack.push();
                         matrixStack.translate(0.0F, 0.5F, 0.0F);
                         float[] fs = getTranslation(direction, k);
                         matrixStack.translate(fs[0], fs[1], fs[2]);
                         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(75.0F));
                         boolean bl = direction == Direction.EAST || direction == Direction.WEST;
-                        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float)((bl ? 90 : 0) + 11)));
+                        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float) ((bl ? 90 : 0) + 11)));
                         matrixStack.scale(0.5F, 0.5F, 0.5F);
                         int l = WorldRenderer.getLightmapCoordinates(susBlockEntity.getWorld(), susBlockEntity.getCachedState(), susBlockEntity.getPos().offset(direction));
                         this.itemRenderer.renderItem(itemStack, ModelTransformationMode.FIXED, l, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, susBlockEntity.getWorld(), 0);
@@ -51,10 +58,12 @@ public class SusBlockEntityRenderer implements BlockEntityRenderer<SusBlockEntit
         }
     }
 
-    public final float[] getTranslation(Direction direction, int dustedLevel) {
+    public final float[] getTranslation(Direction direction, int dustedLevel)
+    {
         float[] fs = new float[]{0.5F, 0.0F, 0.5F};
-        float f = (float)dustedLevel / 10.0F * 0.75F;
-        switch (direction) {
+        float f = (float) dustedLevel / 10.0F * 0.75F;
+        switch (direction)
+        {
             case EAST:
                 fs[0] = 0.73F + f;
                 break;

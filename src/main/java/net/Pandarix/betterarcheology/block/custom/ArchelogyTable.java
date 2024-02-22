@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.Pandarix.betterarcheology.block.entity.ArcheologyTableBlockEntity;
 import net.Pandarix.betterarcheology.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
@@ -21,34 +22,49 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider {
+public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider
+{
+    public static final MapCodec<ArchelogyTable> CODEC = createCodec(ArchelogyTable::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec()
+    {
+        return CODEC;
+    }
+
     //indicates if the table is currently "crafting" the identified artifact
     //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
 
-    public ArchelogyTable(Settings settings) {
+    public ArchelogyTable(Settings settings)
+    {
         super(settings);
         this.setDefaultState((BlockState) this.stateManager.getDefaultState().with(DUSTING, false));
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         builder.add(DUSTING);
     }
 
     /* BLOCK ENTITY STUFF */
 
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
+    public BlockRenderType getRenderType(BlockState state)
+    {
         return BlockRenderType.MODEL;
     }
 
 
     //Drops Items present in the table at the time of destruction
     @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved)
+    {
+        if (state.getBlock() != newState.getBlock())
+        {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof ArcheologyTableBlockEntity) {
+            if (blockEntity instanceof ArcheologyTableBlockEntity)
+            {
                 ItemScatterer.spawn(world, pos, (ArcheologyTableBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
@@ -58,11 +74,14 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     //Creates the Screen-Handler belonging to the BlockEntity
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (!world.isClient)
+        {
             NamedScreenHandlerFactory handledScreen = state.createScreenHandlerFactory(world, pos);
 
-            if (handledScreen != null) {
+            if (handledScreen != null)
+            {
                 player.openHandledScreen(handledScreen);
             }
         }
@@ -74,33 +93,40 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
     // creates ArcheologyTableBlockEntity for each ArcheologyTable
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new ArcheologyTableBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.ARCHEOLOGY_TABLE, ArcheologyTableBlockEntity::tick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return validateTicker(type, ModBlockEntities.ARCHEOLOGY_TABLE, ArcheologyTableBlockEntity::tick);
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (world.isClient() && state.get(DUSTING)) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random)
+    {
+        if (world.isClient() && state.get(DUSTING))
+        {
             addDustParticles(world, pos, random);
         }
         super.randomDisplayTick(state, world, pos, random);
     }
 
-    public void addDustParticles(World world, BlockPos pos, Random random) {
-        if (random.nextBoolean()) {
+    public void addDustParticles(World world, BlockPos pos, Random random)
+    {
+        if (random.nextBoolean())
+        {
             return;
         } //create particles half of the time
         int i = random.nextBetweenExclusive(1, 3); //number of particles to be created
 
         BlockStateParticleEffect blockStateParticleEffect = new BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SAND.getDefaultState());
 
-        for (int j = 0; j < i; ++j) {
+        for (int j = 0; j < i; ++j)
+        {
             //centering Block position
             //setting base velocity to 3 and multiplying it with rand double with random sign
             //that way particles can spread in every direction by chance

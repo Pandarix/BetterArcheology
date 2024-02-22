@@ -13,7 +13,8 @@ import net.minecraft.world.BlockView;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class CreeperFossilBodyBlock extends FossilBaseBodyBlock {
+public class CreeperFossilBodyBlock extends FossilBaseBodyBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -33,11 +34,13 @@ public class CreeperFossilBodyBlock extends FossilBaseBodyBlock {
                     Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13),
                     Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get());
 
-    public CreeperFossilBodyBlock(Settings settings) {
+    public CreeperFossilBodyBlock(Settings settings)
+    {
         super(settings);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }

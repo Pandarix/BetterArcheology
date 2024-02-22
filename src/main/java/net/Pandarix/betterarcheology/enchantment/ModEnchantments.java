@@ -14,24 +14,29 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
-public class ModEnchantments {
+public class ModEnchantments
+{
     public static Enchantment PENETRATING_STRIKE = register("penetrating_strike", new PenetratingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.MAINHAND));
     public static Enchantment SOARING_WINDS = register("soaring_winds", new SoaringWindsEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.ARMOR_CHEST, EquipmentSlot.MAINHAND));
-    public static Enchantment TUNNELING = register("tunneling", new TunnelingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND) {
+    public static Enchantment TUNNELING = register("tunneling", new TunnelingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND)
+    {
     });
 
-    private static Enchantment register(String name, Enchantment enchantment) {
+    private static Enchantment register(String name, Enchantment enchantment)
+    {
         registerEnchantedBookWith(enchantment);
         return Registry.register(Registries.ENCHANTMENT, new Identifier(BetterArcheology.MOD_ID, name), enchantment);
     }
 
-    private static void registerEnchantedBookWith(Enchantment enchantment) {
+    private static void registerEnchantedBookWith(Enchantment enchantment)
+    {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.betterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
     }
 
     //LOGGER
-    public static void registerModEnchantments() {
+    public static void registerModEnchantments()
+    {
         BetterArcheology.LOGGER.info("Registering Enchantments for " + BetterArcheology.MOD_ID);
     }
 }

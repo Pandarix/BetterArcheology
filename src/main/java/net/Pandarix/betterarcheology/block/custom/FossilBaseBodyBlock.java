@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,40 +23,57 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FossilBaseBodyBlock extends HorizontalFacingBlock {
+public class FossilBaseBodyBlock extends HorizontalFacingBlock
+{
+    public static final MapCodec<FossilBaseBodyBlock> CODEC = createCodec(FossilBaseBodyBlock::new);
+
+    @Override
+    protected MapCodec<? extends HorizontalFacingBlock> getCodec()
+    {
+        return CODEC;
+    }
+
     public static DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
-    public FossilBaseBodyBlock(Settings settings) {
+    public FossilBaseBodyBlock(Settings settings)
+    {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         super.appendProperties(builder);
         builder.add(FACING);
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    {
         super.onBreak(world, pos, state, player);
-        if (!world.isClient()) {
+        if (!world.isClient())
+        {
             world.playSound(null, pos, SoundEvents.ENTITY_SKELETON_HURT, SoundCategory.BLOCKS, 0.1f, 0.35f);
         }
+        return super.onBreak(world, pos, state, player);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return getOutlineShape(state, world, pos, context);
     }
 
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
+    public BlockRenderType getRenderType(BlockState state)
+    {
         return BlockRenderType.MODEL;
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
+    public BlockState getPlacementState(ItemPlacementContext ctx)
+    {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
@@ -63,17 +81,20 @@ public class FossilBaseBodyBlock extends HorizontalFacingBlock {
     //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
     //also appends the [1/2] indicator for a set
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options)
+    {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY).append(Text.translatable("block.betterarcheology.fossil_body_set").formatted(Formatting.BLUE)));
 
         super.appendTooltip(stack, world, tooltip, options);
     }
 
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return (BlockState)state.with(FACING, rotation.rotate((Direction)state.get(FACING)));
+    public BlockState rotate(BlockState state, BlockRotation rotation)
+    {
+        return (BlockState) state.with(FACING, rotation.rotate((Direction) state.get(FACING)));
     }
 
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
+    public BlockState mirror(BlockState state, BlockMirror mirror)
+    {
+        return state.rotate(mirror.getRotation((Direction) state.get(FACING)));
     }
 }

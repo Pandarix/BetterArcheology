@@ -13,18 +13,23 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
-public class TorrentTotemItemTickMixin {
+public class TorrentTotemItemTickMixin
+{
     @Inject(method = "tickRiptide", at = @At("HEAD"))
-    private void injectMethod(Box a, Box b, CallbackInfo ci) {
+    private void injectMethod(Box a, Box b, CallbackInfo ci)
+    {
 
         LivingEntity betterarcheology$livingEntity = (LivingEntity) (Object) this;
 
-        if (betterarcheology$livingEntity.getActiveItem().isOf(ModItems.TORRENT_TOTEM)) {
+        if (betterarcheology$livingEntity.getActiveItem().isOf(ModItems.TORRENT_TOTEM))
+        {
             World betterarcheology$world = betterarcheology$livingEntity.getWorld();
-            if (betterarcheology$world.isClient()) {
+            if (betterarcheology$world.isClient())
+            {
                 Random betterarcheology$random = betterarcheology$livingEntity.getRandom();
                 Vec3d betterarcheology$pos = betterarcheology$livingEntity.getPos();
-                for (int i = 0; i <= 75; ++i) {
+                for (int i = 0; i <= 75; ++i)
+                {
                     betterarcheology$world.addParticle(ParticleTypes.SPLASH,
                             betterarcheology$pos.x + (betterarcheology$random.nextDouble() - 0.5),
                             betterarcheology$pos.y + (betterarcheology$random.nextDouble() - 0.5),

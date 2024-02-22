@@ -16,7 +16,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class WolfFossilBlock extends FossilBaseWithEntityBlock {
+public class WolfFossilBlock extends FossilBaseWithEntityBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> WOLF_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -31,17 +32,21 @@ public class WolfFossilBlock extends FossilBaseWithEntityBlock {
             Direction.WEST, Stream.of(
                     Block.createCuboidShape(2, 0, 4, 17, 16, 12),
                     Block.createCuboidShape(-6, 9, 4, 2, 16, 12)).reduce(VoxelShapes::union).get());
-    public WolfFossilBlock(Settings settings) {
+
+    public WolfFossilBlock(Settings settings)
+    {
         super(settings);
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new SkeletonFleeFromBlockEntity(pos, state);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return WOLF_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }

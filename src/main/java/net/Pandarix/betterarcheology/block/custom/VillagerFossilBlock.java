@@ -19,7 +19,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements BlockEntityProvider {
+public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements BlockEntityProvider
+{
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final IntProperty INVENTORY_LUMINANCE = IntProperty.of("inventory_luminance", 0, 15); //used to store the amount of light that the item in its inventory would emit and to emit that luminance itself
 
@@ -42,17 +43,21 @@ public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements Bl
                     Block.createCuboidShape(7, 10, 4, 12.5, 20, 12),
                     Block.createCuboidShape(2, 20, 5, 7.5, 29, 13)).reduce(VoxelShapes::union).get());
 
-    public VillagerFossilBlock(Settings settings) {
+    public VillagerFossilBlock(Settings settings)
+    {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(INVENTORY_LUMINANCE, 0));
     }
 
     //Drops Items present in the table at the time of destruction//
     @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved)
+    {
+        if (state.getBlock() != newState.getBlock())
+        {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof VillagerFossilBlockEntity) {
+            if (blockEntity instanceof VillagerFossilBlockEntity)
+            {
                 ItemScatterer.spawn(world, pos, (VillagerFossilBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
@@ -62,16 +67,19 @@ public class VillagerFossilBlock extends FossilBaseWithEntityBlock implements Bl
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new VillagerFossilBlockEntity(pos, state);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return VILLAGER_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         super.appendProperties(builder);
         builder.add(INVENTORY_LUMINANCE);
     }

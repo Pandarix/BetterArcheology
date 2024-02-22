@@ -18,9 +18,11 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 
-public class BetterArcheologyClient implements ClientModInitializer {
+public class BetterArcheologyClient implements ClientModInitializer
+{
     @Override
-    public void onInitializeClient() {
+    public void onInitializeClient()
+    {
         ModMessages.registerS2CPackets();
 
         HandledScreens.register(ModScreenHandlers.IDENTIFYING_SCREEN_HANDLER, IdentifyingScreen::new);

@@ -9,13 +9,16 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class SusBlock extends BrushableBlock {
-    public SusBlock(Block baseBlock, Settings settings, SoundEvent brushingSound, SoundEvent brushingCompleteSound) {
-        super(baseBlock, settings, brushingSound, brushingCompleteSound);
+public class SusBlock extends BrushableBlock
+{
+    public SusBlock(Block baseBlock, Settings settings, SoundEvent brushingSound, SoundEvent brushingCompleteSound)
+    {
+        super(baseBlock, brushingCompleteSound, brushingSound, settings);
     }
 
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new SusBlockEntity(pos, state);
     }
 }

@@ -9,11 +9,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 
-public class ModDispenserBehaviour {
-    public static void registerDispenserBehaviour() {
-        if(ModConfigs.BOMB_DISPENSER_SHOOTING) {
-            DispenserBlock.registerBehavior(ModItems.BOMB_ITEM, new ProjectileDispenserBehavior() {
-                protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
+public class ModDispenserBehaviour
+{
+    public static void registerDispenserBehaviour()
+    {
+        if (ModConfigs.BOMB_DISPENSER_SHOOTING)
+        {
+            DispenserBlock.registerBehavior(ModItems.BOMB_ITEM, new ProjectileDispenserBehavior()
+            {
+                protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack)
+                {
                     return new BombEntity(world, position.getX(), position.getY(), position.getZ());
                 }
             });

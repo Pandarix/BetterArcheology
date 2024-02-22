@@ -5,6 +5,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
+import net.minecraft.structure.pool.alias.StructurePoolAliasBinding;
+import net.minecraft.structure.pool.alias.StructurePoolAliasLookup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -14,9 +16,11 @@ import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
 
+import java.util.List;
 import java.util.Optional;
 
-public class ModStructures extends Structure {
+public class ModStructures extends Structure
+{
 
     // A custom codec that changes the size limit for our code_structure_sky_fan.json's config to not be capped at 7.
     // With this, we can have a structure with a size limit up to 30 if we want to have extremely long branches of pieces in the structure.
@@ -27,7 +31,10 @@ public class ModStructures extends Structure {
                     Codec.intRange(0, 50).fieldOf("size").forGetter(structure -> structure.size),
                     HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
                     Heightmap.Type.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(structure -> structure.projectStartToHeightmap),
-                    Codec.intRange(1, 128).fieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter)
+                    Codec.intRange(1, 128).fieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
+                    Codec.list(StructurePoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter((structure) -> {
+                        return structure.poolAliasBindings;
+                    })
             ).apply(instance, ModStructures::new)).codec();
 
     private final RegistryEntry<StructurePool> startPool;
@@ -36,6 +43,7 @@ public class ModStructures extends Structure {
     private final HeightProvider startHeight;
     private final Optional<Heightmap.Type> projectStartToHeightmap;
     private final int maxDistanceFromCenter;
+    private final List<StructurePoolAliasBinding> poolAliasBindings;
 
     public ModStructures(Structure.Config config,
                          RegistryEntry<StructurePool> startPool,
@@ -43,7 +51,9 @@ public class ModStructures extends Structure {
                          int size,
                          HeightProvider startHeight,
                          Optional<Heightmap.Type> projectStartToHeightmap,
-                         int maxDistanceFromCenter) {
+                         int maxDistanceFromCenter,
+                         List<StructurePoolAliasBinding> poolAliasBindings)
+    {
         super(config);
         this.startPool = startPool;
         this.startJigsawName = startJigsawName;
@@ -51,6 +61,7 @@ public class ModStructures extends Structure {
         this.startHeight = startHeight;
         this.projectStartToHeightmap = projectStartToHeightmap;
         this.maxDistanceFromCenter = maxDistanceFromCenter;
+        this.poolAliasBindings = poolAliasBindings;
     }
 
     /*
@@ -79,7 +90,8 @@ public class ModStructures extends Structure {
      * Use the biome tags for where to spawn the structure and users can datapack
      * it to spawn in specific biomes that aren't in the dimension they don't like if they wish.
      */
-    private static boolean extraSpawningChecks(Structure.Context context) {
+    private static boolean extraSpawningChecks(Structure.Context context)
+    {
         // Grabs the chunk position we are at
         ChunkPos chunkpos = context.chunkPos();
 
@@ -94,11 +106,13 @@ public class ModStructures extends Structure {
     }
 
     @Override
-    public Optional<Structure.StructurePosition> getStructurePosition(Structure.Context context) {
+    public Optional<Structure.StructurePosition> getStructurePosition(Structure.Context context)
+    {
 
         // Check if the spot is valid for our structure. This is just as another method for cleanness.
         // Returning an empty optional tells the game to skip this spot as it will not generate the structure.
-        if (!ModStructures.extraSpawningChecks(context)) {
+        if (!ModStructures.extraSpawningChecks(context))
+        {
             return Optional.empty();
         }
 
@@ -123,7 +137,8 @@ public class ModStructures extends Structure {
                         // Here, blockpos's y value is 60 which means the structure spawn 60 blocks above terrain height.
                         // Set this to false for structure to be place only at the passed in blockpos's Y value instead.
                         // Definitely keep this false when placing structures in the nether as otherwise, heightmap placing will put the structure on the Bedrock roof.
-                        this.maxDistanceFromCenter); // Maximum limit for how far pieces can spawn from center. You cannot set this bigger than 128 or else pieces gets cutoff.
+                        this.maxDistanceFromCenter, // Maximum limit for how far pieces can spawn from center. You cannot set this bigger than 128 or else pieces gets cutoff.
+                        StructurePoolAliasLookup.create(this.poolAliasBindings, blockPos, context.seed()));
 
         /*
          * Note, you are always free to make your own StructurePoolBasedGenerator class and implementation of how the structure
@@ -137,7 +152,8 @@ public class ModStructures extends Structure {
 
 
     @Override
-    public StructureType<?> getType() {
+    public StructureType<?> getType()
+    {
         return ModStructureFeatures.BETTERARCHEOLOGY_STRUCTURES; // Helps the game know how to turn this structure back to json to save to chunks
     }
 }

@@ -10,24 +10,29 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FossilPartItem extends Item {
+public class FossilPartItem extends Item
+{
 
-    public FossilPartItem(Settings settings) {
+    public FossilPartItem(Settings settings)
+    {
         super(settings);
     }
 
     @Override
-    public Rarity getRarity(ItemStack stack) {
+    public Rarity getRarity(ItemStack stack)
+    {
         return Rarity.COMMON;
     }
 
     @Override
-    public boolean isEnchantable(ItemStack stack) {
+    public boolean isEnchantable(ItemStack stack)
+    {
         return false;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context)
+    {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip"));
         super.appendTooltip(stack, world, tooltip, context);
     }

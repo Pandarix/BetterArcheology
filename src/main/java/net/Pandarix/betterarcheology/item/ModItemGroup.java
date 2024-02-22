@@ -11,7 +11,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class ModItemGroup {
+public class ModItemGroup
+{
     /*
     Gets called in onInitialize before the Item-Registration
     Creates FabricItemGroup with an ItemStack as a Symbol
@@ -19,8 +20,10 @@ public class ModItemGroup {
      */
     public static final RegistryKey<ItemGroup> BETTER_ARCHEOLOGY_ITEMGROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BetterArcheology.MOD_ID, "betterarcheology"));
 
-    public static void registerTab() {
-        Registry.register(Registries.ITEM_GROUP, BETTER_ARCHEOLOGY_ITEMGROUP, FabricItemGroup.builder().displayName(Text.translatable("itemGroup." + BetterArcheology.MOD_ID)).icon(() -> new ItemStack(ModItems.UNIDENTIFIED_ARTIFACT)).entries((context, entries) -> {
+    public static void registerTab()
+    {
+        Registry.register(Registries.ITEM_GROUP, BETTER_ARCHEOLOGY_ITEMGROUP, FabricItemGroup.builder().displayName(Text.translatable("itemGroup." + BetterArcheology.MOD_ID)).icon(() -> new ItemStack(ModItems.UNIDENTIFIED_ARTIFACT)).entries((context, entries) ->
+        {
         }).build());
     }
 }

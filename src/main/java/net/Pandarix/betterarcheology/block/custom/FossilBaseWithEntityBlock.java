@@ -1,5 +1,6 @@
 package net.Pandarix.betterarcheology.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
@@ -21,49 +22,67 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FossilBaseWithEntityBlock extends BlockWithEntity {
+public class FossilBaseWithEntityBlock extends BlockWithEntity
+{
+    public static final MapCodec<FossilBaseWithEntityBlock> CODEC = createCodec(FossilBaseWithEntityBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec()
+    {
+        return CODEC;
+    }
+
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
-    protected FossilBaseWithEntityBlock(Settings settings) {
+    protected FossilBaseWithEntityBlock(Settings settings)
+    {
         super(settings);
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return null;
     }
 
     //used to give all fossil blocks their own tooltip
     //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options)
+    {
         tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, options);
     }
 
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
+    public BlockRenderType getRenderType(BlockState state)
+    {
         return BlockRenderType.MODEL;
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
+    public BlockState getPlacementState(ItemPlacementContext ctx)
+    {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         builder.add(FACING);
     }
 
     //Creates the Screen-Handler belonging to the BlockEntity
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (!world.isClient)
+        {
             NamedScreenHandlerFactory handledScreen = state.createScreenHandlerFactory(world, pos);
 
-            if (handledScreen != null) {
+            if (handledScreen != null)
+            {
                 player.openHandledScreen(handledScreen);
             }
         }

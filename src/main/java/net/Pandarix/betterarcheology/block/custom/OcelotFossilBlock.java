@@ -16,7 +16,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class OcelotFossilBlock extends FossilBaseWithEntityBlock {
+public class OcelotFossilBlock extends FossilBaseWithEntityBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> OCELOT_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -32,17 +33,20 @@ public class OcelotFossilBlock extends FossilBaseWithEntityBlock {
                     Block.createCuboidShape(0.5, 0, 5, 18.25, 9.5, 11),
                     Block.createCuboidShape(-6.5, 5, 5.5, 1.5, 10, 10.5)).reduce(VoxelShapes::union).get());
 
-    public OcelotFossilBlock(Settings settings) {
+    public OcelotFossilBlock(Settings settings)
+    {
         super(settings);
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new FleeFromBlockEntity(pos, state);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return OCELOT_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }

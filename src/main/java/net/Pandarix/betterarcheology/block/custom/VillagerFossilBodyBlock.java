@@ -11,7 +11,8 @@ import net.minecraft.world.BlockView;
 
 import java.util.Map;
 
-public class VillagerFossilBodyBlock extends FossilBaseBodyBlock {
+public class VillagerFossilBodyBlock extends FossilBaseBodyBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Block.createCuboidShape(0, 0, 8, 16, 12, 15),
@@ -19,11 +20,13 @@ public class VillagerFossilBodyBlock extends FossilBaseBodyBlock {
             Direction.EAST, Block.createCuboidShape(1, 0, 0, 8, 12, 16),
             Direction.WEST, Block.createCuboidShape(8, 0, 0, 15, 12, 16));
 
-    public VillagerFossilBodyBlock(Settings settings) {
+    public VillagerFossilBodyBlock(Settings settings)
+    {
         super(settings);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }

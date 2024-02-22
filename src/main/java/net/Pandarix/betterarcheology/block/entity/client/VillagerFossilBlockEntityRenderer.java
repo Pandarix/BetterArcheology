@@ -23,13 +23,16 @@ import net.minecraft.world.World;
 import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
-public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<VillagerFossilBlockEntity> {
-    public VillagerFossilBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
+public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<VillagerFossilBlockEntity>
+{
+    public VillagerFossilBlockEntityRenderer(BlockEntityRendererFactory.Context context)
+    {
     }
 
     @Override
     public void render(VillagerFossilBlockEntity entity, float tickDelta, MatrixStack matrices,
-                       VertexConsumerProvider vertexConsumers, int light, int overlay) {
+                       VertexConsumerProvider vertexConsumers, int light, int overlay)
+    {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
         matrices.push();
@@ -38,19 +41,24 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
         Direction facing = state.getBlock() instanceof FossilBaseWithEntityBlock ? state.get(FossilBaseWithEntityBlock.FACING) : Direction.NORTH;
 
         //rotation based on direction the Block ist facing
-        switch (facing) {
-            case EAST -> {
+        switch (facing)
+        {
+            case EAST ->
+            {
                 matrices.translate(0.75f, 0.95f, 0.5f);
                 matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90));
             }
-            case WEST -> {
+            case WEST ->
+            {
                 matrices.translate(0.25f, 0.95f, 0.5f);
                 matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90));
             }
             case NORTH -> matrices.translate(0.5f, 0.95f, 0.25f);
-            case SOUTH -> {
+            case SOUTH ->
+            {
                 matrices.translate(0.5f, 0.95f, 0.75f);
-                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));;
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
+                ;
             }
             default -> matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90));
         }
@@ -64,7 +72,8 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
         matrices.pop();
     }
 
-    private int getLightLevel(World world, BlockPos pos) {
+    private int getLightLevel(World world, BlockPos pos)
+    {
         int bLight = world.getLightLevel(LightType.BLOCK, pos);
         int sLight = world.getLightLevel(LightType.SKY, pos);
         return LightmapTextureManager.pack(bLight, sLight);

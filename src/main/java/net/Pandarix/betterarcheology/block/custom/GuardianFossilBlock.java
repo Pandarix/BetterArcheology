@@ -28,7 +28,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class GuardianFossilBlock extends FossilBaseWithEntityBlock implements Waterloggable {
+public class GuardianFossilBlock extends FossilBaseWithEntityBlock implements Waterloggable
+{
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
@@ -48,38 +49,46 @@ public class GuardianFossilBlock extends FossilBaseWithEntityBlock implements Wa
                     Block.createCuboidShape(4, 0, 1, 18, 15, 15),
                     Block.createCuboidShape(-7, 4, 4, 4, 12, 12),
                     Block.createCuboidShape(-16, 2, 7, -7, 14, 9)).reduce(VoxelShapes::union).get());
-    public GuardianFossilBlock(Settings settings) {
+
+    public GuardianFossilBlock(Settings settings)
+    {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(false)).with(FACING, Direction.NORTH));
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
+    public BlockState getPlacementState(ItemPlacementContext ctx)
+    {
         FluidState fluidstate = ctx.getWorld().getFluidState(ctx.getBlockPos());
         return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(fluidstate.isIn(FluidTags.WATER))).with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
-    public FluidState getFluidState(BlockState state) {
-        return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+    public FluidState getFluidState(BlockState state)
+    {
+        return (Boolean) state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.GUARDIAN_FOSSIl, GuardianFossilBlockEntity::tick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return validateTicker(type, ModBlockEntities.GUARDIAN_FOSSIl, GuardianFossilBlockEntity::tick);
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new GuardianFossilBlockEntity(pos, state);
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
         super.appendProperties(builder);
         builder.add(WATERLOGGED);
     }

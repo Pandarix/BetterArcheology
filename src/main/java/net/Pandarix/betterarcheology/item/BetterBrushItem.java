@@ -20,48 +20,62 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BetterBrushItem extends BrushItem {
+public class BetterBrushItem extends BrushItem
+{
     private float brushingSpeed;
 
-    public BetterBrushItem(Settings settings, float pBrushingSpeed) {
+    public BetterBrushItem(Settings settings, float pBrushingSpeed)
+    {
         super(settings);
         brushingSpeed = pBrushingSpeed;
     }
 
-    public float getBrushingSpeed(){
+    public float getBrushingSpeed()
+    {
         return brushingSpeed;
     }
 
-    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        if (remainingUseTicks >= 0 && user instanceof PlayerEntity playerEntity) {
-            HitResult hitResult = this.getHitResult(user);
-            if (hitResult instanceof BlockHitResult blockHitResult) {
-                if (hitResult.getType() == HitResult.Type.BLOCK) {
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks)
+    {
+        if (remainingUseTicks >= 0 && user instanceof PlayerEntity playerEntity)
+        {
+            HitResult hitResult = this.getHitResult(playerEntity);
+            if (hitResult instanceof BlockHitResult blockHitResult)
+            {
+                if (hitResult.getType() == HitResult.Type.BLOCK)
+                {
                     int i = this.getMaxUseTime(stack) - remainingUseTicks + 1;
-                    boolean bl = i % brushingSpeed == brushingSpeed/2;
-                    if (bl) {
+                    boolean bl = i % brushingSpeed == brushingSpeed / 2;
+                    if (bl)
+                    {
                         BlockPos blockPos = blockHitResult.getBlockPos();
                         BlockState blockState = world.getBlockState(blockPos);
                         Arm arm = user.getActiveHand() == Hand.MAIN_HAND ? playerEntity.getMainArm() : playerEntity.getMainArm().getOpposite();
                         this.addDustParticles(world, blockHitResult, blockState, user.getRotationVec(0.0F), arm);
                         Block var15 = blockState.getBlock();
                         SoundEvent soundEvent;
-                        if (var15 instanceof BrushableBlock) {
-                            BrushableBlock brushableBlock = (BrushableBlock)var15;
+                        if (var15 instanceof BrushableBlock)
+                        {
+                            BrushableBlock brushableBlock = (BrushableBlock) var15;
                             soundEvent = brushableBlock.getBrushingSound();
-                        } else {
+                        } else
+                        {
                             soundEvent = SoundEvents.ITEM_BRUSH_BRUSHING_GENERIC;
                         }
 
                         world.playSound(playerEntity, blockPos, soundEvent, SoundCategory.BLOCKS);
-                        if (!world.isClient()) {
+                        if (!world.isClient())
+                        {
                             BlockEntity var18 = world.getBlockEntity(blockPos);
-                            if (var18 instanceof BrushableBlockEntity) {
-                                BrushableBlockEntity brushableBlockEntity = (BrushableBlockEntity)var18;
+                            if (var18 instanceof BrushableBlockEntity)
+                            {
+                                BrushableBlockEntity brushableBlockEntity = (BrushableBlockEntity) var18;
                                 boolean bl2 = brushableBlockEntity.brush(world.getTime(), playerEntity, blockHitResult.getSide());
-                                if (bl2) {
+                                if (bl2)
+                                {
                                     EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
-                                    stack.damage(1, user, (userx) -> {
+                                    stack.damage(1, user, (userx) ->
+                                    {
                                         userx.sendEquipmentBreakStatus(equipmentSlot);
                                     });
                                 }
@@ -74,7 +88,8 @@ public class BetterBrushItem extends BrushItem {
             }
 
             user.stopUsingItem();
-        } else {
+        } else
+        {
             user.stopUsingItem();
         }
     }

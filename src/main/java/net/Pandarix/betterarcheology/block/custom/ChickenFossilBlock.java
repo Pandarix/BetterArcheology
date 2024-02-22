@@ -20,7 +20,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class ChickenFossilBlock extends FossilBaseWithEntityBlock {
+public class ChickenFossilBlock extends FossilBaseWithEntityBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> CHICKEN_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -40,21 +41,26 @@ public class ChickenFossilBlock extends FossilBaseWithEntityBlock {
                     Block.createCuboidShape(13, 11.25, 6.5, 20, 16, 9.5),
                     Block.createCuboidShape(-6.25, 8.25, 7, 3.75, 10, 9)).reduce(VoxelShapes::union).get());
 
-    public ChickenFossilBlock(Settings settings) {
+    public ChickenFossilBlock(Settings settings)
+    {
         super(settings);
     }
 
     @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.CHICKEN_FOSSIL, ChickenFossilBlockEntity::tick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return validateTicker(type, ModBlockEntities.CHICKEN_FOSSIL, ChickenFossilBlockEntity::tick);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return CHICKEN_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
+
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
         return new ChickenFossilBlockEntity(pos, state);
     }
 }

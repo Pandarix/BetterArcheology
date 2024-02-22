@@ -1,6 +1,5 @@
 package net.Pandarix.betterarcheology.util;
 
-import net.Pandarix.betterarcheology.BetterArcheology;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.NoPenaltyTargeting;
 import net.minecraft.entity.ai.goal.Goal;
@@ -18,7 +17,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
-public class FleeBlockGoal<T extends BlockEntity> extends Goal {
+public class FleeBlockGoal<T extends BlockEntity> extends Goal
+{
     protected final PathAwareEntity mob;
     private final double slowSpeed;
     private final double fastSpeed;
@@ -29,7 +29,8 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
     protected final EntityNavigation fleeingEntityNavigation;
     protected final Class<T> classToFleeFrom;
 
-    public FleeBlockGoal(PathAwareEntity mob, Class<T> fleeFromType, double slowSpeed, double fastSpeed) {
+    public FleeBlockGoal(PathAwareEntity mob, Class<T> fleeFromType, double slowSpeed, double fastSpeed)
+    {
         this.mob = mob;
         this.classToFleeFrom = fleeFromType;
         this.slowSpeed = slowSpeed;
@@ -38,32 +39,41 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
         this.setControls(EnumSet.of(Control.MOVE));
     }
 
-    public boolean canStart() {
+    public boolean canStart()
+    {
         this.targetBlock = this.getClosestBlockEntity(this.mob);
-        if (this.targetBlock == null) {
+        if (this.targetBlock == null)
+        {
             return false;
-        } else {
+        } else
+        {
             Vec3d vec3d = NoPenaltyTargeting.findFrom(this.mob, 16, 7, this.targetBlock.getPos().toCenterPos());
-            if (vec3d == null) {
+            if (vec3d == null)
+            {
                 return false;
-            } else if (vec3d.squaredDistanceTo(targetBlock.getPos().getX(), targetBlock.getPos().getY(), targetBlock.getPos().getZ()) < this.mob.squaredDistanceTo(this.targetBlock.getPos().toCenterPos())) {
+            } else if (vec3d.squaredDistanceTo(targetBlock.getPos().getX(), targetBlock.getPos().getY(), targetBlock.getPos().getZ()) < this.mob.squaredDistanceTo(this.targetBlock.getPos().toCenterPos()))
+            {
                 return false;
-            } else {
+            } else
+            {
                 this.fleePath = this.fleeingEntityNavigation.findPathTo(vec3d.x, vec3d.y, vec3d.z, 0);
                 return this.fleePath != null;
             }
         }
     }
 
-    private BlockEntity getClosestBlockEntity(PathAwareEntity fleeingEntity) {
+    private BlockEntity getClosestBlockEntity(PathAwareEntity fleeingEntity)
+    {
         BlockEntity closestBlockEntity = null; //set to no Entity for now
         double closestDistanceSq = Double.MAX_VALUE; //initially the biggest value possible
         List<BlockEntity> blockEntities = getBlockEntitiesInRange(fleeingEntity);
         //searches every blockEntity from the list
-        for (BlockEntity blockEntity : blockEntities) {
+        for (BlockEntity blockEntity : blockEntities)
+        {
             double distanceSq = blockEntity.getPos().getSquaredDistance(fleeingEntity.getPos()); //calculate distance
             //if this distance is closer than the previous, set the closest Entity to this one
-            if (distanceSq < closestDistanceSq) {
+            if (distanceSq < closestDistanceSq)
+            {
                 closestBlockEntity = blockEntity;
                 closestDistanceSq = distanceSq;
             }
@@ -71,7 +81,8 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
         return closestBlockEntity;
     }
 
-    private List<BlockEntity> getBlockEntitiesInRange(PathAwareEntity fleeingEntity) {
+    private List<BlockEntity> getBlockEntitiesInRange(PathAwareEntity fleeingEntity)
+    {
         List<BlockEntity> blockEntities = new ArrayList<>();
 
         int chunkX = MathHelper.floor(fleeingEntity.getPos().getX()) >> 4; // Divide by 16 to get chunk coordinates
@@ -80,9 +91,11 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
         Chunk chunk = fleeingEntity.getEntityWorld().getChunk(chunkX, chunkZ);
         Set<BlockPos> blockEntityPos = chunk.getBlockEntityPositions();
 
-        for (BlockPos blockPos : blockEntityPos) {
+        for (BlockPos blockPos : blockEntityPos)
+        {
             BlockEntity blockEntity = fleeingEntity.getEntityWorld().getBlockEntity(blockPos);
-            if (blockEntity != null && (blockEntity.getClass()==this.classToFleeFrom) && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), ModConfigs.OCELOT_FOSSIL_FLEE_RANGE)) { // Check if within distance
+            if (blockEntity != null && (blockEntity.getClass() == this.classToFleeFrom) && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), ModConfigs.OCELOT_FOSSIL_FLEE_RANGE))
+            { // Check if within distance
                 blockEntities.add(blockEntity);
             }
         }
@@ -90,22 +103,28 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
         return blockEntities;
     }
 
-    public boolean shouldContinue() {
+    public boolean shouldContinue()
+    {
         return !this.fleeingEntityNavigation.isIdle();
     }
 
-    public void start() {
+    public void start()
+    {
         this.fleeingEntityNavigation.startMovingAlong(this.fleePath, this.slowSpeed);
     }
 
-    public void stop() {
+    public void stop()
+    {
         this.targetBlock = null;
     }
 
-    public void tick() {
-        if (this.mob.squaredDistanceTo(this.targetBlock.getPos().toCenterPos()) < 49.0) {
+    public void tick()
+    {
+        if (this.mob.squaredDistanceTo(this.targetBlock.getPos().toCenterPos()) < 49.0)
+        {
             this.mob.getNavigation().setSpeed(this.fastSpeed);
-        } else {
+        } else
+        {
             this.mob.getNavigation().setSpeed(this.slowSpeed);
         }
 

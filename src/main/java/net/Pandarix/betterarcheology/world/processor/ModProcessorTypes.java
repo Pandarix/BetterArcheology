@@ -12,7 +12,8 @@ public class ModProcessorTypes
 {
     public static StructureProcessorType<WaterlogFixProcessor> WATERLOGFIX_PROCESSOR;
 
-    public static void registerProcessorTypes() {
+    public static void registerProcessorTypes()
+    {
         WATERLOGFIX_PROCESSOR = Registry.register(Registries.STRUCTURE_PROCESSOR, new Identifier(BetterArcheology.MOD_ID, "waterlogfix_processor"), () -> WaterlogFixProcessor.CODEC);
     }
 }

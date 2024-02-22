@@ -9,10 +9,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
-public class BetterArcheologyMixin {
-	@Inject(at = @At("HEAD"), method = "init()V")
-	private void init(CallbackInfo info) {
-		BetterArcheology.LOGGER.info("BetterArcheology Mixin initialized, prepare for impact");
-		BetterArcheology.LOGGER.info("BetterArcheology Artifact Enchantments are " + (ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED ? "enabled" : "disabled"));
-	}
+public class BetterArcheologyMixin
+{
+    @Inject(at = @At("HEAD"), method = "init()V")
+    private void init(CallbackInfo info)
+    {
+        BetterArcheology.LOGGER.info("BetterArcheology Mixin initialized, prepare for impact");
+        BetterArcheology.LOGGER.info("BetterArcheology Artifact Enchantments are " + (ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED ? "enabled" : "disabled"));
+    }
 }

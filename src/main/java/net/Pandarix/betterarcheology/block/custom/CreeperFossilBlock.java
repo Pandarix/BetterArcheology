@@ -18,7 +18,8 @@ import net.minecraft.world.World;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class CreeperFossilBlock extends FossilBaseBlock {
+public class CreeperFossilBlock extends FossilBaseBlock
+{
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> CREEPER_SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -41,18 +42,21 @@ public class CreeperFossilBlock extends FossilBaseBlock {
                     Block.createCuboidShape(1.5, 0, 3, 6.5, 6.5, 13),
                     Block.createCuboidShape(9.5, 0, 3, 14.5, 6.5, 13)).reduce(VoxelShapes::union).get());
 
-    public CreeperFossilBlock(Settings settings) {
+    public CreeperFossilBlock(Settings settings)
+    {
         super(settings);
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random)
+    {
         super.randomDisplayTick(state, world, pos, random);
 
         DefaultParticleType particle = random.nextBoolean() ? ParticleTypes.SMALL_FLAME : ParticleTypes.SMOKE; //50:50 chance for either spawning Smoke or Flames
         Vec3d center = pos.toCenterPos();
 
-        if (world.isClient()) {
+        if (world.isClient())
+        {
             //spawns particle at center of Block with random offset & velocity
             world.addParticle(particle,
                     center.getX() + random.nextFloat() * getRandomSign(random),
@@ -65,11 +69,13 @@ public class CreeperFossilBlock extends FossilBaseBlock {
         }
     }
 
-    private static int getRandomSign(Random rand) {
+    private static int getRandomSign(Random rand)
+    {
         return (rand.nextBoolean() ? 1 : -1);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return CREEPER_SHAPES_FOR_DIRECTION.get(state.get(FACING));
     }
 }

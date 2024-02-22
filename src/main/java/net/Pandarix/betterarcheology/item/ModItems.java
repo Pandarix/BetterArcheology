@@ -11,7 +11,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
-public class ModItems {
+public class ModItems
+{
 
     //ITEM ENTRIES-------------------------------------------------------------------------//
     //BRUSHES
@@ -38,19 +39,22 @@ public class ModItems {
      * @param item Instance of Item
      * @return Registry entry of given Item
      */
-    public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
+    public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group)
+    {
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(registeredItem));
         return registeredItem;
     }
 
-    public static Item registerItemWithoutTab(String name, Item item) {
+    public static Item registerItemWithoutTab(String name, Item item)
+    {
         return Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
     }
 
     //LOGGER-----------------------------------------------------------------------------//
-    public static void registerModItems() {
+    public static void registerModItems()
+    {
         //status message
         BetterArcheology.LOGGER.info("Registering Items from " + BetterArcheology.MOD_ID);
     }

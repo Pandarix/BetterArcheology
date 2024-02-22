@@ -25,7 +25,8 @@ import java.util.Optional;
  *
  * @author yungnickyoung
  */
-public class WaterlogFixProcessor extends StructureProcessor implements ISafeWorldModifier {
+public class WaterlogFixProcessor extends StructureProcessor implements ISafeWorldModifier
+{
     public static final WaterlogFixProcessor INSTANCE = new WaterlogFixProcessor();
     public static final Codec<WaterlogFixProcessor> CODEC = Codec.unit(() -> INSTANCE);
 
@@ -37,46 +38,55 @@ public class WaterlogFixProcessor extends StructureProcessor implements ISafeWor
     @Nullable
     @Override
     public StructureTemplate.StructureBlockInfo process(WorldView levelReader,
-                                                             BlockPos jigsawPiecePos,
-                                                             BlockPos jigsawPieceBottomCenterPos,
-                                                             StructureTemplate.StructureBlockInfo blockInfoLocal,
-                                                             StructureTemplate.StructureBlockInfo blockInfoGlobal,
-                                                             StructurePlacementData structurePlacementData) {
+                                                        BlockPos jigsawPiecePos,
+                                                        BlockPos jigsawPieceBottomCenterPos,
+                                                        StructureTemplate.StructureBlockInfo blockInfoLocal,
+                                                        StructureTemplate.StructureBlockInfo blockInfoGlobal,
+                                                        StructurePlacementData structurePlacementData)
+    {
         // Check if block is waterloggable and not intended to be waterlogged
-        if (blockInfoGlobal.state().contains(Properties.WATERLOGGED) && !blockInfoGlobal.state().get(Properties.WATERLOGGED)) {
+        if (blockInfoGlobal.state().contains(Properties.WATERLOGGED) && !blockInfoGlobal.state().get(Properties.WATERLOGGED))
+        {
             ChunkPos currentChunkPos = new ChunkPos(blockInfoGlobal.pos());
             Chunk currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             int sectionYIndex = currentChunk.getSectionIndex(blockInfoGlobal.pos().getY());
 
             // Validate chunk section index. Sometimes the index is -1. Not sure why, but this will
             // at least prevent the game from crashing.
-            if (sectionYIndex < 0) {
+            if (sectionYIndex < 0)
+            {
                 return blockInfoGlobal;
             }
 
             ChunkSection currChunkSection = currentChunk.getSection(sectionYIndex);
 
-            if (getFluidStateSafe(levelReader, blockInfoGlobal.pos()).isIn(FluidTags.WATER)) {
+            if (getFluidStateSafe(levelReader, blockInfoGlobal.pos()).isIn(FluidTags.WATER))
+            {
                 setBlockStateSafe(levelReader, blockInfoGlobal.pos(), Blocks.STONE_BRICKS.getDefaultState());
             }
 
             // Remove water in adjacent blocks
             BlockPos.Mutable mutable = new BlockPos.Mutable();
-            for (Direction direction : Direction.values()) {
+            for (Direction direction : Direction.values())
+            {
                 mutable.set(blockInfoGlobal.pos()).move(direction);
-                if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4)
+                {
                     currentChunkPos = new ChunkPos(mutable);
                     currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
                     sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
-                    if (sectionYIndex < 0) {
+                    if (sectionYIndex < 0)
+                    {
                         return blockInfoGlobal;
                     }
                     currChunkSection = currentChunk.getSection(sectionYIndex);
                 }
 
-                if (getFluidStateSafe(currChunkSection, mutable).isIn(FluidTags.WATER)) {
+                if (getFluidStateSafe(currChunkSection, mutable).isIn(FluidTags.WATER))
+                {
                     Optional<BlockState> blockState = getBlockStateSafe(currChunkSection, mutable);
-                    if (blockState.isPresent() && !(blockState.get().contains(Properties.WATERLOGGED) && blockState.get().get(Properties.WATERLOGGED))) {
+                    if (blockState.isPresent() && !(blockState.get().contains(Properties.WATERLOGGED) && blockState.get().get(Properties.WATERLOGGED)))
+                    {
                         setBlockStateSafe(currChunkSection, mutable, Blocks.STONE_BRICKS.getDefaultState());
                     }
                 }
@@ -86,7 +96,8 @@ public class WaterlogFixProcessor extends StructureProcessor implements ISafeWor
         return blockInfoGlobal;
     }
 
-    protected StructureProcessorType<?> getType() {
+    protected StructureProcessorType<?> getType()
+    {
         return ModProcessorTypes.WATERLOGFIX_PROCESSOR;
     }
 }

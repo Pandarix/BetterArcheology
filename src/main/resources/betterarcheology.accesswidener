@@ -2,4 +2,5 @@ accessWidener	v1	named
 
 #used in CustomSusSandCompatibilityMixin:
 accessible    method    net/minecraft/item/Item    raycast    (Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/RaycastContext$FluidHandling;)Lnet/minecraft/util/hit/BlockHitResult;
-accessible method net/minecraft/item/BrushItem getHitResult (Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/hit/HitResult;
+accessible method net/minecraft/item/BrushItem addDustParticles (Lnet/minecraft/world/World;Lnet/minecraft/util/hit/BlockHitResult;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/Arm;)V
+accessible method net/minecraft/item/BrushItem getHitResult (Lnet/minecraft/entity/player/PlayerEntity;)Lnet/minecraft/util/hit/HitResult;
