@@ -83,6 +83,8 @@
   "advancements.all_fossils_found.description": "收集所有的化石部分！",
   "advancements.growth_totem": "在你最不期待的地方",
   "advancements.growth_totem.description": "找到在死者中生长的生命",
+  "advancements.netherite_brush.title": "愚昧投资",
+  "advancements.netherite_brush.description": "有时，通往崇高的道路由令人质疑的选择所铺就——但绝非一文不值。",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
@@ -97,7 +99,7 @@
   "item.betterarcheology.torrent_totem": "洪流图腾",
   "item.betterarcheology.torrent_totem_description": "在陆地上使用以进行洪流冲刺",
   "item.betterarcheology.soul_totem": "灵魂图腾",
-  "item.betterarcheology.soul_totem_description": "伤害目标并恢复健康",
+  "item.betterarcheology.soul_totem_description": "伤害目标并恢复生命值",
   "block.betterarcheology.growth_totem": "生长图腾",
   "block.betterarcheology.growth_totem_tooltip": "当放置时，其光芒会加速附近作物的生长",
   "block.betterarcheology.radiance_totem": "光辉图腾",
@@ -107,14 +109,19 @@
   "block.betterarcheology.radiance_totem_message_2": "显示动物",
   "block.betterarcheology.radiance_totem_message_3": "显示玩家",
 
-  "entity.minecraft.villager.archeologist": "考古学家",
+  "entity.minecraft.villager.betterarcheology.archeologist": "考古学家",
 
   "enchantment.betterarcheology.penetrating_strike": "穿透打击",
-  "enchantment.betterarcheology.penetrating_strike.desc": "部分忽略保护附魔的效果",
+  "enchantment.betterarcheology.penetrating_strike_tooltip": "部分忽略保护附魔的效果",
   "enchantment.betterarcheology.seas_bounty": "海之赏赐",
-  "enchantment.betterarcheology.seas_bounty.desc": "从深海中捕获更多种类的宝藏",
+  "enchantment.betterarcheology.seas_bounty_tooltip": "从深海中捕获更多种类的宝藏",
   "enchantment.betterarcheology.soaring_winds": "翱翔之风",
-  "enchantment.betterarcheology.soaring_winds.desc": "利用风力在使用鞘翅时提供启动加速",
+  "enchantment.betterarcheology.soaring_winds_tooltip": "利用风力在使用鞘翅时提供启动加速",
   "enchantment.betterarcheology.tunneling": "挖掘",
-  "enchantment.betterarcheology.tunneling.desc": "也会破坏被挖掘方块下面的方块"
+  "enchantment.betterarcheology.tunneling_tooltip": "也会破坏被挖掘方块下面的方块",
+
+  "filled_map.catacombs": "地下墓穴探险家地图",
+  "filled_map.light": "光辉神庙探险家地图",
+
+  "config.notify.disabled": "此功能已在配置文件中禁用！"
 }
