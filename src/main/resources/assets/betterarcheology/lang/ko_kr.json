@@ -83,12 +83,15 @@
   "advancements.all_fossils_found.description": "모든 화석을 수집하세요.",
   "advancements.growth_totem": "예상치 못한 곳",
   "advancements.growth_totem.description": "죽은 자들 사이에서 자라나는 생명을 찾으세요.",
+  "advancements.netherite_brush.title": "정신 나간 발굴 작업",
+  "advancements.netherite_brush.description": "때때로, 위대함에 도달하기 위한 길은 의문이 드는 선택들로 덮여있지만, 흙으로 덮여있지는 않습니다.",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
 
   "item.betterarcheology.iron_brush": "철 솔",
   "item.betterarcheology.diamond_brush": "다이아몬드 솔",
+  "item.betterarcheology.netherite_brush": "네더라이트 솔",
   "block.betterarcheology.archeology_table": "고고학 테이블",
   "item.betterarcheology.artifact_shards": "유물 조각",
   "item.betterarcheology.unidentified_artifact": "미확인 유물",
@@ -119,5 +122,7 @@
   "enchantment.betterarcheology.tunneling.desc": "채굴된 블록 아래의 블록을 함께 파괴합니다.",
 
   "filled_map.catacombs": "지하묘지 탐험 지도",
-  "filled_map.light": "빛의 사원 탐험 지도"
+  "filled_map.light": "빛의 사원 탐험 지도",
+
+  "config.notify.disabled": "해당 기능은 설정에서 비활성화된 기능입니다!"
 }
