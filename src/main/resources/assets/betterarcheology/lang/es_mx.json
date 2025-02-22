@@ -83,12 +83,15 @@
   "advancements.all_fossils_found.description": "¡Recoge todas las partes fósiles!",
   "advancements.growth_totem": "Donde menos lo esperas",
   "advancements.growth_totem.description": "Encuentra la vida que creció de entre los muertos",
+  "advancements.netherite_brush.title": "Inversión Insana",
+  "advancements.netherite_brush.description": "A veces, el camino hacia la grandeza está pavimentado con decisiones cuestionables, pero nunca con polvo.",
 
   "block.betterarcheology.fossil_head_set": " [1/2]",
   "block.betterarcheology.fossil_body_set": " [2/2]",
 
   "item.betterarcheology.iron_brush": "Brocha de Hierro",
   "item.betterarcheology.diamond_brush": "Brocha de Diamante",
+  "item.betterarcheology.netherite_brush": "Brocha de Netherita",
   "block.betterarcheology.archeology_table": "Mesa de Arqueología",
   "item.betterarcheology.artifact_shards": "Fragmentos de Artefacto",
   "item.betterarcheology.unidentified_artifact": "Artefacto No Identificado",
@@ -119,5 +122,7 @@
   "enchantment.betterarcheology.tunneling.desc": "También rompe el bloque debajo del bloque minado",
 
   "filled_map.catacombs": "Mapa de Explorador de Catacumbas",
-  "filled_map.light": "Mapa de Explorador de Templo de Luz"
+  "filled_map.light": "Mapa de Explorador de Templo de Luz",
+
+  "config.notify.disabled": "¡Esta función ha sido desactivada en la configuración!"
 }
